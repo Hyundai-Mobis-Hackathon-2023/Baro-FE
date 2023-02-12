@@ -20,10 +20,6 @@ const Mobile = styled.div`
     props.color
       ? props.theme.colors[props.color]
       : props.theme.colors.background};
-
-  @media (min-width: 400px) {
-    width: 360px;
-  }
 `;
 
 const ProgressBar = styled.div`
