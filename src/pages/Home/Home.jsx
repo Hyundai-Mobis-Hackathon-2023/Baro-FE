@@ -1,5 +1,7 @@
+import MobileLayout from "../../component/MobileLayout/MobileLayout";
+
 const Home = () => {
-  return <div>홈 화면입니다.</div>;
+  return <MobileLayout>홈 화면입니다.</MobileLayout>;
 };
 
 export default Home;
