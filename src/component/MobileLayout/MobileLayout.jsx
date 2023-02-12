@@ -26,9 +26,20 @@ const Mobile = styled.div`
   }
 `;
 
-const MobileLayout = ({ children, color }) => (
+const ProgressBar = styled.div`
+  width: 264px;
+  height: 8px;
+  margin-top: 76px;
+  border-radius: 4px;
+  background-color: ${(props) => props.theme.colors.black};
+`;
+
+const MobileLayout = ({ children, color, bar }) => (
   <Background>
-    <Mobile color={color}>{children}</Mobile>
+    <Mobile color={color}>
+      {bar && <ProgressBar />}
+      {children}
+    </Mobile>
   </Background>
 );
 
