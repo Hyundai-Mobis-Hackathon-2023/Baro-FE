@@ -1,4 +1,11 @@
-const colors = {};
+const colors = {
+  white: "#ffffff",
+  black: "#1B1313",
+  realBlack: `#000000`,
+  mainRed: "#c65252",
+  darkGray: "#707070",
+  background: "#f5f5f5",
+};
 
 const box = `
     border: 1px solid ${colors.skyBlue};
@@ -9,12 +16,35 @@ const box = `
   `;
 
 const font = {
-  header: `
+  mainTitle: `
       font-family: 'pretendard-bold';
-      font-size: 32px;
-      line-height: 38px;
-      letter-spacing: 0.105em;
+      font-size: 26px;
+      line-height: 31px;
     `,
+
+  buttonText: `
+      font-family: 'pretendard-bold';
+      font-size: 22px;
+      line-height: 26px;
+    `,
+
+  contentText: `
+    font-family: 'pretendard-medium';
+    font-size: 16px;
+    line-height: 19px;
+  `,
+
+  maxNumberText: `
+    font-family: 'pretendard-semibold';
+    font-size: 17px;
+    line-height: 21px;
+  `,
+
+  dialText: `
+    font-family: 'pretendard-medium';
+    font-size: 16px;
+    line-height: 19px;
+  `,
 };
 
 const flex = {
