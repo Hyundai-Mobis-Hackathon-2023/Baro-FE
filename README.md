@@ -9,7 +9,11 @@
 - React
 - Styled Components
 - React Router
-- 추후에 추가로 작성
+- three
+- @react-three/fiber
+- @react-three/drei
+- zustand
+- leva
 
 ## Branch Strategy
 
