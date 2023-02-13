@@ -5,16 +5,17 @@ import SignUp from '../pages/SignUp/SignUp';
 import Temp from '../pages/Temp/Temp';
 import AIStart from '../pages/AIStart/AIStart';
 import DialNumberChoice from '../pages/DialNumberChoice/DialNumberChoice';
+import Start from '../pages/Start/Start';
 
 const Router = () => (
   <BrowserRouter>
     <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/sign_up' element={<SignUp />} />
-      <Route path='/category_choice' element={<CategoryChoice />} />
+      <Route path='/' element={<Start />} />
+      <Route path='/sign-up' element={<SignUp />} />
+      <Route path='/category-choice' element={<CategoryChoice />} />
       <Route path='/temp' element={<Temp />} />
       <Route path='/number_choice' element={<DialNumberChoice />} />
-      <Route path='/ai_start' element={<AIStart />} />
+      <Route path='/ai-start' element={<AIStart />} />
     </Routes>
   </BrowserRouter>
 );
