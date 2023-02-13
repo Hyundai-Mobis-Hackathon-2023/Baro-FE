@@ -1,0 +1,11 @@
+Model Information:
+* title:	Old MG car
+* source:	https://sketchfab.com/3d-models/old-mg-car-e0b9583f801440c7bfd9823b2a0ecbde
+* author:	alban (https://sketchfab.com/alban)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Old MG car" (https://sketchfab.com/3d-models/old-mg-car-e0b9583f801440c7bfd9823b2a0ecbde) by alban (https://sketchfab.com/alban) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
