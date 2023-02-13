@@ -9,7 +9,7 @@ const Title = styled(Typography).attrs({
   mainTitle: 'mainTitle',
   initial: { color: theme.colors.black },
   animate: { color: theme.colors.white },
-  transition: { delay: 1, duration: 1, type: 'spring' },
+  transition: { delay: 0.6, duration: 0.7 },
 })`
   position: relative;
   top: 267px;
@@ -26,7 +26,7 @@ const GoToAi = styled(Typography).attrs({ contentText: 'contentText', color: 'wh
 const MobileLayoutAnimation = styled(MobileLayout).attrs({
   initial: { backgroundColor: theme.colors.white },
   animate: { backgroundColor: theme.colors.mainRed },
-  transition: { delay: 1, duration: 1.5, type: 'spring' },
+  transition: { delay: 0.6, duration: 1.2 },
 })``;
 
 const Start = () => {
