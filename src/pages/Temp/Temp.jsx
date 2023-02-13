@@ -65,7 +65,6 @@ const Temp = () => {
           <WideBox position={[0, -0.5, 2.5]} />
           <WideBox position={[0, -0.5, 0]} />
           {place.map((p, i) => p && itemList[p].component(coordinateList[i]))}
-          {target && <TransformControls object={target} />}
         </Selection>
       </Canvas>
       {place.map((p) => (p ? ` [${itemList[p].name}] ` : '[empty]'))}
