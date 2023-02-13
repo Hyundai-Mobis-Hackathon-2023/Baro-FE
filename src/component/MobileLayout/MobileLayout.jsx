@@ -6,7 +6,7 @@ const Background = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
-  background-color: white;
+  background-color: gray;
 `;
 
 const Mobile = styled.div`

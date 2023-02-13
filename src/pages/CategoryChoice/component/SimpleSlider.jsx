@@ -46,6 +46,8 @@ const SliderWrapper = styled.div`
   overflow : hidden;
 
 `
+
+//테마 배열 : 테마 추가시 아래 형태로 추가하면 가능
 const themeArr = [{
     img:Internet,
     kind:"테마1",
