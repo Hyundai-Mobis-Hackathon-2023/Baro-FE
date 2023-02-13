@@ -9,9 +9,6 @@ import styled from 'styled-components';
 import Model from './Model';
 import arrayReplace from './ArrayReplace';
 import WideBox from './WideBox';
-import car from './items/car.png';
-import bench from './items/bench.png';
-import massage_chair from './items/massage_chair.png';
 
 const useStore = create((set) => ({ target: null, setTarget: (target) => set({ target }) }));
 
@@ -67,7 +64,11 @@ const Temp = () => {
           {place.map((p, i) => p && itemList[p].component(coordinateList[i]))}
         </Selection>
       </Canvas>
-      {place.map((p) => (p ? ` [${itemList[p].name}] ` : '[empty]'))}
+      {place.map((p, i) => (
+        <span>
+          {i}번 장착포인트: {p ? `${itemList[p].name} ` : '[empty]'}&nbsp;&nbsp;
+        </span>
+      ))}
       <Container>
         {itemList.map((item, i) => (
           <button id={item.id} type='button' onClick={placeHandler}>
