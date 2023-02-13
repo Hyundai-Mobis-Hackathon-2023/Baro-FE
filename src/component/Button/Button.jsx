@@ -10,7 +10,7 @@ const StyledButton = styled.button`
     props.bgColor
       ? props.theme.colors[props.bgColor]
       : props.theme.colors.mainGreen};
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => (props.color ? props.color : props.theme.colors.white)};
   ${(props) => props.theme.font.buttonText}
 `;
 

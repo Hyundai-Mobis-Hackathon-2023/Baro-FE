@@ -54,6 +54,12 @@ const font = {
     font-size: 16px;
     line-height: 19px;
   `,
+
+  aiContentText: `
+   font-family: 'pretendard-regular';
+   font-size: 17.5px;
+  line-height: 21px;
+`,
 };
 
 const flex = {
