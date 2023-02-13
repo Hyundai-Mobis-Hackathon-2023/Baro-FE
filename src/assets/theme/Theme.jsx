@@ -22,6 +22,13 @@ const font = {
       line-height: 31px;
     `,
 
+  smallTitle:`
+    font-family: 'pretendard-medium';
+    font-size: 17.5px;
+    line-height: 21px;
+    font-weight: 500;
+  `,
+
   buttonText: `
       font-family: 'pretendard-bold';
       font-size: 22px;
