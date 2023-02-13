@@ -5,6 +5,8 @@ const colors = {
   mainRed: "#c65252",
   darkGray: "#707070",
   background: "#f5f5f5",
+  gray: "#afacac",
+  lightGray: "#E0DEDE",
 };
 
 const box = `
@@ -22,7 +24,7 @@ const font = {
       line-height: 31px;
     `,
 
-  smallTitle:`
+  smallTitle: `
     font-family: 'pretendard-medium';
     font-size: 17.5px;
     line-height: 21px;
