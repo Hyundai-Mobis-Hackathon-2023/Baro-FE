@@ -10,6 +10,7 @@ const Typography = styled.p`
   ${(props) => props.contentText && props.theme.font.contentText};
   ${(props) => props.maxNumberText && props.theme.font.maxNumberText};
   ${(props) => props.dialText && props.theme.font.dialText};
+  transition: 0.5s;
 `;
 
 export default Typography;
