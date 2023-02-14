@@ -1,11 +1,29 @@
 import useSpline from '@splinetool/r3f-spline';
+import { useRef, useState } from 'react';
+import { create } from 'zustand';
+import { useCursor } from '@react-three/drei';
+
+const useStore = create((set) => ({ target: null, setTarget: (target) => set({ target }) }));
 
 const Store = () => {
   const { nodes, materials } = useSpline('https://prod.spline.design/h5gaXv3L-glIUWi8/scene.splinecode');
+  const ref = useRef();
+  const [hovered, hover] = useState(null);
+  const setTarget = useStore((state) => state.setTarget);
+  useCursor(hovered);
 
   return (
     <>
-      <group name='storeCar-S' position={[-3, 3, 5]} scale={0.05}>
+      <group
+        ref={ref}
+        onClick={(e) => setTarget(e.eventObject)}
+        onPointerOver={() => hover(true)}
+        onPointerOut={() => hover(false)}
+        onPointerMove={(e) => console.log(e.eventObject.position)}
+        name='storeCar-S'
+        position={[-3, 3, 5]}
+        scale={0.05}
+      >
         <group name='cabinet-3 3' position={[117.87, -31.66, 199.66]} rotation={[-Math.PI, 0, -Math.PI]}>
           <mesh
             name='Cube 57'
