@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledButton = styled.button`
   width: 349px;
@@ -6,17 +6,12 @@ const StyledButton = styled.button`
   cursor: pointer;
   border-radius: 20px;
   border: none;
-  background-color: ${(props) =>
-    props.bgColor
-      ? props.theme.colors[props.bgColor]
-      : props.theme.colors.mainGreen};
+  background-color: ${(props) => (props.bgColor ? props.theme.colors[props.bgColor] : props.theme.colors.mainGreen)};
   color: ${(props) => (props.color ? props.color : props.theme.colors.white)};
   ${(props) => props.theme.font.buttonText}
   transition: 0.5s;
 `;
 
-const Button = ({ children, ...rest }) => (
-  <StyledButton {...rest}>{children}</StyledButton>
-);
+const Button = ({ children, ...rest }) => <StyledButton {...rest}>{children}</StyledButton>;
 
 export default Button;

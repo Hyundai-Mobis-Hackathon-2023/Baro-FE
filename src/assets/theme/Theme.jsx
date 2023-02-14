@@ -1,13 +1,13 @@
 const colors = {
-  white: "#ffffff",
-  black: "#1B1313",
+  white: '#ffffff',
+  black: '#1B1313',
   realBlack: `#000000`,
-  mainRed: "#c65252",
-  darkGray: "#707070",
-  background: "#f5f5f5",
-  gray: "#afacac",
-  lightGray: "#E0DEDE",
-  alertRed: "#D83B3B",
+  mainRed: '#c65252',
+  darkGray: '#707070',
+  background: '#f5f5f5',
+  gray: '#afacac',
+  lightGray: '#E0DEDE',
+  alertRed: '#D83B3B',
 };
 
 const box = `
@@ -87,12 +87,17 @@ const animation = {
   box: { scale: 1.03, transition: { duration: 0.3 } },
 };
 
+const categoryEng = ['living', 'office', 'entertainment', 'store', 'transit', 'medical'];
+const category = ['주거', '사무', '엔터테인먼트', '스토어', '운송', '의료'];
+
 const theme = {
   colors,
   box,
   font,
   flex,
   animation,
+  categoryEng,
+  category,
 };
 
 export default theme;

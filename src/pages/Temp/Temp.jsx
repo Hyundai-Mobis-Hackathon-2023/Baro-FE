@@ -62,6 +62,7 @@ const Temp = () => {
           <WideBox position={[0, -0.5, 2.5]} />
           <WideBox position={[0, -0.5, 0]} />
           {place.map((p, i) => p && itemList[p].component(coordinateList[i]))}
+          <Model position={[1, 1, 1]} location='models/example.gltf' />
         </Selection>
       </Canvas>
       {place.map((p, i) => (
