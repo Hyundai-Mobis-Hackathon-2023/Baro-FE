@@ -6,14 +6,15 @@
 
 **Front-end**
 
-- React
-- Styled Components
-- React Router
+- react
+- styled-components
+- react-router-dom
 - three
 - @react-three/fiber
 - @react-three/drei
 - zustand
 - leva
+- framer-motion
 
 ## Branch Strategy
 

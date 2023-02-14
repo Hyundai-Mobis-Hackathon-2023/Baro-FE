@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-const Typography = styled.p`
+const Typography = styled(motion.p)`
   font-size: ${(props) => (props.fontSize ? props.fontSize : "16px")};
   color: ${(props) =>
     props.color ? props.theme.colors[props.color] : props.theme.colors.black};
@@ -11,6 +12,7 @@ const Typography = styled.p`
   ${(props) => props.maxNumberText && props.theme.font.maxNumberText};
   ${(props) => props.dialText && props.theme.font.dialText};
   ${(props) => props.aiContentText && props.theme.font.aiContentText};
+  ${(props) => props.alertText && props.theme.font.alertText};
   transition: 0.5s;
 `;
 
