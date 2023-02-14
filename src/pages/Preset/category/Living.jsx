@@ -19,7 +19,6 @@ const Living = () => {
         shadow-camera-bottom={-500}
         position={[-1091.88, 300, 300]}
       />
-
       <group name='livingCar' position={[-3, 3, 5]} scale={0.05}>
         <group name='Group 75' position={[-4.85, -147.88, 14.6]}>
           <mesh
