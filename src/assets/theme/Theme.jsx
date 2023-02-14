@@ -7,6 +7,7 @@ const colors = {
   background: "#f5f5f5",
   gray: "#afacac",
   lightGray: "#E0DEDE",
+  alertRed: "#D83B3B",
 };
 
 const box = `
@@ -56,10 +57,16 @@ const font = {
   `,
 
   aiContentText: `
-   font-family: 'pretendard-regular';
-   font-size: 17.5px;
-  line-height: 21px;
-`,
+    font-family: 'pretendard-regular';
+    font-size: 17.5px;
+    line-height: 21px;
+  `,
+
+  alertText: `
+    font-family: 'pretendard-bold';
+    font-size: 16px;
+    line-height: 19px;
+  `,
 };
 
 const flex = {

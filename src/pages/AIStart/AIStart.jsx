@@ -4,7 +4,6 @@ import MobileLayout from "../../component/MobileLayout/MobileLayout";
 import Margin from "../../component/Margin/Margin";
 import Lottie from "lottie-react";
 import lottie1 from "../../assets/svgs/lottie.json";
-import { ReactComponent as Loading } from "../../assets/svgs/loading.svg";
 import Typography from "../../component/Typography/Typhography";
 import Button from "../../component/Button/Button";
 
@@ -37,9 +36,9 @@ const AIStart = () => {
   return (
     <MobileLayout>
       <Background>
-        <Margin height="241" />
-        <Loading />
-        <Margin height="174" />
+        <Margin height="50" />
+        <Lottie animationData={lottie1} />
+        <Margin height="50" />
         <TextWrapper>
           <Typography mainTitle color="white">
             AI와 함께 구상해요
@@ -66,6 +65,9 @@ const AIStart = () => {
 export default AIStart;
 
 /*
+import { ReactComponent as Loading } from "../../assets/svgs/loading.svg";
+<Margin height="241" />
+        <Loading />
 <Margin height="100" />
         <Lottie animationData={lottie1} />
 */

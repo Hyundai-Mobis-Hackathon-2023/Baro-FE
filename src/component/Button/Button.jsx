@@ -12,6 +12,7 @@ const StyledButton = styled.button`
       : props.theme.colors.mainGreen};
   color: ${(props) => (props.color ? props.color : props.theme.colors.white)};
   ${(props) => props.theme.font.buttonText}
+  transition: 0.5s;
 `;
 
 const Button = ({ children, ...rest }) => (
