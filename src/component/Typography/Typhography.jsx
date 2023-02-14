@@ -13,6 +13,7 @@ const Typography = styled(motion.p)`
   ${(props) => props.dialText && props.theme.font.dialText};
   ${(props) => props.aiContentText && props.theme.font.aiContentText};
   ${(props) => props.alertText && props.theme.font.alertText};
+  ${(props) => props.smallButtonText && props.theme.font.smallButtonText};
   transition: 0.5s;
 `;
 
