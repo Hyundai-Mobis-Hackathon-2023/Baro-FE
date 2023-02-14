@@ -5,6 +5,7 @@ import SignUp from "../pages/SignUp/SignUp";
 import Temp from "../pages/Temp/Temp";
 import AIStart from "../pages/AIStart/AIStart";
 import DialNumberChoice from "../pages/DialNumberChoice/DialNumberChoice";
+import NewUser from "../pages/NewUser/NewUser";
 
 const Router = () => (
   <BrowserRouter>
@@ -15,6 +16,7 @@ const Router = () => (
       <Route path="/CategoryChoice" element={<CategoryChoice />} />
       <Route path="/temp" element={<Temp />} />
       <Route path="/DialNumberChoice" element={<DialNumberChoice />} />
+      <Route path="/newuser" element={<NewUser />} />
     </Routes>
   </BrowserRouter>
 );

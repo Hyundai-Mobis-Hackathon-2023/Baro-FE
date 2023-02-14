@@ -37,8 +37,8 @@ const AIStart = () => {
   return (
     <MobileLayout>
       <Background>
-        <Margin height="241" />
-        <Loading />
+        <Margin height="100" />
+        <Lottie animationData={lottie1} />
         <Margin height="174" />
         <TextWrapper>
           <Typography mainTitle color="white">
@@ -66,6 +66,9 @@ const AIStart = () => {
 export default AIStart;
 
 /*
+
+<Margin height="241" />
+        <Loading />
 <Margin height="100" />
         <Lottie animationData={lottie1} />
 */
