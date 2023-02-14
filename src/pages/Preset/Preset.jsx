@@ -5,11 +5,8 @@ import Typography from '../../component/Typography/Typhography';
 import theme from '../../assets/theme/Theme';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import { EffectComposer, Outline, Selection } from '@react-three/postprocessing';
 import { create } from 'zustand';
 import { useState } from 'react';
-import { Suspense } from 'react';
-import useSpline from '@splinetool/r3f-spline';
 import SelectSize from '../../component/SelectSize/SelectSize';
 import Living from './category/Living';
 import Office from './category/Office';
@@ -17,8 +14,6 @@ import Entertainment from './category/Entertainment';
 import Store from './category/Store';
 import Transit from './category/Transit';
 import Medical from './category/Medical';
-import Custom from './category/Custom';
-import Bed from '../Custom/items/living/Bed';
 
 const Title = styled(Typography).attrs({ mainTitle: 'mainTitle' })`
   width: 100%;
