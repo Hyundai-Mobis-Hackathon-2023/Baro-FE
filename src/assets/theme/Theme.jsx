@@ -87,8 +87,8 @@ const animation = {
   box: { scale: 1.03, transition: { duration: 0.3 } },
 };
 
-const categoryEng = ['living', 'office', 'entertainment', 'store'];
-const category = ['주거', '사무', '엔터테인먼트', '스토어'];
+const categoryEng = ['living', 'office', 'entertainment', 'store', 'transit', 'medical'];
+const category = ['주거', '사무', '엔터테인먼트', '스토어', '운송', '의료'];
 
 const theme = {
   colors,
