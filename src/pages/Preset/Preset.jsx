@@ -14,6 +14,11 @@ import SelectSize from '../../component/SelectSize/SelectSize';
 import Living from './category/Living';
 import Office from './category/Office';
 import Entertainment from './category/Entertainment';
+import Store from './category/Store';
+import Transit from './category/Transit';
+import Medical from './category/Medical';
+import Custom from './category/Custom';
+import Bed from '../Custom/items/living/Bed';
 
 const Title = styled(Typography).attrs({ mainTitle: 'mainTitle' })`
   width: 100%;
@@ -61,11 +66,9 @@ const Preset = () => {
           onPointerMissed={() => setTarget(null)}
           style={{ backgroundColor: theme.colors.background }}
         >
-          <Suspense>
-            <hemisphereLight name='Default Ambient Light' intensity={0.3} />
-            <OrbitControls makeDefault />
-            <Selection>{categoryComponent[selectedCategory]}</Selection>
-          </Suspense>
+          <hemisphereLight name='Default Ambient Light' intensity={0.3} />
+          <OrbitControls makeDefault />
+          {categoryComponent[selectedCategory]}
         </Canvas>
       </ModelContainer>
     </MobileLayout>
@@ -78,4 +81,7 @@ const categoryComponent = {
   living: <Living />,
   office: <Office />,
   entertainment: <Entertainment />,
+  store: <Store />,
+  transit: <Transit />,
+  medical: <Medical />,
 };
