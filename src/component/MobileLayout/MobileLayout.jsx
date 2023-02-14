@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { motion } from "framer-motion";
+import PropTypes from "prop-types";
+import styled, { css } from "styled-components";
 
 const Background = styled.div`
   width: 100vw;
@@ -17,7 +17,10 @@ const Mobile = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${(props) => (props.color ? props.theme.colors[props.color] : props.theme.colors.background)};
+  background-color: ${(props) =>
+    props.color
+      ? props.theme.colors[props.color]
+      : props.theme.colors.background};
 `;
 
 const ProgressBar = styled.div`
@@ -26,11 +29,35 @@ const ProgressBar = styled.div`
   margin-top: 76px;
   border-radius: 4px;
   background-color: ${(props) => props.theme.colors.black};
+  ${(props) =>
+    props.darkShadow &&
+    css`
+      background: radial-gradient(
+          50% 50% at 50% 50%,
+          rgba(224, 222, 222, 0.6) 0%,
+          rgba(224, 222, 222, 0) 100%
+        ),
+        #f5f5f5;
+    `}
 `;
 
-const MobileLayout = ({ children, color, bar, initial, animate, transition }) => (
+const MobileLayout = ({
+  children,
+  color,
+  bar,
+  initial,
+  animate,
+  transition,
+  darkShadow,
+}) => (
   <Background>
-    <Mobile color={color} initial={initial} animate={animate} transition={transition}>
+    <Mobile
+      color={color}
+      initial={initial}
+      animate={animate}
+      transition={transition}
+      darkShadow={darkShadow}
+    >
       {bar && <ProgressBar />}
       {children}
     </Mobile>
