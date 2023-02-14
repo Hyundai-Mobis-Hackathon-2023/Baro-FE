@@ -61,7 +61,7 @@ const PasswordCheck = ({
 
   useEffect(() => {
     setIsRightPW(password === checkPassword);
-  }, [checkPassword]);
+  }, [password, checkPassword, setIsRightPW]);
 
   return (
     <StyledMotion

@@ -41,7 +41,6 @@ const PasswordInput = ({
 }) => {
   const textRef = useRef(null);
   const [isRightPW, setIsRightPW] = useState(false);
-  const pwRegex = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
 
   const textChanged = () => {
     setPassword(textRef.current.value);
@@ -60,8 +59,9 @@ const PasswordInput = ({
   };
 
   useEffect(() => {
+    const pwRegex = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
     setIsRightPW(pwRegex.test(password));
-  }, [password]);
+  }, [password, setIsRightPW]);
 
   return (
     <StyledMotion
