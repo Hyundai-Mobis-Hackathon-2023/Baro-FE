@@ -14,6 +14,7 @@ import Entertainment from './category/Entertainment';
 import Store from './category/Store';
 import Transit from './category/Transit';
 import Medical from './category/Medical';
+import Button from '../../component/Button/Button';
 
 const Title = styled(Typography).attrs({ mainTitle: 'mainTitle' })`
   width: 100%;
@@ -45,6 +46,10 @@ const Preset = () => {
   const { category, categoryEng } = theme;
   const [place, setPlace] = useState([null, null]);
   const { target, setTarget } = useStore();
+  const btnStyle = {
+    position: 'absolute',
+    bottom: '72px',
+  };
 
   return (
     <MobileLayout>
@@ -66,6 +71,9 @@ const Preset = () => {
           {categoryComponent[selectedCategory]}
         </Canvas>
       </ModelContainer>
+      <Button bgColor='black' style={btnStyle}>
+        hi
+      </Button>
     </MobileLayout>
   );
 };
