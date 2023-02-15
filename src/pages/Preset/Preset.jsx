@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import MobileLayout from '../../component/MobileLayout/MobileLayout';
 import Typography from '../../component/Typography/Typhography';
@@ -14,20 +14,22 @@ import Entertainment from './category/Entertainment';
 import Store from './category/Store';
 import Transit from './category/Transit';
 import Medical from './category/Medical';
+import Button from '../../component/Button/Button';
 
 const Title = styled(Typography).attrs({ mainTitle: 'mainTitle' })`
   width: 100%;
   position: relative;
   top: 80px;
-  left: 40px;
+  left: -34px;
   line-height: 1.8;
 `;
 const SemiTitle = styled(Typography)`
-  font-size: 12px;
+  ${({ theme }) => theme.font.contentText}
+  font-size: 14px;
   width: 100%;
   position: relative;
   top: 80px;
-  left: 40px;
+  left: -64px;
   line-height: 1.8;
 `;
 
@@ -38,6 +40,12 @@ const ModelContainer = styled.div`
   top: 160px;
 `;
 
+const ButtonContainer = styled.div`
+  width: 336px;
+  display: flex;
+  justify-content: space-between;
+`;
+
 const useStore = create((set) => ({ target: null, setTarget: (target) => set({ target }) }));
 
 const Preset = () => {
@@ -45,6 +53,11 @@ const Preset = () => {
   const { category, categoryEng } = theme;
   const [place, setPlace] = useState([null, null]);
   const { target, setTarget } = useStore();
+  const navigate = useNavigate();
+  const btnStyle = {
+    position: 'absolute',
+    bottom: '72px',
+  };
 
   return (
     <MobileLayout>
@@ -66,6 +79,14 @@ const Preset = () => {
           {categoryComponent[selectedCategory]}
         </Canvas>
       </ModelContainer>
+      <ButtonContainer style={btnStyle}>
+        <Button bgColor='black' middle onClick={() => navigate('/')}>
+          다음 단계
+        </Button>
+        <Button bgColor='mainRed' middle onClick={() => navigate('/custom')}>
+          커스텀
+        </Button>
+      </ButtonContainer>
     </MobileLayout>
   );
 };
