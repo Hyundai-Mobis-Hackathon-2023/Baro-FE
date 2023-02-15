@@ -7,6 +7,7 @@ import DialNumberChoice from '../pages/DialNumberChoice/DialNumberChoice';
 import NewUser from '../pages/NewUser/NewUser';
 import Start from '../pages/Start/Start';
 import Preset from '../pages/Preset/Preset';
+import MakeStart from '../pages/MakeStart/MakeStart';
 
 const Router = () => (
   <BrowserRouter>
@@ -19,6 +20,7 @@ const Router = () => (
       <Route path='/number_choice' element={<DialNumberChoice />} />
       <Route path='/ai-start' element={<AIStart />} />
       <Route path='/new-user' element={<NewUser />} />
+      <Route path='/make-start' element={<MakeStart />} />
     </Routes>
   </BrowserRouter>
 );
