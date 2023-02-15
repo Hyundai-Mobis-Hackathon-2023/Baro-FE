@@ -2,13 +2,13 @@ const colors = {
   white: '#ffffff',
   black: '#1B1313',
   realBlack: `#000000`,
+  blueGray: '#B0BEC5',
   mainRed: '#c65252',
   darkGray: '#707070',
   background: '#f5f5f5',
   gray: '#afacac',
   lightGray: '#E0DEDE',
   alertRed: '#D83B3B',
-  blueGray: '#B0BEC5',
 };
 
 const box = `
@@ -67,6 +67,12 @@ const font = {
     font-family: 'pretendard-bold';
     font-size: 16px;
     line-height: 19px;
+  `,
+
+  smallButtonText: `
+    font-family: 'pretendard-bold';
+    font-size: 17.5px;
+    line-height: 21px;
   `,
 };
 
