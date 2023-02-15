@@ -8,6 +8,7 @@ const colors = {
   gray: '#afacac',
   lightGray: '#E0DEDE',
   alertRed: '#D83B3B',
+  blueGray: '#B0BEC5',
 };
 
 const box = `
