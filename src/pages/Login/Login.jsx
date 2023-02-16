@@ -77,7 +77,9 @@ const Login = () => {
           </Typography>
         </SmallTitleWrapper>
         <Margin width="100" height="59" />
-        <Button bgColor="black">시작하기</Button>
+        <Button bgColor="black" onClick={() => navigate("/category-choice")}>
+          시작하기
+        </Button>
       </MobileLayout>
     </>
   );
