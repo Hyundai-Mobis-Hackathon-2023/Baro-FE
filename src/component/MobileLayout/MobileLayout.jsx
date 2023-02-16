@@ -22,14 +22,7 @@ const Mobile = styled(motion.div)`
     props.color
       ? props.theme.colors[props.color]
       : props.theme.colors.background};
-`;
 
-const ProgressBar = styled.div`
-  width: 264px;
-  height: 8px;
-  margin-top: 76px;
-  border-radius: 4px;
-  background-color: ${(props) => props.theme.colors.black};
   ${(props) =>
     props.darkShadow &&
     css`
@@ -40,6 +33,25 @@ const ProgressBar = styled.div`
         ),
         #f5f5f5;
     `}
+
+  ${(props) =>
+    props.loginShadow &&
+    css`
+      background: radial-gradient(
+          72.26% 45.91% at 50% 54.09%,
+          rgba(224, 222, 222, 0.6) 0%,
+          rgba(224, 222, 222, 0) 100%
+        ),
+        #ffffff;
+    `}
+`;
+
+const ProgressBar = styled.div`
+  width: 264px;
+  height: 8px;
+  margin-top: 76px;
+  border-radius: 4px;
+  background-color: ${(props) => props.theme.colors.black};
 `;
 
 const MobileLayout = ({ children, bar, ...rest }) => {

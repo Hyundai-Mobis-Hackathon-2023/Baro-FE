@@ -30,7 +30,11 @@ const ThemeImageWrapper = styled.div`
 const ThemeImgBox = styled.div`
   width: 240px;
   height: 240px;
-  background-color: #ffffff9c;
+  background: linear-gradient(
+    139.44deg,
+    rgba(255, 255, 255, 0.61) 14.1%,
+    rgba(243, 243, 243, 0.12) 84.31%
+  );
   border-radius: 100%;
   border: 1px solid #d9d9d9;
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);

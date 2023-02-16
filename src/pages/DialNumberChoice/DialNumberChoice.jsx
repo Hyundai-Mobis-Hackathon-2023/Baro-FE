@@ -32,7 +32,7 @@ const DialNumberChoice = () => {
   const navigate = useNavigate();
 
   return (
-    <MobileLayout bar>
+    <MobileLayout bar darkShadow>
       <TitleWrapper>
         <Typography mainTitle>
           탑승 가능 인원 수를 <br />
