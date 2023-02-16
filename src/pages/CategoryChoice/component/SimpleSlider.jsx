@@ -75,8 +75,7 @@ const themeArr = [{
 
 export default function SimpleSlider() {
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const slideeRef = useRef(null);  
+ 
   
   const settings = {
     dots: true,
@@ -91,13 +90,13 @@ export default function SimpleSlider() {
       <SliderWrapper {...settings}>
         <Slider >
         {themeArr.map((album)=>{
-          console.log(album,currentSlide);
+          console.log(album);
             return(
                 <div>
                     <ThemeAllWapper>
                         <ThemeImgBox><img src ={album.img}/></ThemeImgBox>
                         <Margin width="390" height="32"/>
-                        <Typography mainTitle >{currentSlide}</Typography>
+                        <Typography mainTitle >{album.kind}</Typography>
                         <ContentTextWrapper><Typography contentText color="darkGray">{album.des}</Typography></ContentTextWrapper>
                     </ThemeAllWapper>
                 </div>

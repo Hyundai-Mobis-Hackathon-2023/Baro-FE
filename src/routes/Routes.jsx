@@ -8,6 +8,7 @@ import NewUser from '../pages/NewUser/NewUser';
 import Start from '../pages/Start/Start';
 import Preset from '../pages/Preset/Preset';
 import MakeStart from '../pages/MakeStart/MakeStart';
+import InstalledWidget from '../pages/InstalledWidget/InstalledWidget';
 
 const Router = () => (
   <BrowserRouter>
@@ -21,6 +22,7 @@ const Router = () => (
       <Route path='/ai-start' element={<AIStart />} />
       <Route path='/new-user' element={<NewUser />} />
       <Route path='/make-start' element={<MakeStart />} />
+      <Route path='/installed-widget' element={<InstalledWidget/>} />
     </Routes>
   </BrowserRouter>
 );
