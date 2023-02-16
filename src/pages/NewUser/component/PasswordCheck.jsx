@@ -5,6 +5,7 @@ import Button from "../../../component/Button/Button";
 import Margin from "../../../component/Margin/Margin";
 import Typography from "../../../component/Typography/Typhography";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const StyledMotion = styled(motion.div)`
   width: 100%;
@@ -41,6 +42,7 @@ const PasswordCheck = ({
   setCheckPassword,
 }) => {
   const textRef = useRef(null);
+  const navigate = useNavigate();
   const [isRightPW, setIsRightPW] = useState(false);
 
   const textChanged = () => {
@@ -56,7 +58,7 @@ const PasswordCheck = ({
   };
 
   const moveToNext = () => {
-    if (isRightPW) setCurrentPage(currentPage + 1);
+    if (isRightPW) navigate("/");
   };
 
   useEffect(() => {

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Button from "../../../component/Button/Button";
 import React, { Component } from "react";
 import SimpleSlider from "./SimpleSlider";
+import { useNavigate } from "react-router-dom";
 
 const ThemeAllWapper = styled.div`
   width: 310px;
@@ -18,13 +19,17 @@ const ButtomFix = styled.div`
 `;
 
 const ThemeKinds = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <ThemeAllWapper>
         <SimpleSlider />
       </ThemeAllWapper>
       <ButtomFix>
-        <Button bgColor="mainRed">선택</Button>
+        <Button bgColor="mainRed" onClick={() => navigate("/number-choice")}>
+          선택
+        </Button>
       </ButtomFix>
     </>
   );

@@ -1,12 +1,12 @@
-import MobileLayout from '../../component/MobileLayout/MobileLayout';
-import Button from '../../component/Button/Button';
-import Typography from '../../component/Typography/Typhography';
-import styled from 'styled-components';
-import theme from '../../assets/theme/Theme';
-import { useNavigate } from 'react-router-dom';
+import MobileLayout from "../../component/MobileLayout/MobileLayout";
+import Button from "../../component/Button/Button";
+import Typography from "../../component/Typography/Typhography";
+import styled from "styled-components";
+import theme from "../../assets/theme/Theme";
+import { useNavigate } from "react-router-dom";
 
 const Title = styled(Typography).attrs({
-  mainTitle: 'mainTitle',
+  mainTitle: "mainTitle",
   initial: { color: theme.colors.black },
   animate: { color: theme.colors.white },
   transition: { delay: 0.6, duration: 0.7 },
@@ -17,8 +17,12 @@ const Title = styled(Typography).attrs({
   line-height: 1.8;
 `;
 
-const GoToAi = styled(Typography).attrs({ contentText: 'contentText', color: 'white' })`
+const GoToAi = styled(Typography).attrs({
+  contentText: "contentText",
+  color: "white",
+})`
   position: absolute;
+  left: 120px;
   bottom: 40px;
   cursor: pointer;
 `;
@@ -32,8 +36,8 @@ const MobileLayoutAnimation = styled(MobileLayout).attrs({
 const Start = () => {
   const navigate = useNavigate();
   const btnStyle = {
-    position: 'absolute',
-    bottom: '72px',
+    position: "absolute",
+    bottom: "72px",
   };
 
   return (
@@ -44,10 +48,16 @@ const Start = () => {
         <br /> 함께 만들어볼까요?
       </Title>
 
-      <Button onClick={() => navigate('/category-choice')} bgColor='black' style={btnStyle}>
+      <Button
+        onClick={() => navigate("/category-choice")}
+        bgColor="black"
+        style={btnStyle}
+      >
         시작하기
       </Button>
-      <GoToAi onClick={() => navigate('/ai-start')}>AI의 도움을 받고 싶어요</GoToAi>
+      <GoToAi onClick={() => navigate("/ai-start")}>
+        AI의 도움을 받고 싶어요
+      </GoToAi>
     </MobileLayoutAnimation>
   );
 };
