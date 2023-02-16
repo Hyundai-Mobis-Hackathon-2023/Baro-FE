@@ -42,28 +42,16 @@ const ProgressBar = styled.div`
     `}
 `;
 
-const MobileLayout = ({
-  children,
-  color,
-  bar,
-  initial,
-  animate,
-  transition,
-  darkShadow,
-}) => (
-  <Background>
-    <Mobile
-      color={color}
-      initial={initial}
-      animate={animate}
-      transition={transition}
-      darkShadow={darkShadow}
-    >
-      {bar && <ProgressBar />}
-      {children}
-    </Mobile>
-  </Background>
-);
+const MobileLayout = ({ children, bar, ...rest }) => {
+  return (
+    <Background>
+      <Mobile {...rest}>
+        {bar && <ProgressBar />}
+        {children}
+      </Mobile>
+    </Background>
+  );
+};
 
 MobileLayout.propTypes = {
   children: PropTypes.node.isRequired,
