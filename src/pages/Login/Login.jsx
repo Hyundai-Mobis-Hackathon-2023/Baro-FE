@@ -47,7 +47,7 @@ const Login = () => {
 
   return (
     <>
-      <MobileLayout loginShadow>
+      <MobileLayout $loginShadow>
         <TitleWrapper>
           <Typography $mainTitle>
             만나서 <br />
