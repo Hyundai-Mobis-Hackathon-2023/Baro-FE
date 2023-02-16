@@ -45,7 +45,7 @@ const IdInput = styled.input`
 `
 
 
-const SignUp = () => {
+const Login = () => {
 
     
 
@@ -66,4 +66,4 @@ const SignUp = () => {
     </>)
 }
 
-export default SignUp;
+export default Login;

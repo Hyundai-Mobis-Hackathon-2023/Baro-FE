@@ -16,6 +16,7 @@ const Typo = styled.p`
   ${(props) => props.aiContentText && props.theme.font.aiContentText};
   ${(props) => props.alertText && props.theme.font.alertText};
   ${(props) => props.smallButtonText && props.theme.font.smallButtonText};
+  ${(props) => props.loadingText && props.theme.font.loadingText};
   transition: 0.5s;
 `;
 

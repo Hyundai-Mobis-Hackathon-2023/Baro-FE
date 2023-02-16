@@ -74,6 +74,15 @@ const font = {
     font-size: 17.5px;
     line-height: 21px;
   `,
+   loadingText: `
+  font-family: 'pretendard-bold';
+  font-size: 30px;
+  line-height: 21px;
+`,
+
+
+
+
 };
 
 const flex = {

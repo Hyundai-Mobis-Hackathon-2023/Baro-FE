@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component,useEffect,useRef,useState } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 import Typography from "../../../component/Typography/Typhography";
@@ -49,19 +49,23 @@ const SliderWrapper = styled.div`
 
 //테마 배열 : 테마 추가시 아래 형태로 추가하면 가능
 const themeArr = [{
+  num: 1,
     img:Internet,
     kind:"테마1",
     des:"엔터테인먼트 PBV는 사용자에게 오락, 방송 등에 적합한 환경을 제공합니다. 훌륭한 사운드와 4K UHD가 마련된 공간을 만나보세요."
 },{
+    num: 2,
     img:Car,
     kind:"테마2",
     des:"엔터테인먼트 PBV는 사용자에게 오락, 방송 등에 적합한 환경을 제공합니다. 훌륭한 사운드와 4K UHD가 마련된 공간을 만나보세요."
 },{
+  num: 3,
     img:Edit,
     kind:"테마3",
     des:"엔터테인먼트 PBV는 사용자에게 오락, 방송 등에 적합한 환경을 제공합니다. 훌륭한 사운드와 4K UHD가 마련된 공간을 만나보세요."
 }
 ,{
+  num: 4,
     img:SuitCase,
     kind:"테마4",
     des:"엔터테인먼트 PBV는 사용자에게 오락, 방송 등에 적합한 환경을 제공합니다. 훌륭한 사운드와 4K UHD가 마련된 공간을 만나보세요."
@@ -69,38 +73,38 @@ const themeArr = [{
 
 ];
 
-export default class SimpleSlider extends Component {
+export default function SimpleSlider() {
 
-    
+ 
+  
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
 
-  render() {
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1
-    };
+
     return (
-      <SliderWrapper>
-        <Slider {...settings}>
+      <SliderWrapper {...settings}>
+        <Slider >
         {themeArr.map((album)=>{
+          console.log(album);
             return(
                 <div>
                     <ThemeAllWapper>
                         <ThemeImgBox><img src ={album.img}/></ThemeImgBox>
                         <Margin width="390" height="32"/>
-                        <Typography mainTitle>{album.kind}</Typography>
+                        <Typography mainTitle >{album.kind}</Typography>
                         <ContentTextWrapper><Typography contentText color="darkGray">{album.des}</Typography></ContentTextWrapper>
                     </ThemeAllWapper>
                 </div>
             )
         })}
-          
         </Slider>
-
       </SliderWrapper>
       
     );
-  }
+
 }
