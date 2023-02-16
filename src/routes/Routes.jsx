@@ -19,7 +19,7 @@ const Router = () => (
       <Route path="/category-choice" element={<CategoryChoice />} />
       <Route path="/temp" element={<Temp />} />
       <Route path="/preset/:selectedCategory" element={<Preset />} />
-      <Route path="/number_choice" element={<DialNumberChoice />} />
+      <Route path="/number-choice" element={<DialNumberChoice />} />
       <Route path="/ai-start" element={<AIStart />} />
       <Route path="/new-user" element={<NewUser />} />
       <Route path="/make-start" element={<MakeStart />} />
