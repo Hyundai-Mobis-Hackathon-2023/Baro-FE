@@ -1,26 +1,26 @@
-import { useParams, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import MobileLayout from '../../component/MobileLayout/MobileLayout';
-import Typography from '../../component/Typography/Typhography';
-import theme from '../../assets/theme/Theme';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-import { create } from 'zustand';
-import { useState } from 'react';
-import SelectSize from '../../component/SelectSize/SelectSize';
-import Living from './category/Living';
-import Office from './category/Office';
-import Entertainment from './category/Entertainment';
-import Store from './category/Store';
-import Transit from './category/Transit';
-import Medical from './category/Medical';
-import Button from '../../component/Button/Button';
+import { useParams, useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import MobileLayout from "../../component/MobileLayout/MobileLayout";
+import Typography from "../../component/Typography/Typhography";
+import theme from "../../assets/theme/Theme";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import { create } from "zustand";
+import { useState } from "react";
+import SelectSize from "../../component/SelectSize/SelectSize";
+import Living from "./category/Living";
+import Office from "./category/Office";
+import Entertainment from "./category/Entertainment";
+import Store from "./category/Store";
+import Transit from "./category/Transit";
+import Medical from "./category/Medical";
+import Button from "../../component/Button/Button";
 
-const Title = styled(Typography).attrs({ mainTitle: 'mainTitle' })`
+const Title = styled(Typography).attrs({ $mainTitle: "$mainTitle" })`
   width: 100%;
   position: relative;
   top: 80px;
-  left: -34px;
+  padding-left: 40px;
   line-height: 1.8;
 `;
 const SemiTitle = styled(Typography)`
@@ -29,7 +29,7 @@ const SemiTitle = styled(Typography)`
   width: 100%;
   position: relative;
   top: 80px;
-  left: -64px;
+  padding-left: 40px;
   line-height: 1.8;
 `;
 
@@ -46,7 +46,10 @@ const ButtonContainer = styled.div`
   justify-content: space-between;
 `;
 
-const useStore = create((set) => ({ target: null, setTarget: (target) => set({ target }) }));
+const useStore = create((set) => ({
+  target: null,
+  setTarget: (target) => set({ target }),
+}));
 
 const Preset = () => {
   const { selectedCategory } = useParams();
@@ -55,8 +58,8 @@ const Preset = () => {
   const { target, setTarget } = useStore();
   const navigate = useNavigate();
   const btnStyle = {
-    position: 'absolute',
-    bottom: '72px',
+    position: "absolute",
+    bottom: "72px",
   };
 
   return (
@@ -74,16 +77,16 @@ const Preset = () => {
           onPointerMissed={() => setTarget(null)}
           style={{ backgroundColor: theme.colors.background }}
         >
-          <hemisphereLight name='Default Ambient Light' intensity={0.3} />
+          <hemisphereLight name="Default Ambient Light" intensity={0.3} />
           <OrbitControls makeDefault />
           {categoryComponent[selectedCategory]}
         </Canvas>
       </ModelContainer>
       <ButtonContainer style={btnStyle}>
-        <Button bgColor='black' middle onClick={() => navigate('/')}>
+        <Button bgColor="black" middle onClick={() => navigate("/")}>
           다음 단계
         </Button>
-        <Button bgColor='mainRed' middle onClick={() => navigate('/custom')}>
+        <Button bgColor="mainRed" middle onClick={() => navigate("/custom")}>
           커스텀
         </Button>
       </ButtonContainer>

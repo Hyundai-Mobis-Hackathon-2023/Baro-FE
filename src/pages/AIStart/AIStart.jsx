@@ -40,11 +40,11 @@ const AIStart = () => {
         <Lottie animationData={lottie1} />
         <Margin height="50" />
         <TextWrapper>
-          <Typography mainTitle color="white">
+          <Typography $mainTitle color="white">
             AI와 함께 구상해요
           </Typography>
           <Margin height="20" />
-          <Typography aiContentText color="white">
+          <Typography $aiContentText color="white">
             openAI로 이루어진 채팅봇과 함께 당신에게
             <br />
             알맞는 현대 PBV를 찾아보세요.

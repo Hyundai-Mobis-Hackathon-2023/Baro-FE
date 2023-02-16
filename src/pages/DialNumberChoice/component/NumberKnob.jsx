@@ -84,7 +84,7 @@ const NumberKnob = ({ maxNumber, setMaxNumber }) => {
               />
               <Margin height="12" />
               <Typography
-                dialText
+                $dialText
                 color={
                   maxNumber === n
                     ? "mainRed"

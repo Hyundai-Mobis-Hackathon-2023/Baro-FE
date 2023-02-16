@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import theme from '../../../assets/theme/Theme';
-import Typography from '../../../component/Typography/Typhography';
+import styled from "styled-components";
+import theme from "../../../assets/theme/Theme";
+import Typography from "../../../component/Typography/Typhography";
 
 const ItemContainer = styled.div`
   width: 154px;
@@ -36,7 +36,7 @@ const Item = ({ name, photo, onClick, id }) => {
       <Photo>
         <img src={require(`../images/${photo}.png`)} />
       </Photo>
-      <Typography contentText>{name}</Typography>
+      <Typography $contentText>{name}</Typography>
     </ItemContainer>
   );
 };

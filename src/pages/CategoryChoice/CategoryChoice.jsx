@@ -13,9 +13,9 @@ const TitleWrapper = styled.div`
 const CategoryChoice = () => {
   return (
     <>
-      <MobileLayout bar darkShadow>
+      <MobileLayout bar $darkShadow>
         <TitleWrapper>
-          <Typography mainTitle>
+          <Typography $mainTitle>
             필요한 테마 한가지를 <br />
             골라주세요
           </Typography>
