@@ -70,10 +70,10 @@ const PasswordInput = ({
       exit={{ opacity: 0 }}
     >
       <Margin height="114" />
-      <Typography buttonText>사용할 비밀번호를 알려주세요</Typography>
+      <Typography $buttonText>사용할 비밀번호를 알려주세요</Typography>
       <Margin height="6" />
       <Typography
-        alertText
+        $alertText
         color={isRightPW || password === "" ? "gray" : "alertRed"}
       >
         * 8~16자 영문 대 소문자, 숫자, 특수문자 이용

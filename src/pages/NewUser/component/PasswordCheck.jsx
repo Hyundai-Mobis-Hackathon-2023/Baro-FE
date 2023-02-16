@@ -72,7 +72,7 @@ const PasswordCheck = ({
       exit={{ opacity: 0 }}
     >
       <Margin height="114" />
-      <Typography buttonText>사용할 비밀번호를 알려주세요</Typography>
+      <Typography $buttonText>사용할 비밀번호를 알려주세요</Typography>
       <Margin height="34" />
       <StyledTextarea
         autoFocus
@@ -83,7 +83,7 @@ const PasswordCheck = ({
         onKeyPress={checkEnterAndSpace}
       />
       <Margin height="170" />
-      <Typography alertText color="alertRed">
+      <Typography $alertText color="alertRed">
         {isRightPW || checkPassword === ""
           ? "ㅤ"
           : "일치하지 않습니다. 다시 한번 확인해주세요."}

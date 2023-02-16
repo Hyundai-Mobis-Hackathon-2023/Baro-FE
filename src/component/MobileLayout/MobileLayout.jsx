@@ -10,7 +10,7 @@ const Background = styled.div`
   background-color: black;
 `;
 
-const Mobile = styled.div`
+const Mobile = styled(motion.div)`
   position: relative;
   width: 390px;
   height: 100vh;
@@ -57,12 +57,10 @@ const ProgressBar = styled.div`
 const MobileLayout = ({ children, bar, ...rest }) => {
   return (
     <Background>
-      <motion.div>
-        <Mobile {...rest}>
-          {bar && <ProgressBar />}
-          {children}
-        </Mobile>
-      </motion.div>
+      <Mobile {...rest}>
+        {bar && <ProgressBar />}
+        {children}
+      </Mobile>
     </Background>
   );
 };

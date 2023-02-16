@@ -59,7 +59,7 @@ const IdInput = ({ currentPage, setCurrentPage, id, setId }) => {
       exit={{ opacity: 0 }}
     >
       <Margin height="114" />
-      <Typography buttonText>사용할 아이디를 알려주세요</Typography>
+      <Typography $buttonText>사용할 아이디를 알려주세요</Typography>
       <Margin height="34" />
       <StyledTextarea
         autoFocus

@@ -47,19 +47,19 @@ const Login = () => {
 
   return (
     <>
-      <MobileLayout loginShadow>
+      <MobileLayout $loginShadow>
         <TitleWrapper>
-          <Typography mainTitle>
+          <Typography $mainTitle>
             만나서 <br />
             반가워요
           </Typography>
         </TitleWrapper>
         <SmallTitleWrapper>
-          <Typography smallTitle color="darkGray">
+          <Typography $smallTitle color="darkGray">
             새로운 분이라면 /{" "}
           </Typography>
           <Typography
-            smallTitle
+            $smallTitle
             color="mainRed"
             onClick={() => navigate("/new-user")}
             style={{ cursor: "pointer" }}
@@ -72,7 +72,7 @@ const Login = () => {
         <Margin width="100" height="6" />
         <IdInput type="password" placeholder="password" />
         <SmallTitleWrapper>
-          <Typography smallTitle color="darkGray">
+          <Typography $smallTitle color="darkGray">
             비밀번호를 잊으셨나요?
           </Typography>
         </SmallTitleWrapper>
