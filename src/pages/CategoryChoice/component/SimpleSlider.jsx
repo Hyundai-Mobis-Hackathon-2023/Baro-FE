@@ -111,9 +111,9 @@ export default function SimpleSlider() {
                 </ThemeImgBox>
               </ThemeImageWrapper>
               <Margin height="32" />
-              <TitleText $mainTitle>{album.kind}</TitleText>
+              <TitleText mainTitle>{album.kind}</TitleText>
               <Margin height="24" />
-              <ContentText $contentText color="darkGray">
+              <ContentText contentText color="darkGray">
                 {album.des}
               </ContentText>
             </ThemeAllWapper>

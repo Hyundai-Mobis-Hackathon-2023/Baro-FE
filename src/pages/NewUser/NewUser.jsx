@@ -13,7 +13,7 @@ const NewUser = () => {
   const [checkPassword, setCheckPassword] = useState("");
 
   return (
-    <MobileLayout $darkShadow>
+    <MobileLayout darkShadow>
       <AnimatePresence>
         {currentPage === 0 && (
           <IdInput
