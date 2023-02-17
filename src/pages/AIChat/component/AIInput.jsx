@@ -45,7 +45,7 @@ const AIInput = () => {
     >
       <IconWrapper></IconWrapper>
       <Margin height="56" />
-      <Typography $buttonText>
+      <Typography buttonText>
         안녕하세요. 00채팅봇입니다.
         <br />
         어떤 차를 원하시나요?
@@ -60,6 +60,7 @@ const AIInput = () => {
         onKeyPress={checkEnterAndSpace}
       />
       <Margin height="200" />
+      <Typography color="darkGray">* 최대 20자까지 입력 가능합니다.</Typography>
     </StyledMotion>
   );
 };

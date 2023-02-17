@@ -67,7 +67,7 @@ const MakeStart = () => {
         <Wrapper>
           <ImgTextWrapper>
             <CarSection src={Car} />
-            <Typography $loadingText color="white">
+            <Typography loadingText color="white">
               잠시만 기달려주세요
             </Typography>
           </ImgTextWrapper>

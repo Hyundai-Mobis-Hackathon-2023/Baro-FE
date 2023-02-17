@@ -32,19 +32,19 @@ const DialNumberChoice = () => {
   const navigate = useNavigate();
 
   return (
-    <MobileLayout bar $darkShadow>
+    <MobileLayout bar darkShadow>
       <TitleWrapper>
-        <Typography $mainTitle>
+        <Typography mainTitle>
           탑승 가능 인원 수를 <br />
           입력해주세요
         </Typography>
       </TitleWrapper>
       <Margin height="72" />
-      <SubTitleWrapper $contentText color="white">
+      <SubTitleWrapper contentText color="white">
         승차 인원
       </SubTitleWrapper>
       <Margin height="10" />
-      <Typography $maxNumberText color="mainRed">
+      <Typography maxNumberText color="mainRed">
         최대 {maxNumber === 0 ? 10 : maxNumber}명
       </Typography>
       <NumberKnob maxNumber={maxNumber} setMaxNumber={setMaxNumber} />

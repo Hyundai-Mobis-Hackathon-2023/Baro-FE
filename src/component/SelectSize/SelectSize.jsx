@@ -26,16 +26,16 @@ const Wrapper = styled.div`
 const SelectSize = () => (
   <Wrapper>
     <Container>
-      <Typography $contentText color="alertRed">
+      <Typography contentText color="alertRed">
         소형
       </Typography>
       <Line />
-      <Typography $contentText color="gray">
+      <Typography contentText color="gray">
         중형
       </Typography>
       <Line />
 
-      <Typography $contentText color="gray">
+      <Typography contentText color="gray">
         대형
       </Typography>
     </Container>

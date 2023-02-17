@@ -16,7 +16,7 @@ import Transit from "./category/Transit";
 import Medical from "./category/Medical";
 import Button from "../../component/Button/Button";
 
-const Title = styled(Typography).attrs({ $mainTitle: "$mainTitle" })`
+const Title = styled(Typography).attrs({ $mainTitle: "mainTitle" })`
   width: 100%;
   position: relative;
   top: 80px;
