@@ -34,6 +34,7 @@ const PlusButton = styled.button`
     display:flex;
     justify-content:center;
     align-items:center;
+    margin-top: 5px;
 `
 
 const TitleWrapper = styled.div`
@@ -119,9 +120,9 @@ const InstalledWidget = () =>{
             <PlusButton><GoPlus size="28" color="#9042EA"/></PlusButton>
         </TitleWrapper>
 
-        <IntroBox>
+       
             <IntroText>기본 세팅은 다음과 같아요</IntroText>
-        </IntroBox>
+     
         <KindTextWrapper>
             <KindText style={{color: kind==="베이직" ?'#E53E3E':'#1B1313',borderBlockColor: kind==="베이직" ?'#E53E3E':'#1B1313'  }} onClick={basicClick}>베이직</KindText>
             <KindText style={{color: kind==="커스텀" ?'#E53E3E':'#1B1313', borderBlockColor: kind==="커스텀" ?'#E53E3E':'#1B1313' }} onClick={customClick}>커스텀</KindText>

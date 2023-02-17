@@ -52,6 +52,7 @@ const ImgSection = styled.div`
 
 
 
+
 function Widget({eachWidget}){return(<>
     <EachWidgetWrapper>
         <ImgSection><img src={exImg}></img></ImgSection>
@@ -68,7 +69,6 @@ function Widget({eachWidget}){return(<>
 const KindWidgets = (props) =>{
     return(<>
     <SectionWrapper>
-
         {props.Widgets.map((widget)=>(<Widget eachWidget={widget}/>))}
     </SectionWrapper></>)
 }
