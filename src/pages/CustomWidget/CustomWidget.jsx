@@ -58,7 +58,8 @@ const InstallServices = [{key: 1 ,name:"ss",img:"https://encrypted-tbn0.gstatic.
 {key: 2 ,name:"ss2",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU"},
 {key: 3 ,name:"ss3",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU"},
 {key: 4 ,name:"ss4",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU"},
-{key: 5 ,name:"ss5",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU"},{name:"ss",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU"}]
+{key: 5 ,name:"ss5",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU"},
+{key:6, name:"ss",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU"}]
 
 
 const CustomWidget = () => {

@@ -11,7 +11,7 @@ const Title = styled.div`
 `
 
 const ServiceBoxWrapper = styled.div`
-    width: 385px;
+    width: 393px;
     height: auto;
     margin-top: 16px;
     white-space: nowrap;
