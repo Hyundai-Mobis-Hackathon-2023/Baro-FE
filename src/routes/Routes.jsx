@@ -10,6 +10,7 @@ import Preset from '../pages/Preset/Preset';
 import MakeStart from '../pages/MakeStart/MakeStart';
 import InstalledWidget from '../pages/InstalledWidget/InstalledWidget';
 import CustomWidget from '../pages/CustomWidget/CustomWidget';
+import Custom from "../pages/Custom/Custom";
 
 
 const Router = () => (
@@ -26,6 +27,8 @@ const Router = () => (
       <Route path='/make-start' element={<MakeStart />} />
       <Route path='/installed-widget' element={<InstalledWidget/>} />
       <Route path='/custom-widget' element={<CustomWidget/>} />
+      <Route path="/custom" element={<Custom />} />
+
     </Routes>
   </BrowserRouter>
 );

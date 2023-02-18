@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-const StyledMotion = styled(motion.div)``;
-
-const Typo = styled.p`
+const Typography = styled(motion.p)`
   font-size: ${(props) => (props.fontSize ? props.fontSize : "16px")};
   color: ${(props) =>
     props.color ? props.theme.colors[props.color] : props.theme.colors.black};
@@ -19,11 +17,5 @@ const Typo = styled.p`
   ${(props) => props.loadingText && props.theme.font.loadingText};
   transition: 0.5s;
 `;
-
-const Typography = ({ children, ...rest }) => (
-  <StyledMotion>
-    <Typo {...rest}>{children}</Typo>
-  </StyledMotion>
-);
 
 export default Typography;
