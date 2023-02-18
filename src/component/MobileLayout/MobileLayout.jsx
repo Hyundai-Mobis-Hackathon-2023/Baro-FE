@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
+import { MotionConfig } from "framer-motion";
+import isValidProp from "@emotion/is-prop-valid";
 
 const Background = styled.div`
   width: 100vw;
@@ -56,12 +58,14 @@ const ProgressBar = styled.div`
 
 const MobileLayout = ({ children, bar, ...rest }) => {
   return (
-    <Background>
-      <Mobile {...rest}>
-        {bar && <ProgressBar />}
-        {children}
-      </Mobile>
-    </Background>
+    <MotionConfig isValidProp={isValidProp}>
+      <Background>
+        <Mobile {...rest}>
+          {bar && <ProgressBar />}
+          {children}
+        </Mobile>
+      </Background>
+    </MotionConfig>
   );
 };
 
