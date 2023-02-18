@@ -9,6 +9,8 @@ import Start from '../pages/Start/Start';
 import Preset from '../pages/Preset/Preset';
 import MakeStart from '../pages/MakeStart/MakeStart';
 import InstalledWidget from '../pages/InstalledWidget/InstalledWidget';
+import CustomWidget from '../pages/CustomWidget/CustomWidget';
+
 
 const Router = () => (
   <BrowserRouter>
@@ -23,6 +25,7 @@ const Router = () => (
       <Route path='/new-user' element={<NewUser />} />
       <Route path='/make-start' element={<MakeStart />} />
       <Route path='/installed-widget' element={<InstalledWidget/>} />
+      <Route path='/custom-widget' element={<CustomWidget/>} />
     </Routes>
   </BrowserRouter>
 );

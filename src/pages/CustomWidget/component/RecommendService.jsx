@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import exImg from "./Group 10.png"
-import {MdFileDownloadDone} from "react-icons/md"
- 
+import {TbDownload} from "react-icons/tb"
+
+
 const KindName =  styled.div`
     font-family: 'pretendard';
     font-size: 16px;
@@ -29,6 +29,7 @@ const EachWidgetWrapper = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     margin: 18px;
+    margin-bottom:0px;
 
 `
 const ImgSection = styled.div`
@@ -41,14 +42,23 @@ const ImgSection = styled.div`
     justify-content:center;
     align-items:center;
 `
+const ServiceImg = styled.img`
+    width: 125px;
+    height: 125px;
+    background: linear-gradient(140.1deg, #F2F2F4 7.1%, rgba(242, 242, 244, 0) 92.97%), linear-gradient(90deg, rgba(253, 132, 220, 0.2) 3.12%, rgba(127, 214, 250, 0.2) 100%);
+    border: 1px solid #ECECEC;
+    border-radius: 24px;
+    object-fit: cover;
+`
+
 
 
 
 
 function Widget({eachWidget}){return(<>
     <EachWidgetWrapper>
-        <ImgSection><img src={exImg}></img></ImgSection>
-        <KindName>{eachWidget.name}<MdFileDownloadDone size="25"/></KindName>
+        <ImgSection><ServiceImg src={eachWidget.img}/></ImgSection>
+        <KindName>{eachWidget.name}<TbDownload style={{marginBottom:"5px"}} size="18"/></KindName>
     </EachWidgetWrapper>
 
 </>)}
@@ -58,11 +68,14 @@ function Widget({eachWidget}){return(<>
 
 
 
-const KindWidgets = (props) =>{
+const RecommendService = (props) =>{
     return(<>
+    
     <SectionWrapper>
-        {props.Widgets.map((widget)=>(<Widget eachWidget={widget}/>))}
+        {props.RecomServices.map((widget)=>(<Widget eachWidget={widget}/>))}
     </SectionWrapper></>)
 }
 
-export default KindWidgets;
+
+
+export default RecommendService;
