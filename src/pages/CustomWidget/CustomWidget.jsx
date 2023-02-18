@@ -3,20 +3,22 @@ import RedSection from "./component/RedSection.png"
 import styled from "styled-components";
 import InstalledService from "./component/InstalledService";
 import RecommendService from "./component/RecommendService";
+import Margin from "../../component/Margin/Margin";
+import { useState } from "react";
 
 const RedSec = styled.div`
-    width: 405px;
+    width: 417px;
     height: 430px;
-    background-image: url("https://i.ibb.co/LRgr5mt/4.png");
+    background-image: url("https://i.ibb.co/VY5XLqD/5.png");
     background-size: cover;
     position:relative;
-    left: -6px;
-    top: -12px;
+    left: 1px;
+    top: -15px;
 `
 const InstallWidgetWrapper = styled.div`
     position: absolute; 
     top: 5%; 
-    left: 5%; 
+    left: 2%; 
     font-size: x-large;
 `
 const Title = styled.div`
@@ -52,14 +54,23 @@ const RecommendContent = styled.div`
 
 
 
-const InstallServices = [{name:"ss",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU"},
-{name:"ss",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU"},
-{name:"ss",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU"},
-{name:"ss",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU"},
-{name:"ss",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU"},{name:"ss",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU"}]
+const InstallServices = [{key: 1 ,name:"ss",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU"},
+{key: 2 ,name:"ss2",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU"},
+{key: 3 ,name:"ss3",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU"},
+{key: 4 ,name:"ss4",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU"},
+{key: 5 ,name:"ss5",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU"},
+{key:6, name:"ss",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU"}]
 
 
 const CustomWidget = () => {
+
+ 
+    const [arr,setArr] = useState([]);
+    const getArr = (arr) => {
+        setArr(arr);
+        console.log(arr);
+    }
+
     return( <MobileLayout>
             <RedSec>
                 <InstallWidgetWrapper>
@@ -70,8 +81,9 @@ const CustomWidget = () => {
                     <InstalledService Services={InstallServices}/>
                     <RecommendTitle>추천 서비스</RecommendTitle>
                     <RecommendContent>사용자가 직접 커스텀한 내부 구성에 알맞은 <br/>인포테인먼트를 추천해줍니다.</RecommendContent>
-                    <RecommendService RecomServices={InstallServices}/>
-                    
+                    <RecommendService RecomServices={InstallServices} getArr={getArr}/>
+
+                   
                     
                 </InstallWidgetWrapper>
             </RedSec>
