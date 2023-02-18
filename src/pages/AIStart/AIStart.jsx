@@ -3,9 +3,10 @@ import styled from "styled-components";
 import MobileLayout from "../../component/MobileLayout/MobileLayout";
 import Margin from "../../component/Margin/Margin";
 import Lottie from "lottie-react";
-import lottie1 from "../../assets/svgs/lottie.json";
+import lottieAI from "../../assets/svgs/lottieAI.json";
 import Typography from "../../component/Typography/Typhography";
 import Button from "../../component/Button/Button";
+import { useNavigate } from "react-router-dom";
 
 const Background = styled.div`
   width: 100%;
@@ -33,11 +34,13 @@ const ButtonWrapper = styled.div`
 `;
 
 const AIStart = () => {
+  const navigate = useNavigate();
+
   return (
     <MobileLayout>
       <Background>
         <Margin height="50" />
-        <Lottie animationData={lottie1} />
+        <Lottie animationData={lottieAI} />
         <Margin height="50" />
         <TextWrapper>
           <Typography mainTitle color="white">
@@ -53,7 +56,11 @@ const AIStart = () => {
           </Typography>
         </TextWrapper>
         <ButtonWrapper>
-          <Button bgColor="white" color="black">
+          <Button
+            bgColor="white"
+            color="black"
+            onClick={() => navigate("/ai-chat")}
+          >
             AI 만나기
           </Button>
         </ButtonWrapper>

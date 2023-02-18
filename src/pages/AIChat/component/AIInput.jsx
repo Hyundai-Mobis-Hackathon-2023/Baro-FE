@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRef } from "react";
 import styled from "styled-components";
 import Button from "../../../component/Button/Button";
@@ -22,7 +22,10 @@ const IconWrapper = styled.div`
 
 const StyledTextarea = styled.textarea`
   width: 320px;
-  ${(props) => props.theme.text.buttonText}
+  font-family: "Pretendard-bold";
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
   text-align: center;
   word-wrap: break-word;
   word-break: keep-all;
@@ -36,7 +39,27 @@ const StyledTextarea = styled.textarea`
   }
 `;
 
-const AIInput = () => {
+const AIInput = ({ currentPage, setCurrentPage }) => {
+  const textRef = useRef(null);
+  const [question, setQuestion] = useState("");
+
+  const textChanged = () => {
+    setQuestion(textRef.current.value);
+  };
+
+  const moveToNext = () => {
+    if (question !== "") {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const checkEnter = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      moveToNext();
+    }
+  };
+
   return (
     <StyledMotion
       initial={{ opacity: 0 }}
@@ -45,22 +68,35 @@ const AIInput = () => {
     >
       <IconWrapper></IconWrapper>
       <Margin height="56" />
-      <Typography buttonText>
+      <Typography buttonText style={{ textAlign: "center" }}>
         안녕하세요. 00채팅봇입니다.
         <br />
         어떤 차를 원하시나요?
       </Typography>
-      <Margin height="20" />
+      <Margin height="70" />
       <StyledTextarea
         autoFocus
         ref={textRef}
         placeholder="입력해주세요"
         maxLength="30"
         onChange={textChanged}
-        onKeyPress={checkEnterAndSpace}
+        onKeyPress={checkEnter}
       />
       <Margin height="200" />
-      <Typography color="darkGray">* 최대 20자까지 입력 가능합니다.</Typography>
+      <Typography
+        alertText
+        color="darkGray"
+        style={{ fontFamily: "pretendard-regular" }}
+      >
+        * 최대 20자까지 입력 가능합니다.
+      </Typography>
+      <Margin height="26" />
+      <Button
+        bgColor={question === "" ? "gray" : "purple"}
+        onClick={moveToNext}
+      >
+        확인
+      </Button>
     </StyledMotion>
   );
 };

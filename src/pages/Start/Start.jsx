@@ -6,7 +6,7 @@ import theme from "../../assets/theme/Theme";
 import { useNavigate } from "react-router-dom";
 
 const Title = styled(Typography).attrs({
-  $mainTitle: "mainTitle",
+  mainTitle: "mainTitle",
   initial: { color: theme.colors.black },
   animate: { color: theme.colors.white },
   transition: { delay: 0.6, duration: 0.7 },
@@ -18,7 +18,7 @@ const Title = styled(Typography).attrs({
 `;
 
 const GoToAi = styled(Typography).attrs({
-  $contentText: "contentText",
+  contentText: "contentText",
   color: "white",
 })`
   position: absolute;
