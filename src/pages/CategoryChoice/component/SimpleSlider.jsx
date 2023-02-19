@@ -123,7 +123,6 @@ export default function SimpleSlider() {
               <ContentText contentText color="darkGray">
                 {album.des}
               </ContentText>
-              <div>{currentSlider}</div>
             </ThemeAllWapper>
           );
         })}
