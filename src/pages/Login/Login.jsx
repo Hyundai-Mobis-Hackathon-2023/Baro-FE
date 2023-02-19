@@ -61,7 +61,6 @@ const Login = () => {
         } else {
           // 로그인 성공
           localStorage.setItem('accessToken', r.data.result.accessToken);
-          localStorage.setItem('userIdx', r.data.result.userIdx);
           navigate('/start');
         }
       });
