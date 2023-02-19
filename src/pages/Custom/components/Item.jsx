@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import theme from '../../../assets/theme/Theme';
-import Typography from '../../../component/Typography/Typhography';
+import styled from "styled-components";
+import theme from "../../../assets/theme/Theme";
+import Typography from "../../../component/Typography/Typhography";
 
 const ItemContainer = styled.div`
   width: 154px;

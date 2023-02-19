@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Margin from "../../component/Margin/Margin";
 import Button from "../../component/Button/Button";
 import NumberKnob from "./component/NumberKnob";
+import { useNavigate } from "react-router-dom";
 
 const TitleWrapper = styled.div`
   width: 100%;
@@ -28,9 +29,10 @@ const ButtonWrapper = styled.div`
 
 const DialNumberChoice = () => {
   const [maxNumber, setMaxNumber] = useState(1);
+  const navigate = useNavigate();
 
   return (
-    <MobileLayout bar>
+    <MobileLayout bar darkShadow>
       <TitleWrapper>
         <Typography mainTitle>
           탑승 가능 인원 수를 <br />
@@ -47,7 +49,9 @@ const DialNumberChoice = () => {
       </Typography>
       <NumberKnob maxNumber={maxNumber} setMaxNumber={setMaxNumber} />
       <ButtonWrapper>
-        <Button bgColor="mainRed">프리셋 보기</Button>
+        <Button bgColor="mainRed" onClick={() => navigate("/preset/living")}>
+          프리셋 보기
+        </Button>
       </ButtonWrapper>
     </MobileLayout>
   );

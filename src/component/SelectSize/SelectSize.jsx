@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import Typography from '../Typography/Typhography';
-import theme from '../../assets/theme/Theme';
+import styled from "styled-components";
+import Typography from "../Typography/Typhography";
+import theme from "../../assets/theme/Theme";
 
 const Container = styled.div`
   width: 112px;
@@ -26,16 +26,16 @@ const Wrapper = styled.div`
 const SelectSize = () => (
   <Wrapper>
     <Container>
-      <Typography contentText color='alertRed'>
+      <Typography contentText color="alertRed">
         소형
       </Typography>
       <Line />
-      <Typography contentText color='gray'>
+      <Typography contentText color="gray">
         중형
       </Typography>
       <Line />
 
-      <Typography contentText color='gray'>
+      <Typography contentText color="gray">
         대형
       </Typography>
     </Container>

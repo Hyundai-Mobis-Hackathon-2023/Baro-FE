@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import { motion } from "framer-motion";
+import { MotionConfig } from "framer-motion";
+import isValidProp from "@emotion/is-prop-valid";
 
-const StyledMotion = styled(motion.div)``;
-
-const Typo = styled.p`
+const Typo = styled(motion.p)`
   font-size: ${(props) => (props.fontSize ? props.fontSize : "16px")};
   color: ${(props) =>
     props.color ? props.theme.colors[props.color] : props.theme.colors.black};
@@ -16,13 +17,20 @@ const Typo = styled.p`
   ${(props) => props.aiContentText && props.theme.font.aiContentText};
   ${(props) => props.alertText && props.theme.font.alertText};
   ${(props) => props.smallButtonText && props.theme.font.smallButtonText};
+  ${(props) => props.loadingText && props.theme.font.loadingText};
   transition: 0.5s;
 `;
 
-const Typography = ({ children, ...rest }) => (
-  <StyledMotion>
-    <Typo {...rest}>{children}</Typo>
-  </StyledMotion>
-);
+const Typography = ({ children, ...rest }) => {
+  return (
+    <MotionConfig isValidProp={isValidProp}>
+      <Typo {...rest}>{children}</Typo>
+    </MotionConfig>
+  );
+};
+
+Typography.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default Typography;

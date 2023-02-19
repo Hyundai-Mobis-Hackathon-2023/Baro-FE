@@ -1,14 +1,15 @@
 const colors = {
-  white: '#ffffff',
-  black: '#1B1313',
+  white: "#ffffff",
+  black: "#1B1313",
   realBlack: `#000000`,
-  blueGray: '#B0BEC5',
-  mainRed: '#c65252',
-  darkGray: '#707070',
-  background: '#f5f5f5',
-  gray: '#afacac',
-  lightGray: '#E0DEDE',
-  alertRed: '#D83B3B',
+  blueGray: "#B0BEC5",
+  mainRed: "#c65252",
+  darkGray: "#707070",
+  background: "#f5f5f5",
+  gray: "#afacac",
+  lightGray: "#E0DEDE",
+  alertRed: "#D83B3B",
+  purple: "#7914FB",
 };
 
 const box = `
@@ -74,6 +75,12 @@ const font = {
     font-size: 17.5px;
     line-height: 21px;
   `,
+
+  loadingText: `
+  font-family: 'pretendard-bold';
+  font-size: 30px;
+  line-height: 21px;
+`,
 };
 
 const flex = {
@@ -94,8 +101,15 @@ const animation = {
   box: { scale: 1.03, transition: { duration: 0.3 } },
 };
 
-const categoryEng = ['living', 'office', 'entertainment', 'store', 'transit', 'medical'];
-const category = ['주거', '사무', '엔터테인먼트', '스토어', '운송', '의료'];
+const categoryEng = [
+  "living",
+  "office",
+  "entertainment",
+  "store",
+  "transit",
+  "medical",
+];
+const category = ["주거", "사무", "엔터테인먼트", "스토어", "운송", "의료"];
 
 const theme = {
   colors,
