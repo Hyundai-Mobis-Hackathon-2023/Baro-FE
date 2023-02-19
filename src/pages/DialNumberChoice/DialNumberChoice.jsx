@@ -1,11 +1,12 @@
-import MobileLayout from "../../component/MobileLayout/MobileLayout";
-import Typography from "../../component/Typography/Typhography";
-import { useState } from "react";
-import styled from "styled-components";
-import Margin from "../../component/Margin/Margin";
-import Button from "../../component/Button/Button";
-import NumberKnob from "./component/NumberKnob";
-import { useNavigate } from "react-router-dom";
+import MobileLayout from '../../component/MobileLayout/MobileLayout';
+import Typography from '../../component/Typography/Typhography';
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import Margin from '../../component/Margin/Margin';
+import Button from '../../component/Button/Button';
+import NumberKnob from './component/NumberKnob';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const TitleWrapper = styled.div`
   width: 100%;
@@ -31,6 +32,33 @@ const DialNumberChoice = () => {
   const [maxNumber, setMaxNumber] = useState(1);
   const navigate = useNavigate();
 
+  const postPeopleCount = () => {
+    axios
+      .post(
+        `${process.env.REACT_APP_API}/user/selectPeopleCount`,
+        {
+          count: parseInt(maxNumber) === 0 ? 10 : parseInt(maxNumber),
+        },
+        {
+          headers: {
+            Authorization: `${localStorage.getItem('accessToken')}`,
+          },
+        }
+      )
+      .then((r) => {
+        console.log(r.data);
+        return axios.get(`${process.env.REACT_APP_API}/category/getSelectInfo`, {
+          headers: {
+            Authorization: `${localStorage.getItem('accessToken')}`,
+          },
+        });
+      })
+      .then((r) => {
+        console.log(r.data);
+        navigate(`/preset/${r.data.result.categoryName}`);
+      });
+  };
+
   return (
     <MobileLayout bar darkShadow>
       <TitleWrapper>
@@ -39,17 +67,17 @@ const DialNumberChoice = () => {
           입력해주세요
         </Typography>
       </TitleWrapper>
-      <Margin height="72" />
-      <SubTitleWrapper contentText color="white">
+      <Margin height='72' />
+      <SubTitleWrapper contentText color='white'>
         승차 인원
       </SubTitleWrapper>
-      <Margin height="10" />
-      <Typography maxNumberText color="mainRed">
+      <Margin height='10' />
+      <Typography maxNumberText color='mainRed'>
         최대 {maxNumber === 0 ? 10 : maxNumber}명
       </Typography>
       <NumberKnob maxNumber={maxNumber} setMaxNumber={setMaxNumber} />
       <ButtonWrapper>
-        <Button bgColor="mainRed" onClick={() => navigate("/preset/living")}>
+        <Button bgColor='mainRed' onClick={postPeopleCount}>
           프리셋 보기
         </Button>
       </ButtonWrapper>
