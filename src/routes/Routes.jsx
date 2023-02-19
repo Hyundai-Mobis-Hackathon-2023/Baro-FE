@@ -13,6 +13,7 @@ import CustomWidget from "../pages/CustomWidget/CustomWidget";
 import Custom from "../pages/Custom/Custom";
 import AIChat from "../pages/AIChat/AIChat";
 import Rental from "./../pages/Rental/Rental";
+import Purchase from "../pages/Purchase/Purchase";
 
 const Router = () => (
   <BrowserRouter>
@@ -31,6 +32,7 @@ const Router = () => (
       <Route path="/custom" element={<Custom />} />
       <Route path="/ai-chat" element={<AIChat />} />
       <Route path="/rental" element={<Rental />} />
+      <Route path="/purchase" element={<Purchase />} />
     </Routes>
   </BrowserRouter>
 );
