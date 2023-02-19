@@ -6,7 +6,7 @@ import Car from "./CAR.png";
 
 const CarAnimation = keyframes`
   0% {
-    right: -50%;
+    right: -33%;
   }
 
   30% {
@@ -25,13 +25,16 @@ const CarAnimation = keyframes`
     right: 1%;
     transform: rotate(-3deg);
   }
-  70% {
-    right: 4%;
+ 
+
+  90% {
+    right: 25%;
+    opacity: 1;
   }
 
-
   100% {
-    right: 80%;
+    right: 30%;
+    opacity: 0;
   }
 `;
 
@@ -40,6 +43,7 @@ const Wrapper = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content:center;
 `;
 
 const ImgTextWrapper = styled.div`
@@ -53,7 +57,7 @@ const ImgTextWrapper = styled.div`
 
 const CarSection = styled.img`
   animation: ${CarAnimation} 2s infinite linear;
-  animation-duration: 2.2s;
+  animation-duration: 1.8s;
   animation-delay: 0s;
   position: relative;
   top: 20%;
