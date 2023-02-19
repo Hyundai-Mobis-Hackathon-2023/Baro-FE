@@ -24,6 +24,7 @@ const TitleWrapper = styled.div`
 
 const Purchase = () => {
 
+    //예약자, 연락처 state
     const [userName,setUserName] = useState("나문희");
     const [userNumber,setUserNumber] = useState("010-0000-0000");
 

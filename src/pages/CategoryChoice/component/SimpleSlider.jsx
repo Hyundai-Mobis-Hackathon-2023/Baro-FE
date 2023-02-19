@@ -107,7 +107,7 @@ export default function SimpleSlider() {
 
   return (
     <SliderWrapper>
-      <Slider {...settings} initialSlide={0} beforeChange={(slide, newSlide) => setCurrentSlide(newSlide)} >
+      <Slider {...settings} initialSlide={0} beforeChange={(slide, newSlide) => setCurrentSlide(newSlide+1)} >
         {themeArr.map((album) => {
           console.log(album);
           return (
@@ -123,6 +123,7 @@ export default function SimpleSlider() {
               <ContentText contentText color="darkGray">
                 {album.des}
               </ContentText>
+              <div>{currentSlider}</div>
             </ThemeAllWapper>
           );
         })}
