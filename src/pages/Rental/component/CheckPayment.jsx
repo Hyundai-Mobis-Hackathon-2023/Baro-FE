@@ -4,6 +4,7 @@ import Flex from "../../../component/Flex/Flex";
 import Button from "../../../component/Button/Button";
 import Margin from "../../../component/Margin/Margin";
 import Typography from "../../../component/Typography/Typhography";
+import { useNavigate } from "react-router";
 import { ReactComponent as Card } from "../svg/card.svg";
 import { MdArrowForwardIos } from "react-icons/md";
 import { motion } from "framer-motion";
@@ -50,8 +51,10 @@ const ButtonWrapper = styled.div`
 `;
 
 const CheckPayment = ({ currentPage, setCurrentPage }) => {
+  const navigate = useNavigate();
+
   const moveToNext = () => {
-    setCurrentPage(currentPage + 1);
+    navigate("/");
   };
 
   return (
