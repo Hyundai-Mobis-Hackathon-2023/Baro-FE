@@ -22,7 +22,8 @@ const GoToAi = styled(Typography).attrs({
   color: "white",
 })`
   position: absolute;
-  left: 120px;
+  width: 390px;
+  text-align: center;
   bottom: 40px;
   cursor: pointer;
 `;

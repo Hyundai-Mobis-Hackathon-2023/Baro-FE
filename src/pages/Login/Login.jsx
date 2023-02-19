@@ -1,11 +1,12 @@
-import MobileLayout from '../../component/MobileLayout/MobileLayout';
-import Typography from '../../component/Typography/Typhography';
-import styled from 'styled-components';
-import Margin from '../../component/Margin/Margin';
-import Button from '../../component/Button/Button';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { useState } from 'react';
+import MobileLayout from "../../component/MobileLayout/MobileLayout";
+import Typography from "../../component/Typography/Typhography";
+import styled from "styled-components";
+import Margin from "../../component/Margin/Margin";
+import Button from "../../component/Button/Button";
+import Toast from "../../component/Toast/Toast";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
 
 const TitleWrapper = styled.div`
   width: 100%;
@@ -30,14 +31,14 @@ const IdInput = styled.input`
   border-radius: 15px;
   padding-left: 24px;
   &::placeholder {
-    font-family: 'Pretendard';
+    font-family: "Pretendard";
     font-style: normal;
     font-weight: 700;
     font-size: 17.5px;
     line-height: 21px;
     color: rgba(165, 165, 165, 0.8);
   }
-  font-family: 'Pretendard';
+  font-family: "Pretendard";
   font-style: normal;
   font-weight: 700;
   font-size: 17.5px;
@@ -46,7 +47,7 @@ const IdInput = styled.input`
 
 const Login = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState({ id: '', password: '' });
+  const [user, setUser] = useState({ id: "", password: "" });
 
   const loginHandler = () => {
     axios
@@ -57,11 +58,11 @@ const Login = () => {
       .then((r) => {
         if (!r.data.result) {
           // 로그인 실패
-          console.log(r.data.message);
+          Toast(r.data.message);
         } else {
           // 로그인 성공
-          localStorage.setItem('accessToken', r.data.result.accessToken);
-          navigate('/start');
+          localStorage.setItem("accessToken", r.data.result.accessToken);
+          navigate("/start");
         }
       });
   };
@@ -81,24 +82,41 @@ const Login = () => {
           </Typography>
         </TitleWrapper>
         <SmallTitleWrapper>
-          <Typography smallTitle color='darkGray'>
-            새로운 분이라면 /{' '}
+          <Typography smallTitle color="darkGray">
+            새로운 분이라면 /{" "}
           </Typography>
-          <Typography smallTitle color='mainRed' onClick={() => navigate('/new-user')} style={{ cursor: 'pointer' }}>
+          <Typography
+            smallTitle
+            color="mainRed"
+            onClick={() => navigate("/new-user")}
+            style={{ cursor: "pointer" }}
+          >
             &nbsp;회원가입
           </Typography>
         </SmallTitleWrapper>
-        <Margin width='100' height='41' />
-        <IdInput type='text' placeholder='username' value={user.id} onChange={userHandler} name='id' />
-        <Margin width='100' height='6' />
-        <IdInput type='password' placeholder='password' value={user.password} onChange={userHandler} name='password' />
+        <Margin width="100" height="41" />
+        <IdInput
+          type="text"
+          placeholder="username"
+          value={user.id}
+          onChange={userHandler}
+          name="id"
+        />
+        <Margin width="100" height="6" />
+        <IdInput
+          type="password"
+          placeholder="password"
+          value={user.password}
+          onChange={userHandler}
+          name="password"
+        />
         <SmallTitleWrapper>
-          <Typography smallTitle color='darkGray'>
+          <Typography smallTitle color="darkGray">
             비밀번호를 잊으셨나요?
           </Typography>
         </SmallTitleWrapper>
-        <Margin width='100' height='59' />
-        <Button bgColor='black' onClick={loginHandler}>
+        <Margin width="100" height="59" />
+        <Button bgColor="black" onClick={loginHandler}>
           시작하기
         </Button>
       </MobileLayout>
