@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { useRef } from "react";
-import { useNavigate } from "react-router";
 import styled, { css } from "styled-components";
 import Flex from "../../../component/Flex/Flex";
 import Button from "../../../component/Button/Button";
@@ -30,7 +29,7 @@ const StyledInput = styled.input`
   font-size: 16px;
   line-height: 19px;
   caret-color: #c65252;
-  border-bottom: 2px solid #bdbdbd;
+  border-bottom: 1px solid #bdbdbd;
   ::placeholder {
     color: #e0dede;
   }
@@ -54,7 +53,7 @@ const StyledInput = styled.input`
 
 const ButtonWrapper = styled.div`
   position: fixed;
-  bottom: 74px;
+  bottom: 72px;
 `;
 
 const InfoInput = ({

@@ -5,9 +5,11 @@ import MobileLayout from "../../component/MobileLayout/MobileLayout";
 import Margin from "../../component/Margin/Margin";
 import { AnimatePresence } from "framer-motion";
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
-import InfoInput from "./component/InftoInput";
+import InfoInput from "./component/InfoInput";
 import Typography from "../../component/Typography/Typhography";
 import Flex from "../../component/Flex/Flex";
+import LocationInput from "./component/LocationInput";
+import CheckPayment from "./component/CheckPayment";
 
 const StyledArrow = styled(MdArrowBackIos)`
   font-size: 30px;
@@ -52,6 +54,7 @@ const Rental = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
+  const [location, setLocation] = useState("");
 
   const backButtonClicked = () => {
     if (currentPage === 0) navigate(-1);
@@ -88,6 +91,20 @@ const Rental = () => {
             setName={setName}
             number={number}
             setNumber={setNumber}
+          />
+        )}
+        {currentPage === 1 && (
+          <LocationInput
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            location={location}
+            setLocation={setLocation}
+          />
+        )}
+        {currentPage === 2 && (
+          <CheckPayment
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
           />
         )}
       </AnimatePresence>
