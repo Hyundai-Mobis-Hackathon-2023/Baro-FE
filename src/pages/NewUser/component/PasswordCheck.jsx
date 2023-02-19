@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { useRef } from 'react';
-import styled from 'styled-components';
-import Button from '../../../component/Button/Button';
-import Margin from '../../../component/Margin/Margin';
-import Typography from '../../../component/Typography/Typhography';
-import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { useRef } from "react";
+import styled from "styled-components";
+import Button from "../../../component/Button/Button";
+import Margin from "../../../component/Margin/Margin";
+import Typography from "../../../component/Typography/Typhography";
+import Toast from "../../../component/Toast/Toast";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const StyledMotion = styled(motion.div)`
   width: 100%;
@@ -18,7 +19,7 @@ const StyledMotion = styled(motion.div)`
 
 const StyledTextarea = styled.textarea`
   width: 320px;
-  font-family: 'pretendard-bold';
+  font-family: "pretendard-bold";
   font-weight: 700;
   font-size: 32px;
   line-height: 38px;
@@ -35,7 +36,13 @@ const StyledTextarea = styled.textarea`
   }
 `;
 
-const PasswordCheck = ({ currentPage, setCurrentPage, password, checkPassword, setCheckPassword }) => {
+const PasswordCheck = ({
+  currentPage,
+  setCurrentPage,
+  password,
+  checkPassword,
+  setCheckPassword,
+}) => {
   const textRef = useRef(null);
   const navigate = useNavigate();
   const [isRightPW, setIsRightPW] = useState(false);
@@ -45,8 +52,8 @@ const PasswordCheck = ({ currentPage, setCurrentPage, password, checkPassword, s
   };
 
   const checkEnterAndSpace = (e) => {
-    if (e.key === ' ') e.preventDefault();
-    else if (e.key === 'Enter') {
+    if (e.key === " ") e.preventDefault();
+    else if (e.key === "Enter") {
       e.preventDefault();
       moveToNext();
     }
@@ -57,14 +64,14 @@ const PasswordCheck = ({ currentPage, setCurrentPage, password, checkPassword, s
     axios
       .post(`${process.env.REACT_APP_API}/user/signup/getRepassword`, {
         rePassword: textRef.current.value,
-        userIdx: parseInt(localStorage.getItem('userIdx')),
+        userIdx: parseInt(localStorage.getItem("userIdx")),
       })
       .then((r) => {
         if (!r.data.result) {
-          console.log(r.data.message);
+          navigate("/");
+          Toast("회원가입이 완료되었습니다.");
         } else {
-          console.log(r.data.message);
-          // setCurrentPage('/');
+          Toast(r.data.message);
         }
       });
   };
@@ -74,24 +81,33 @@ const PasswordCheck = ({ currentPage, setCurrentPage, password, checkPassword, s
   }, [password, checkPassword, setIsRightPW]);
 
   return (
-    <StyledMotion initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-      <Margin height='114' />
-      <Typography buttonText>사용할 비밀번호를 알려주세요</Typography>
-      <Margin height='34' />
+    <StyledMotion
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <Margin height="114" />
+      <Typography buttonText>비밀번호를 한번 더 확인해주세요</Typography>
+      <Margin height="34" />
       <StyledTextarea
         autoFocus
         ref={textRef}
-        placeholder='입력해주세요'
-        maxLength='30'
+        placeholder="입력해주세요"
+        maxLength="30"
         onChange={textChanged}
         onKeyPress={checkEnterAndSpace}
       />
-      <Margin height='170' />
-      <Typography alertText color='alertRed'>
-        {isRightPW || checkPassword === '' ? 'ㅤ' : '일치하지 않습니다. 다시 한번 확인해주세요.'}
+      <Margin height="170" />
+      <Typography alertText color="alertRed">
+        {isRightPW || checkPassword === ""
+          ? "ㅤ"
+          : "일치하지 않습니다. 다시 한번 확인해주세요."}
       </Typography>
-      <Margin height='26' />
-      <Button bgColor={checkPassword === '' ? 'gray' : 'mainRed'} onClick={moveToNext}>
+      <Margin height="26" />
+      <Button
+        bgColor={checkPassword === "" ? "gray" : "mainRed"}
+        onClick={moveToNext}
+      >
         다음
       </Button>
     </StyledMotion>

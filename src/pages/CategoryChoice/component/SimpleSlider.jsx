@@ -5,7 +5,9 @@ import Typography from '../../../component/Typography/Typhography';
 import Internet from './INTERNET.png';
 import Car from './CAR.png';
 import Edit from './EDIT.png';
-import SuitCase from './SUITCASE.png';
+import Health from "./Health.png"
+import Living from "./Living.png"
+import Store from "./Store.png"
 import Margin from '../../../component/Margin/Margin';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -60,28 +62,40 @@ const ContentText = styled(Typography)`
 const themeArr = [
   {
     num: 1,
-    img: Internet,
-    kind: '테마1',
-    des: '엔터테인먼트 PBV는 사용자에게 오락, 방송 등에 적합한 환경을 제공합니다. 훌륭한 사운드와 4K UHD가 마련된 공간을 만나보세요.',
+    img: Edit,
+    kind: '오피스',
+    des: '오피스 PBV는 사용자의 빠른 일처리를 도와줄 환경을 제공합니다. 당신을 도와주기 위해 준비된 다양한 오피스형 가구를 통해 편안한 일처리를 해보세요.',
   },
   {
     num: 2,
-    img: Car,
-    kind: '테마2',
-    des: '엔터테인먼트 PBV는 사용자에게 오락, 방송 등에 적합한 환경을 제공합니다. 훌륭한 사운드와 4K UHD가 마련된 공간을 만나보세요.',
+    img: Living,
+    kind: '주거용',
+    des: '주거용 PBV는 차량이 기존의 주거 공간의 연장선이 될 수 있도록 합니다. 원하는 가구들로 공간을 재해석해 새로운 공간으로 꾸며보세요.',
   },
   {
     num: 3,
-    img: Edit,
-    kind: '테마3',
+    img: Internet,
+    kind: '엔터테인먼트',
     des: '엔터테인먼트 PBV는 사용자에게 오락, 방송 등에 적합한 환경을 제공합니다. 훌륭한 사운드와 4K UHD가 마련된 공간을 만나보세요.',
   },
   {
     num: 4,
-    img: SuitCase,
-    kind: '테마4',
-    des: '엔터테인먼트 PBV는 사용자에게 오락, 방송 등에 적합한 환경을 제공합니다. 훌륭한 사운드와 4K UHD가 마련된 공간을 만나보세요.',
+    img: Store,
+    kind: '스토어',
+    des: '스토어 PBV는 기존의 고객이 찾아가는 방식에서 고객에게 직접 찾아갈 수 있도록 솔루션을 제공해요. 다양한 상품을 진열하고 판매할 수 있는 이동형 스토어를 마련해보세요.',
   },
+  {
+    num: 5,
+    img: Health,
+    kind: '의료용',
+    des: '의료용 PBV는 사용자가 다양한 의료용 센서를 통해 환자의 상태를 파악하고 응급상황에 맞는 적절한 조치를 취할 수 있도록 보조합니다.',
+  },
+  {
+    num: 6,
+    img: Car,
+    kind: '운송',
+    des: '운송 PBV는 다양한 물품을 수납하고 운송할 수 있는 환경을 제공합니다. 냉동 창고와 선반으로 물품을 신선하고 안전하게 이동해보세요.',
+  }
 ];
 
 export default function SimpleSlider({ currentSlide, setCurrentSlide }) {
