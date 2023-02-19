@@ -96,7 +96,7 @@ export default function SimpleSlider({ currentSlide, setCurrentSlide }) {
 
   return (
     <SliderWrapper>
-      <Slider {...settings} initialSlide={0} beforeChange={(_, newSlide) => setCurrentSlide(newSlide)}>
+      <Slider {...settings} initialSlide={0} beforeChange={(slide, newSlide) => setCurrentSlide(newSlide+1)} >
         {themeArr.map((album) => {
           return (
             <ThemeAllWrapper id={album.num} key={album.num}>
