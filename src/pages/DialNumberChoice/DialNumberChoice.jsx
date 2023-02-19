@@ -47,6 +47,15 @@ const DialNumberChoice = () => {
       )
       .then((r) => {
         console.log(r.data);
+        return axios.get(`${process.env.REACT_APP_API}/category/getSelectInfo`, {
+          headers: {
+            Authorization: `${localStorage.getItem('accessToken')}`,
+          },
+        });
+      })
+      .then((r) => {
+        console.log(r.data);
+        navigate(`/preset/${r.data.result.categoryName}`);
       });
   };
 
