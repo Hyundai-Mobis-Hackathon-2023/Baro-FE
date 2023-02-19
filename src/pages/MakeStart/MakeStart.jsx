@@ -54,7 +54,7 @@ const ImgTextWrapper = styled.div`
 const CarSection = styled.img`
   animation: ${CarAnimation} 2s infinite linear;
   animation-duration: 2.2s;
-  animation-delay: 1s;
+  animation-delay: 0s;
   position: relative;
   top: 20%;
   margin-bottom: 20px;
@@ -68,7 +68,7 @@ const MakeStart = () => {
           <ImgTextWrapper>
             <CarSection src={Car} />
             <Typography loadingText color="white">
-              잠시만 기달려주세요
+              잠시만 기다려주세요
             </Typography>
           </ImgTextWrapper>
         </Wrapper>
