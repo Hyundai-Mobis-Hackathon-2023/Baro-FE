@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useRef } from "react";
+import { useNavigate } from "react-router";
+import { MdArrowBackIos, MdMenu } from "react-icons/md";
 import styled from "styled-components";
 import Button from "../../../component/Button/Button";
 import Margin from "../../../component/Margin/Margin";
@@ -41,6 +43,7 @@ const StyledTextarea = styled.textarea`
 
 const AIInput = ({ currentPage, setCurrentPage }) => {
   const textRef = useRef(null);
+  const navigate = useNavigate();
   const [question, setQuestion] = useState("");
 
   const textChanged = () => {
@@ -66,7 +69,15 @@ const AIInput = ({ currentPage, setCurrentPage }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <IconWrapper></IconWrapper>
+      <Margin height="60" />
+      <IconWrapper>
+        <MdArrowBackIos
+          size="30px"
+          style={{ cursor: "pointer" }}
+          onClick={() => navigate(-1)}
+        />
+        <MdMenu size="30px" />
+      </IconWrapper>
       <Margin height="56" />
       <Typography buttonText style={{ textAlign: "center" }}>
         안녕하세요. 00채팅봇입니다.
