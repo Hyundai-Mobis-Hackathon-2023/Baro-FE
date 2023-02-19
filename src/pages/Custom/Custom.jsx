@@ -14,6 +14,9 @@ import arrayReplace from '../Temp/ArrayReplace';
 import Item from './components/Item';
 import Items from './components/Items';
 import CategoryTag from './components/CategoryTag';
+import Header from './components/Header';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const ModelContainer = styled.div`
   width: 100%;
@@ -30,6 +33,7 @@ const Custom = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const tags = ['전체', ...category];
   const tagsEng = ['all', ...categoryEng];
+  const navigate = useNavigate();
 
   const placeHandler = (e) => {
     const { id } = e.currentTarget; // 선택된 아이템의 Id
@@ -60,10 +64,30 @@ const Custom = () => {
     }
   };
 
+  const postPlace = () => {
+    axios
+      .post(
+        `${process.env.REACT_APP_API}/custom/setCustomList`,
+        {
+          customNumberList: place,
+        },
+        {
+          headers: {
+            Authorization: `${localStorage.getItem('accessToken')}`,
+          },
+        }
+      )
+      .then((r) => {
+        console.log(r.data);
+        localStorage.setItem('customRecord', r.data.result.customRecord);
+        navigate('/make-start');
+      });
+  };
+
   return (
     <MobileLayout>
+      <Header onClick={postPlace} />
       <SelectSize />
-
       <ModelContainer>
         <Canvas
           orthographic
