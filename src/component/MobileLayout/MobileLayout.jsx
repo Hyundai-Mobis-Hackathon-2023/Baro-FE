@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
-import PropTypes from "prop-types";
-import styled, { css } from "styled-components";
-import { MotionConfig } from "framer-motion";
-import isValidProp from "@emotion/is-prop-valid";
+import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
+import styled, { css } from 'styled-components';
+import { MotionConfig } from 'framer-motion';
+import isValidProp from '@emotion/is-prop-valid';
 
 const Background = styled.div`
   width: 100vw;
@@ -20,30 +20,18 @@ const Mobile = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${(props) =>
-    props.color
-      ? props.theme.colors[props.color]
-      : props.theme.colors.background};
+  background-color: ${(props) => (props.color ? props.theme.colors[props.color] : props.theme.colors.background)};
 
   ${(props) =>
     props.darkShadow &&
     css`
-      background: radial-gradient(
-          50% 50% at 50% 50%,
-          rgba(224, 222, 222, 0.6) 0%,
-          rgba(224, 222, 222, 0) 100%
-        ),
-        #f5f5f5;
+      background: radial-gradient(50% 50% at 50% 50%, rgba(224, 222, 222, 0.6) 0%, rgba(224, 222, 222, 0) 100%), #f5f5f5;
     `}
 
   ${(props) =>
     props.loginShadow &&
     css`
-      background: radial-gradient(
-          72.26% 45.91% at 50% 54.09%,
-          rgba(224, 222, 222, 0.6) 0%,
-          rgba(224, 222, 222, 0) 100%
-        ),
+      background: radial-gradient(72.26% 45.91% at 50% 54.09%, rgba(224, 222, 222, 0.6) 0%, rgba(224, 222, 222, 0) 100%),
         #ffffff;
     `}
 `;
