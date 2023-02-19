@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styled, { keyframes } from "styled-components";
 import MobileLayout from "../../component/MobileLayout/MobileLayout";
 import Typography from "../../component/Typography/Typhography";
 import Car from "./CAR.png";
+import { useNavigate } from "react-router-dom";
 
 const CarAnimation = keyframes`
   0% {
@@ -65,6 +66,14 @@ const CarSection = styled.img`
 `;
 
 const MakeStart = () => {
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setTimeout(() => {
+      navigate('/installed-widget')
+    }, 3500);
+  }, []);
   return (
     <>
       <MobileLayout color={"mainRed"}>
