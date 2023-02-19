@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "../../../component/Button/Button";
+import { useNavigate } from "react-router";
 import Margin from "../../../component/Margin/Margin";
 import Typography from "../../../component/Typography/Typhography";
 import { motion } from "framer-motion";
@@ -54,6 +54,8 @@ const ResultWrapper = styled.div`
 `;
 
 const AIResult = () => {
+  const navigate = useNavigate();
+
   return (
     <StyledMotion
       initial={{ opacity: 0 }}
@@ -84,7 +86,10 @@ const AIResult = () => {
             도움이 됩니다.
           </Typography>
         </div>
-        <div style={{ cursor: "pointer" }}>
+        <div
+          style={{ cursor: "pointer" }}
+          onClick={() => navigate("/preset/medical")}
+        >
           <Typography
             alertText
             color="background"
