@@ -85,6 +85,10 @@ const themeArr = [
 ];
 
 export default function SimpleSlider() {
+
+  //curruentSlider가 테마 담당하는 변수
+  const [currentSlider,setCurrentSlide] = useState(0);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -92,11 +96,14 @@ export default function SimpleSlider() {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
+    
   };
+
+  
 
   return (
     <SliderWrapper>
-      <Slider {...settings}>
+      <Slider {...settings} initialSlide={0} beforeChange={(slide, newSlide) => setCurrentSlide(newSlide)} >
         {themeArr.map((album) => {
           return (
             <ThemeAllWrapper id={album.num} key={album.num}>
