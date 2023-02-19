@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import Button from "../../../component/Button/Button";
-import React, { Component } from "react";
-import SimpleSlider from "./SimpleSlider";
-import { useNavigate } from "react-router-dom";
+import styled from 'styled-components';
+import Button from '../../../component/Button/Button';
+import React, { Component } from 'react';
+import SimpleSlider from './SimpleSlider';
+import { useNavigate } from 'react-router-dom';
 
 const ThemeAllWapper = styled.div`
   width: 310px;
@@ -18,16 +18,16 @@ const ButtomFix = styled.div`
   bottom: 70px;
 `;
 
-const ThemeKinds = () => {
+const ThemeKinds = ({ currentSlide, setCurrentSlide, onClick }) => {
   const navigate = useNavigate();
 
   return (
     <>
       <ThemeAllWapper>
-        <SimpleSlider />
+        <SimpleSlider currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} />
       </ThemeAllWapper>
       <ButtomFix>
-        <Button bgColor="mainRed" onClick={() => navigate("/number-choice")}>
+        <Button bgColor='mainRed' onClick={onClick}>
           선택
         </Button>
       </ButtomFix>
