@@ -54,7 +54,7 @@ const CheckPayment = ({ currentPage, setCurrentPage }) => {
   const navigate = useNavigate();
 
   const moveToNext = () => {
-    navigate("/");
+    navigate("/purchase/rental");
   };
 
   return (

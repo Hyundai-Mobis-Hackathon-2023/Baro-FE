@@ -34,7 +34,7 @@ const Router = () => (
       <Route path="/ai-chat" element={<AIChat />} />
       <Route path="/rental" element={<Rental />} />
       <Route path="/buy" element={<Buy />} />
-      <Route path="/purchase" element={<Purchase />} />
+      <Route path="/purchase/:selectedWay" element={<Purchase />} />
     </Routes>
   </BrowserRouter>
 );

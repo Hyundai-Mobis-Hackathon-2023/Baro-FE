@@ -1,52 +1,104 @@
 import MobileLayout from "../../component/MobileLayout/MobileLayout";
-import {IoIosArrowBack} from "react-icons/io"
+import { MdArrowBackIos } from "react-icons/md";
 import styled from "styled-components";
 import Typography from "../../component/Typography/Typhography";
 import Margin from "../../component/Margin/Margin";
 import Receipt from "./component/Receipt";
 import Button from "../../component/Button/Button";
 import { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
-const Wrapper = styled.div`
-    width: 100%;
-    height:auto;
-    margin-left:32px;
-    margin-top: 56px;
-`
+const HeaderWrapper = styled.div`
+  width: 390px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: ${(props) => props.theme.colors.mainRed};
+  z-index: 1;
+  position: fixed;
+  top: 0;
+`;
+
+const IconWrapper = styled.div`
+  width: 100%;
+  padding-left: 32px;
+  margin-top: 56px;
+`;
+
 const TitleWrapper = styled.div`
-    width: 100%;
-    height: auto;
-    margin-left: 20px;
-    margin-top: 36px;
-    margin-bottom: 40px;
-`
+  width: 100%;
+  padding-left: 40px;
+  margin-top: 36px;
+  margin-bottom: 40px;
+`;
 
+const ScrollWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
+  overflow-y: scroll;
+  overflow-x: hidden;
+`;
 
 const Purchase = () => {
+  const params = useParams();
+  const navigate = useNavigate();
+  const selectedWay = params.selectedWay;
+  //예약자, 연락처 state
+  const [userName, setUserName] = useState("나문희");
+  const [userNumber, setUserNumber] = useState("010-0000-0000");
 
-    //예약자, 연락처 state
-    const [userName,setUserName] = useState("나문희");
-    const [userNumber,setUserNumber] = useState("010-0000-0000");
-
-
-    return(<>
-    <MobileLayout color="mainRed" >
-        <Wrapper>
-            <IoIosArrowBack size="35" color="white"/>
-            <TitleWrapper>
-                <Typography mainTitle color="white" style={{fontFamily: 'pretendard', fontWeight:"700"}}>확인 및 결제</Typography>    
-                <Margin width="100" height="13" />
-                <Typography contentText color="white">입력하신 대여 내용을 <br/>대여 시간 추가 비용을 확인해주세요.</Typography>
-            </TitleWrapper>
-            <Receipt userName ={userName} userNumber={userNumber}/>
-        </Wrapper>
-        <Margin width="100" height="51" />
-        <Button bgColor='black'>
-          결제하기
-        </Button>
-       
-    </MobileLayout></>)
-}
-
+  return (
+    <MobileLayout color="mainRed">
+      <HeaderWrapper>
+        <IconWrapper>
+          <MdArrowBackIos
+            size="30px"
+            color="white"
+            onClick={() => navigate(-1)}
+            style={{ cursor: "pointer" }}
+          />
+        </IconWrapper>
+        <TitleWrapper>
+          <Typography
+            mainTitle
+            color="white"
+            style={{ fontFamily: "pretendard", fontWeight: "700" }}
+          >
+            확인 및 결제
+          </Typography>
+          <Margin height="13" />
+          <Typography contentText color="white">
+            {selectedWay === "buy"
+              ? "입력하신 구매 내용과"
+              : "입력하신 대여 내용과"}
+            <br />
+            {selectedWay === "buy"
+              ? "구매 비용을 확인해주세요."
+              : "대여 시간 추가 비용을 확인해주세요."}
+          </Typography>
+        </TitleWrapper>
+      </HeaderWrapper>
+      <ScrollWrapper>
+        <Margin height="248" />
+        <Receipt
+          userName={userName}
+          userNumber={userNumber}
+          selectedWay={selectedWay}
+        />
+        <Margin height="51" />
+        <Button bgColor="black">결제하기</Button>
+        <Margin height="62" />
+      </ScrollWrapper>
+    </MobileLayout>
+  );
+};
 
 export default Purchase;

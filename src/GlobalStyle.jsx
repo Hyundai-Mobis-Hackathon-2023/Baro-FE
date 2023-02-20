@@ -45,7 +45,6 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-
   input {
     border: none;
     outline: none;
