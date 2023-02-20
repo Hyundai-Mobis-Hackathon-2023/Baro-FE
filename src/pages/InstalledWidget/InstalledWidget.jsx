@@ -6,6 +6,7 @@ import styled from "styled-components";
 import PurpleTalk from "./component/Purpletalk.png"
 import {GoPlus} from "react-icons/go"
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Title1 = styled.div`
     font-family: 'pretendard';
@@ -98,6 +99,7 @@ function CurrentWidgets (props){
 
 const InstalledWidget = () =>{
 
+    const navigate = useNavigate();
     const [kind,setKind] = useState("커스텀");
 
     function basicClick(){
@@ -114,7 +116,7 @@ const InstalledWidget = () =>{
                 <Title1>다양한 인포테인먼트</Title1>
                 <Title2>나만의 스타일로</Title2>
             </TitleTextWrapper>    
-            <PlusButton><GoPlus size="28" color="#9042EA"/></PlusButton>
+            <PlusButton onClick={()=>{navigate('/custom-widget')}}><GoPlus size="28" color="#9042EA"/></PlusButton>
         </TitleWrapper>
 
         <PurpleTalkWrapper src={PurpleTalk}></PurpleTalkWrapper>
