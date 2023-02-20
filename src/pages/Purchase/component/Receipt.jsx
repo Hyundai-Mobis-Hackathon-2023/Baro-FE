@@ -61,11 +61,11 @@ const SmallText = styled(Typography)`
   color: #707070;
 `;
 
-const Receipt = ({ userName, userNumber, selectedWay }) => {
+const Receipt = ({ userName, userNumber, selectedWay, category }) => {
   return (
     <ReceiptWrapper flexCenter column>
       <ReceiptTitle smallTitle style={{ fontFamily: "pretendard-bold" }}>
-        의료용 서비스 PBV
+        {category}용 서비스 PBV
       </ReceiptTitle>
       <Margin height="40" />
       <ReceiptTitle alertText>

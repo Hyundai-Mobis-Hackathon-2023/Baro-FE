@@ -1,12 +1,12 @@
-import MobileLayout from '../../component/MobileLayout/MobileLayout';
-import Typography from '../../component/Typography/Typhography';
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import Margin from '../../component/Margin/Margin';
-import Button from '../../component/Button/Button';
-import NumberKnob from './component/NumberKnob';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import MobileLayout from "../../component/MobileLayout/MobileLayout";
+import Typography from "../../component/Typography/Typhography";
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import Margin from "../../component/Margin/Margin";
+import Button from "../../component/Button/Button";
+import NumberKnob from "./component/NumberKnob";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const TitleWrapper = styled.div`
   width: 100%;
@@ -25,7 +25,7 @@ const SubTitleWrapper = styled(Typography)`
 
 const ButtonWrapper = styled.div`
   position: fixed;
-  bottom: 106px;
+  bottom: 72px;
 `;
 
 const DialNumberChoice = () => {
@@ -41,17 +41,20 @@ const DialNumberChoice = () => {
         },
         {
           headers: {
-            Authorization: `${localStorage.getItem('accessToken')}`,
+            Authorization: `${localStorage.getItem("accessToken")}`,
           },
         }
       )
       .then((r) => {
         console.log(r.data);
-        return axios.get(`${process.env.REACT_APP_API}/category/getSelectInfo`, {
-          headers: {
-            Authorization: `${localStorage.getItem('accessToken')}`,
-          },
-        });
+        return axios.get(
+          `${process.env.REACT_APP_API}/category/getSelectInfo`,
+          {
+            headers: {
+              Authorization: `${localStorage.getItem("accessToken")}`,
+            },
+          }
+        );
       })
       .then((r) => {
         console.log(r.data);
@@ -67,17 +70,17 @@ const DialNumberChoice = () => {
           입력해주세요
         </Typography>
       </TitleWrapper>
-      <Margin height='72' />
-      <SubTitleWrapper contentText color='white'>
+      <Margin height="72" />
+      <SubTitleWrapper contentText color="white">
         승차 인원
       </SubTitleWrapper>
-      <Margin height='10' />
-      <Typography maxNumberText color='mainRed'>
+      <Margin height="10" />
+      <Typography maxNumberText color="mainRed">
         최대 {maxNumber === 0 ? 10 : maxNumber}명
       </Typography>
       <NumberKnob maxNumber={maxNumber} setMaxNumber={setMaxNumber} />
       <ButtonWrapper>
-        <Button bgColor='mainRed' onClick={postPeopleCount}>
+        <Button bgColor="mainRed" onClick={postPeopleCount}>
           프리셋 보기
         </Button>
       </ButtonWrapper>

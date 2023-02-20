@@ -1,12 +1,14 @@
-import MobileLayout from "../../component/MobileLayout/MobileLayout";
-import { MdArrowBackIos } from "react-icons/md";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import MobileLayout from "../../component/MobileLayout/MobileLayout";
 import Typography from "../../component/Typography/Typhography";
 import Margin from "../../component/Margin/Margin";
 import Receipt from "./component/Receipt";
 import Button from "../../component/Button/Button";
-import { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import theme from "../../assets/theme/Theme";
+import { MdArrowBackIos } from "react-icons/md";
+import axios from "axios";
 
 const HeaderWrapper = styled.div`
   width: 390px;
@@ -54,6 +56,21 @@ const Purchase = () => {
   //예약자, 연락처 state
   const [userName, setUserName] = useState("나문희");
   const [userNumber, setUserNumber] = useState("010-0000-0000");
+  const { category, categoryEng } = theme;
+  const [curCategory, setCurCategory] = useState("");
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_API}/category/getSelectInfo`, {
+        headers: {
+          Authorization: `${localStorage.getItem("accessToken")}`,
+        },
+      })
+      .then((r) => {
+        console.log(r.data);
+        setCurCategory(r.data.result.categoryName);
+      });
+  }, []);
 
   return (
     <MobileLayout color="mainRed">
@@ -92,10 +109,11 @@ const Purchase = () => {
           userName={userName}
           userNumber={userNumber}
           selectedWay={selectedWay}
+          category={category[categoryEng.indexOf(curCategory)]}
         />
         <Margin height="51" />
         <Button bgColor="black">결제하기</Button>
-        <Margin height="62" />
+        <Margin height="72" />
       </ScrollWrapper>
     </MobileLayout>
   );
