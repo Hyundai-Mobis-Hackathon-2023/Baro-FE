@@ -1,6 +1,7 @@
-import styled from "styled-components";
-import Typography from "../Typography/Typhography";
-import theme from "../../assets/theme/Theme";
+import styled from 'styled-components';
+import Typography from '../Typography/Typhography';
+import theme from '../../assets/theme/Theme';
+import { Toast } from '../Toast/Toast';
 
 const Container = styled.div`
   width: 112px;
@@ -24,18 +25,18 @@ const Wrapper = styled.div`
 `;
 
 const SelectSize = () => (
-  <Wrapper>
+  <Wrapper onClick={() => Toast('아직 지원하지 않는 기능입니다.')}>
     <Container>
-      <Typography contentText color="alertRed">
+      <Typography contentText color='alertRed'>
         소형
       </Typography>
       <Line />
-      <Typography contentText color="gray">
+      <Typography contentText color='gray'>
         중형
       </Typography>
       <Line />
 
-      <Typography contentText color="gray">
+      <Typography contentText color='gray'>
         대형
       </Typography>
     </Container>
