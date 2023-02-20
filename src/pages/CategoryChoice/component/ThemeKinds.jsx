@@ -15,7 +15,7 @@ const ThemeAllWapper = styled.div`
 // 선택 버튼 fixed를 하기위한 div
 const ButtomFix = styled.div`
   position: fixed;
-  bottom: 70px;
+  bottom: 72px;
 `;
 
 const ThemeKinds = ({ currentSlide, setCurrentSlide, onClick }) => {
