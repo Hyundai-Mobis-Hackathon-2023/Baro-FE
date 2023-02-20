@@ -1,15 +1,15 @@
-import styled from 'styled-components';
-import { TbDownload } from 'react-icons/tb';
-import React, { useState } from 'react';
-import Margin from '../../../component/Margin/Margin';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import styled from "styled-components";
+import { TbDownload } from "react-icons/tb";
+import React, { useState } from "react";
+import Margin from "../../../component/Margin/Margin";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Button from "../../../component/Button/Button";
 
 const KindName = styled.div`
-  font-family: 'pretendard';
+  font-family: "pretendard-bold";
   font-size: 16px;
   line-height: 19.09px;
-  font-weight: 700;
   display: flex;
   width: 100%;
   margin: 8px;
@@ -25,6 +25,7 @@ const SectionWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 `;
+
 const EachWidgetWrapper = styled.div`
   width: 125px;
   height: auto;
@@ -34,6 +35,7 @@ const EachWidgetWrapper = styled.div`
   margin: 18px;
   margin-bottom: 0px;
 `;
+
 const ImgSection = styled.div`
   width: 125px;
   height: 125px;
@@ -44,40 +46,28 @@ const ImgSection = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 const ServiceImg = styled.img`
   width: 125px;
   height: 125px;
-  background: linear-gradient(140.1deg, #f2f2f4 7.1%, rgba(242, 242, 244, 0) 92.97%),
-    linear-gradient(90deg, rgba(253, 132, 220, 0.2) 3.12%, rgba(127, 214, 250, 0.2) 100%);
+  background: linear-gradient(
+      140.1deg,
+      #f2f2f4 7.1%,
+      rgba(242, 242, 244, 0) 92.97%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(253, 132, 220, 0.2) 3.12%,
+      rgba(127, 214, 250, 0.2) 100%
+    );
   border: 1px solid;
   border-radius: 24px;
-  border-color: ${(props) => (props.borderCheck === true ? '#7914FB' : '#F2F2F4')};
+  border-color: ${(props) =>
+    props.borderCheck === true ? "#7914FB" : "#F2F2F4"};
   object-fit: cover;
-`;
-const ButtonPositon = styled.div`
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  bottom: 100px;
-  left: 50%;
-  transform: translate(-50%, 0);
+  transition: 0.5s;
 `;
 
-const CustomButtom = styled.div`
-  width: 80px;
-  height: 42px;
-  background: ${(props) => props.buttonColor || '#737373'};
-  border-radius: 20px;
-  font-family: 'pretendard';
-  font-weight: 700;
-  font-size: 17.5px;
-  line-height: 21px;
-  color: #ffffff;
-  text-align: center;
-  padding-top: 12px;
-`;
 const StyledContainer = styled(ToastContainer)`
   .Toastify__toast {
     background: rgba(168, 172, 181, 0.8);
@@ -87,6 +77,20 @@ const StyledContainer = styled(ToastContainer)`
     font-size: 16px;
     color: #ffffff;
   }
+  .toast-alert {
+    width: 339px;
+    height: 47px;
+  }
+`;
+
+const ButtonPositon = styled.div`
+  width: 390px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  left: 50%;
+  bottom: 72px;
+  transform: translate(-50%, 0);
 `;
 
 //선택한 위젯 번호 담기는 배열
@@ -101,11 +105,17 @@ function Widget({ eachWidget, setLength, checking }) {
       setInstallCheck(!installCheck);
 
       //없다면 넣어줌
-      if (plusServiceArr.indexOf(eachWidget.key) == -1 && installCheck === false) {
+      if (
+        plusServiceArr.indexOf(eachWidget.key) == -1 &&
+        installCheck === false
+      ) {
         plusServiceArr.push(eachWidget.key);
       }
       //있는데 취소하면 없앰
-      else if (plusServiceArr.indexOf(eachWidget.key) !== -1 && installCheck === true) {
+      else if (
+        plusServiceArr.indexOf(eachWidget.key) !== -1 &&
+        installCheck === true
+      ) {
         plusServiceArr.splice(plusServiceArr.indexOf(eachWidget.key), 1);
       }
       setLength(plusServiceArr.length);
@@ -122,7 +132,7 @@ function Widget({ eachWidget, setLength, checking }) {
         </ImgSection>
         <KindName>
           {eachWidget.name}
-          <TbDownload style={{ marginBottom: '5px' }} size='18' />
+          <TbDownload style={{ marginBottom: "5px" }} size="18" />
         </KindName>
       </EachWidgetWrapper>
     </>
@@ -138,7 +148,7 @@ const RecommendService = (props) => {
     setCheck(!check);
   };
   const Notify = () => {
-    toast('선택이 완료되었습니다.');
+    toast("선택이 완료되었습니다.");
   };
 
   return (
@@ -149,33 +159,42 @@ const RecommendService = (props) => {
         ))}
       </SectionWrapper>
       <StyledContainer
-        position='bottom-center' // 알람 위치 지정
+        position="bottom-center" // 알람 위치 지정
         autoClose={1500} // 자동 off 시간
         hideProgressBar={true} // 진행시간바 숨김
         limit={1} // 알람 개수 제한
         closeOnClick={false}
-        style={{ width: '339px', height: '47px', marginBottom: '150px', borderRadius: '14px' }}
+        closeButton={false}
+        style={{
+          width: "339px",
+          height: "47px",
+          marginBottom: "140px",
+          borderRadius: "14px",
+        }}
       />
       <ButtonPositon>
         {check === false ? (
           <>
-            <CustomButtom buttonColor='#9042EA' onClick={ClickCheck}>
+            <Button small bgColor="purple" onClick={ClickCheck}>
               선택
-            </CustomButtom>
-            <Margin width='12' height='10' />
-            <CustomButtom buttonColor='#737373'>다음</CustomButtom>
+            </Button>
+            <Margin width="12" height="10" />
+            <Button small bgColor="gray">
+              다음
+            </Button>
           </>
         ) : (
           <>
-            <CustomButtom
-              buttonColor={plusServiceArr.length >= 1 ? '#9042EA' : '#737373'}
+            <Button
+              small
+              bgColor={plusServiceArr.length >= 1 ? "purple" : "gray"}
               onClick={() => {
                 ClickCheck();
                 Notify();
               }}
             >
               완료
-            </CustomButtom>
+            </Button>
           </>
         )}
       </ButtonPositon>

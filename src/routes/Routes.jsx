@@ -8,7 +8,7 @@ import NewUser from "../pages/NewUser/NewUser";
 import Start from "../pages/Start/Start";
 import Preset from "../pages/Preset/Preset";
 import MakeStart from "../pages/MakeStart/MakeStart";
-import InstalledWidget from "../pages/InstalledWidget/InstalledWidget";
+import InstalledWidget from "../pages/InstalledWidget/component/InstalledWidget";
 import CustomWidget from "../pages/CustomWidget/CustomWidget";
 import Custom from "../pages/Custom/Custom";
 import AIChat from "../pages/AIChat/AIChat";
