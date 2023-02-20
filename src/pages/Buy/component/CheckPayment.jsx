@@ -70,7 +70,7 @@ const CheckPayment = ({ name, number }) => {
       )
       .then((r) => {
         console.log(r.data);
-        navigate("/purchase/rental");
+        navigate("/purchase/buy");
       });
   };
 
@@ -96,15 +96,15 @@ const CheckPayment = ({ name, number }) => {
       <Margin height="20" />
       <PaymentInfoWrapper flexCenter justify="space-between">
         <Typography contentText color="darkGray">
-          대여 요금
+          구매 요금
         </Typography>
-        <Typography contentText>190,000원</Typography>
+        <Typography contentText>10,000,000원</Typography>
       </PaymentInfoWrapper>
       <PaymentInfoWrapper flexCenter justify="space-between">
         <Typography contentText color="darkGray">
-          이동 요금
+          수수료
         </Typography>
-        <Typography contentText>6,000원</Typography>
+        <Typography contentText>2,000,000원</Typography>
       </PaymentInfoWrapper>
       <StyledHr />
       <PaymentInfoWrapper flexCenter justify="space-between">
@@ -112,7 +112,7 @@ const CheckPayment = ({ name, number }) => {
           최종 요금
         </Typography>
         <Typography contentText>
-          <span style={{ color: "#559FF3" }}>196,000</span>원
+          <span style={{ color: "#559FF3" }}>12,000,000</span>원
         </Typography>
       </PaymentInfoWrapper>
       <ButtonWrapper>

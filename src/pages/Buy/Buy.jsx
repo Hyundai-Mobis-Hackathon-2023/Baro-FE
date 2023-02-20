@@ -48,7 +48,7 @@ const ArrowWrapper = styled.div`
   top: 119px;
 `;
 
-const Rental = () => {
+const Buy = () => {
   const progress = [1, 2, 3];
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(0);
@@ -66,7 +66,7 @@ const Rental = () => {
       <Flex flexCenter column style={{ zIndex: "2" }}>
         <StyledArrow onClick={backButtonClicked} />
         <Margin height="58" />
-        <Typography buttonText>대여</Typography>
+        <Typography buttonText>구매</Typography>
         <Margin height="35" />
         <ProgressWrapper>
           {progress.map((p) => {
@@ -107,4 +107,4 @@ const Rental = () => {
   );
 };
 
-export default Rental;
+export default Buy;
