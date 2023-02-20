@@ -7,6 +7,7 @@ import Margin from "../../component/Margin/Margin";
 import Receipt from "./component/Receipt";
 import Button from "../../component/Button/Button";
 import theme from "../../assets/theme/Theme";
+import Flex from "../../component/Flex/Flex";
 import { MdArrowBackIos } from "react-icons/md";
 import axios from "axios";
 
@@ -35,10 +36,8 @@ const TitleWrapper = styled.div`
 `;
 
 const ScrollWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: absolute;
+  top: 0;
   height: 100%;
   ::-webkit-scrollbar {
     display: none;
@@ -47,6 +46,10 @@ const ScrollWrapper = styled.div`
   scrollbar-width: none; /* 파이어폭스 */
   overflow-y: scroll;
   overflow-x: hidden;
+`;
+
+const ButtonWrapper = styled(Flex)`
+  width: 100%;
 `;
 
 const Purchase = () => {
@@ -112,7 +115,9 @@ const Purchase = () => {
           category={category[categoryEng.indexOf(curCategory)]}
         />
         <Margin height="51" />
-        <Button bgColor="black">결제하기</Button>
+        <ButtonWrapper>
+          <Button bgColor="black">결제하기</Button>
+        </ButtonWrapper>
         <Margin height="72" />
       </ScrollWrapper>
     </MobileLayout>

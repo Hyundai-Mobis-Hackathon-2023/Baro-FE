@@ -15,6 +15,7 @@ import AIChat from "../pages/AIChat/AIChat";
 import Rental from "./../pages/Rental/Rental";
 import Purchase from "../pages/Purchase/Purchase";
 import Buy from "../pages/Buy/Buy";
+import BuyRentalChoice from "../pages/BuyRentalChoice/BuyRentalChoice";
 
 const Router = () => (
   <BrowserRouter>
@@ -32,6 +33,7 @@ const Router = () => (
       <Route path="/custom-widget" element={<CustomWidget />} />
       <Route path="/custom" element={<Custom />} />
       <Route path="/ai-chat" element={<AIChat />} />
+      <Route path="/buy-rental-choice" element={<BuyRentalChoice />} />
       <Route path="/rental" element={<Rental />} />
       <Route path="/buy" element={<Buy />} />
       <Route path="/purchase/:selectedWay" element={<Purchase />} />

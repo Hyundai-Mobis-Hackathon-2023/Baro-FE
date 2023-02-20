@@ -30,7 +30,7 @@ const TextWrapper = styled.div`
 
 const ButtonWrapper = styled.div`
   position: fixed;
-  bottom: 74px;
+  bottom: 72px;
 `;
 
 const AIStart = () => {
