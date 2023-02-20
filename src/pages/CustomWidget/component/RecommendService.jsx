@@ -79,9 +79,6 @@ const CustomButtom = styled.div`
     padding-top: 12px;
 `
 const StyledContainer = styled(ToastContainer)`
-  &&&.Toastify__toast-container {
-    
-  }
   .Toastify__toast {
     background: rgba(168, 172, 181, 0.8);
     border-radius: 14px;
@@ -90,13 +87,9 @@ const StyledContainer = styled(ToastContainer)`
     font-size: 16px;
     color: #FFFFFF;
   }
-  .Toastify__toast-body {
-  }
-  .Toastify__progress-bar {
-    display:none;
-  }
 `;
 
+//선택한 위젯 번호 담기는 배열
 var plusServiceArr = [];
 
 
