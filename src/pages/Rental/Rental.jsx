@@ -101,12 +101,7 @@ const Rental = () => {
             setLocation={setLocation}
           />
         )}
-        {currentPage === 2 && (
-          <CheckPayment
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-          />
-        )}
+        {currentPage === 2 && <CheckPayment name={name} number={number} />}
       </AnimatePresence>
     </MobileLayout>
   );

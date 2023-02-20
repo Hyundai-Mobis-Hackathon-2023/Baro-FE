@@ -57,8 +57,8 @@ const Purchase = () => {
   const navigate = useNavigate();
   const selectedWay = params.selectedWay;
   //예약자, 연락처 state
-  const [userName, setUserName] = useState("나문희");
-  const [userNumber, setUserNumber] = useState("010-0000-0000");
+  const [userName, setUserName] = useState("");
+  const [userNumber, setUserNumber] = useState("");
   const { category, categoryEng } = theme;
   const [curCategory, setCurCategory] = useState("");
 
@@ -72,6 +72,18 @@ const Purchase = () => {
       .then((r) => {
         console.log(r.data);
         setCurCategory(r.data.result.categoryName);
+
+        axios
+          .get(`${process.env.REACT_APP_API}/user/orderInfo`, {
+            headers: {
+              Authorization: `${localStorage.getItem("accessToken")}`,
+            },
+          })
+          .then((d) => {
+            console.log(d.data);
+            setUserName(d.data.result.orderName);
+            setUserNumber(d.data.result.phoneNumber);
+          });
       });
   }, []);
 

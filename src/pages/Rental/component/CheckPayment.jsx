@@ -8,6 +8,7 @@ import { useNavigate } from "react-router";
 import { ReactComponent as Card } from "../svg/card.svg";
 import { MdArrowForwardIos } from "react-icons/md";
 import { motion } from "framer-motion";
+import axios from "axios";
 
 const StyledMotion = styled(motion.div)`
   width: 100%;
@@ -50,11 +51,27 @@ const ButtonWrapper = styled.div`
   bottom: 72px;
 `;
 
-const CheckPayment = ({ currentPage, setCurrentPage }) => {
+const CheckPayment = ({ name, number }) => {
   const navigate = useNavigate();
 
   const moveToNext = () => {
-    navigate("/purchase/rental");
+    axios
+      .post(
+        `${process.env.REACT_APP_API}/user/order`,
+        {
+          orderName: name,
+          phoneNumber: String(number),
+        },
+        {
+          headers: {
+            Authorization: `${localStorage.getItem("accessToken")}`,
+          },
+        }
+      )
+      .then((r) => {
+        console.log(r.data);
+        navigate("/purchase/rental");
+      });
   };
 
   return (
