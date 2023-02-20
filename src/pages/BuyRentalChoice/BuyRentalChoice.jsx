@@ -31,7 +31,7 @@ const ButtonWrapper = styled(Flex)`
   justify-content: space-between;
 `;
 
-const BuyRentalChoice = ({ currentPage, setCurrentPage }) => {
+const BuyRentalChoice = () => {
   const navigate = useNavigate();
 
   return (
