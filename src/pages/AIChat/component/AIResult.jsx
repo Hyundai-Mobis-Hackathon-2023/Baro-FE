@@ -57,7 +57,7 @@ const AIResult = ({ answer }) => {
   const selectedCategoryName = category[categoryEng.indexOf(answer.category)];
   const moveToPreset = () => {
     console.log(answer);
-    // navigate(`/preset/${answer.category}`);
+    navigate(`/preset/${answer.category}`);
   };
 
   return (

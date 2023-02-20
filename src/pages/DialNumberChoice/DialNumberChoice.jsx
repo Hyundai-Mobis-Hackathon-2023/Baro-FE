@@ -25,7 +25,7 @@ const SubTitleWrapper = styled(Typography)`
 
 const ButtonWrapper = styled.div`
   position: fixed;
-  bottom: 106px;
+  bottom: 72px;
 `;
 
 const DialNumberChoice = () => {
