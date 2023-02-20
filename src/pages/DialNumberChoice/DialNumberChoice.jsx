@@ -23,6 +23,21 @@ const SubTitleWrapper = styled(Typography)`
   ${(props) => props.theme.flex.flexCenter};
 `;
 
+const DialCenter = styled.div`
+  position: absolute;
+  top: 392px;
+  width: 38px;
+  height: 114px;
+  background: linear-gradient(
+    139.44deg,
+    rgba(255, 255, 255, 0.61) 14.1%,
+    rgba(243, 243, 243, 0.12) 84.31%
+  );
+  border: 0.5px solid #f1f1f1;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+`;
+
 const ButtonWrapper = styled.div`
   position: fixed;
   bottom: 72px;
@@ -78,6 +93,7 @@ const DialNumberChoice = () => {
       <Typography maxNumberText color="mainRed">
         최대 {maxNumber === 0 ? 10 : maxNumber}명
       </Typography>
+      <DialCenter />
       <NumberKnob maxNumber={maxNumber} setMaxNumber={setMaxNumber} />
       <ButtonWrapper>
         <Button bgColor="mainRed" onClick={postPeopleCount}>
