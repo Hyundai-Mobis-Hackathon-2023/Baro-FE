@@ -8,7 +8,7 @@ import NewUser from "../pages/NewUser/NewUser";
 import Start from "../pages/Start/Start";
 import Preset from "../pages/Preset/Preset";
 import MakeStart from "../pages/MakeStart/MakeStart";
-import InstalledWidget from "../pages/InstalledWidget/InstalledWidget";
+import InstalledWidget from "../pages/InstalledWidget/component/InstalledWidget";
 import CustomWidget from "../pages/CustomWidget/CustomWidget";
 import Custom from "../pages/Custom/Custom";
 import AIChat from "../pages/AIChat/AIChat";
@@ -16,6 +16,8 @@ import Rental from "./../pages/Rental/Rental";
 import Purchase from "../pages/Purchase/Purchase";
 import Buy from "../pages/Buy/Buy";
 import BuyRentalChoice from "../pages/BuyRentalChoice/BuyRentalChoice";
+import PurchaseEnd from "../pages/PurchaseEnd/PurchaseEnd";
+import Infortainment from "../pages/Infortainment/Infortainment";
 
 const Router = () => (
   <BrowserRouter>
@@ -37,6 +39,8 @@ const Router = () => (
       <Route path="/rental" element={<Rental />} />
       <Route path="/buy" element={<Buy />} />
       <Route path="/purchase/:selectedWay" element={<Purchase />} />
+      <Route path="/purchase-end" element={<PurchaseEnd />} />
+      <Route path="/infortainment" element={<Infortainment />} />
     </Routes>
   </BrowserRouter>
 );

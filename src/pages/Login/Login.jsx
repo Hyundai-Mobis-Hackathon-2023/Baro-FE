@@ -6,7 +6,8 @@ import Button from "../../component/Button/Button";
 import Toast from "../../component/Toast/Toast";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import MainLoading from "./component/MainLoading";
 
 const TitleWrapper = styled.div`
   width: 100%;
@@ -47,7 +48,14 @@ const IdInput = styled.input`
 
 const Login = () => {
   const navigate = useNavigate();
+  const [visible, setVisible] = useState(true);
   const [user, setUser] = useState({ id: "", password: "" });
+
+  useEffect(() => {
+    setTimeout(function () {
+      setVisible(false);
+    }, 2000);
+  });
 
   const loginHandler = () => {
     axios
@@ -75,6 +83,7 @@ const Login = () => {
   return (
     <>
       <MobileLayout loginShadow>
+        <MainLoading visible={visible} />
         <TitleWrapper>
           <Typography mainTitle>
             만나서 <br />

@@ -1,17 +1,21 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import Flex from "../../../component/Flex/Flex";
+import Typography from "./../../../component/Typography/Typhography";
 
-const Title = styled.div`
-  font-family: 'pretendard';
-  font-size: 22px;
-  font-weight: 700;
-  color: #f5f5f5;
-  margin-top: 33px;
-  margin-left: 43px;
+const AllWrapper = styled(Flex)`
+  width: 100%;
+  z-index: 2;
+`;
+
+const TitleWrapper = styled.div`
+  width: 314px;
+  text-align: left;
 `;
 
 const ServiceBoxWrapper = styled.div`
-  width: 100%;
-  height: auto;
+  width: 390px;
+  position: relative;
+  left: 0px;
   margin-top: 16px;
   white-space: nowrap;
   overflow-x: auto;
@@ -22,6 +26,7 @@ const ServiceBoxWrapper = styled.div`
     display: none;
   }
 `;
+
 const ServiceBox = styled.img`
   width: 85px;
   height: 85px;
@@ -32,25 +37,20 @@ const ServiceBox = styled.img`
   display: inline-block;
 `;
 
-// 아이콘들이 화면 밖으로 넘어가길래 임시로 추가한 컴포넌트
-const TempWrapper = styled.div`
-  width: 389px;
-  position: relative;
-  left: 4px;
-`;
-
 const InstalledService = (props) => {
   return (
-    <>
-      <Title>설치된 서비스</Title>
-      <TempWrapper>
-        <ServiceBoxWrapper>
-          {props.Services.map((Service) => {
-            return <ServiceBox src={Service.img}></ServiceBox>;
-          })}
-        </ServiceBoxWrapper>
-      </TempWrapper>
-    </>
+    <AllWrapper flexCenter column>
+      <TitleWrapper>
+        <Typography buttonText color="white">
+          설치된 서비스
+        </Typography>
+      </TitleWrapper>
+      <ServiceBoxWrapper>
+        {props.Services.map((Service) => {
+          return <ServiceBox src={Service.img}></ServiceBox>;
+        })}
+      </ServiceBoxWrapper>
+    </AllWrapper>
   );
 };
 
