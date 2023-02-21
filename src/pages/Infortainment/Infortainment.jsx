@@ -7,6 +7,9 @@ import Flex from "../../component/Flex/Flex";
 import MapInfo from "./component/MapInfo";
 import CarTemper from "./component/CarTemper";
 import Music from "./component/Music";
+import Calendar from "./component/Calendar";
+import AppTray from "./component/AppTray";
+import Window from "./component/Window";
 
 const Infortainment = () => {
   const [visible, setVisible] = useState(false);
@@ -20,7 +23,9 @@ const Infortainment = () => {
     <InfotainmentLayout>
       <MapInfo />
       <CarTemper />
+      <Calendar />
       <Music />
+      <AppTray />
     </InfotainmentLayout>
   );
 };

@@ -11,6 +11,10 @@ const InfotainmentView = styled.div`
   width: 1920px;
   height: 655px;
   display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0px 68px;
+  align-items: center;
   // 선은 쉽게 보기위한 용도. 나중에 지울 거임
   border: 1px solid black;
   flex-wrap: wrap;
