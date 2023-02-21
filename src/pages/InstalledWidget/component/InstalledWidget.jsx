@@ -1,29 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MobileLayout from "../../../component/MobileLayout/MobileLayout";
 import KindWidgets from "./KindWidgets";
 import Typography from "../../../component/Typography/Typhography";
+import { ReactComponent as Header } from "./header.svg";
 import styled from "styled-components";
-import PurpleTalk from "./Purpletalk.png";
 import { GoPlus } from "react-icons/go";
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import Margin from "../../../component/Margin/Margin";
+import Flex from "./../../../component/Flex/Flex";
 
-const Title1 = styled.div`
-  font-family: "pretendard";
-  font-size: 26px;
-  line-height: 40px;
-  font-weight: 500;
+const HeaderSvg = styled(Header)`
+  position: absolute;
+  top: 0;
+  filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.1));
 `;
 
-const Title2 = styled.div`
-  font-family: "pretendard";
-  font-size: 26px;
-  line-height: 31.03px;
-  font-weight: 700;
+const HeaderWrapper = styled(Flex)`
+  width: 390px;
+  z-index: 2;
+  background: #f5f5f5;
+`;
+
+const TitleWrapper = styled(Flex)`
+  width: 310px;
+  margin-top: 80px;
+  z-index: 3;
+  justify-content: space-between;
+`;
+
+const TitleTextWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 const PlusButton = styled.button`
-  width: 68px;
+  width: 48px;
   height: 48px;
   background: rgba(166, 111, 229, 0.54);
   border-radius: 12px;
@@ -32,50 +44,40 @@ const PlusButton = styled.button`
   justify-content: center;
   align-items: center;
   margin-top: 5px;
+  cursor: pointer;
 `;
 
-const TitleWrapper = styled.div`
-  width: auto;
-  height: auto;
-  display: flex;
-  align-content: center;
-  margin: 40px;
-  margin-top: 80px;
-`;
-
-const TitleTextWrapper = styled.div`
-  width: auto;
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-`;
 const KindText = styled.div`
   font-family: "pretendard";
   font-size: 20px;
   font-weight: 600;
   width: 53px;
   height: auto;
+  padding-bottom: 2px;
   border-bottom: 2px solid black;
   margin-left: 40px;
+  z-index: 3;
+  cursor: pointer;
 `;
+
 const KindTextWrapper = styled.div`
   width: 100%;
   height: auto;
   display: flex;
-  margin-bottom: 38px;
+  padding-bottom: 38px;
 `;
 
-const PurpleTalkWrapper = styled.img`
-  width: 392px;
-  height: 225px;
-  position: relative;
-  top: -60px;
-`;
-
-const WidgetWrapper = styled.div`
-  position: relative;
-  top: -55px;
+const ScrollWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  height: 100%;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
+  overflow-y: scroll;
+  overflow-x: hidden;
 `;
 
 //값을 받을때, Widgets과 종류에 대한 값 두개씩을 줘야함.
@@ -123,23 +125,40 @@ const InstalledWidget = () => {
 
   return (
     <MobileLayout>
-      <TitleWrapper>
-        <TitleTextWrapper>
-          <Title1>다양한 인포테인먼트</Title1>
-          <Title2>나만의 스타일로</Title2>
-        </TitleTextWrapper>
-        <PlusButton
-          onClick={() => {
-            navigate("/custom-widget");
-          }}
+      <HeaderWrapper flexCenter column>
+        <HeaderSvg />
+        <TitleWrapper flexCenter>
+          <TitleTextWrapper>
+            <Typography mainTitle>
+              <span style={{ fontFamily: "pretendard-medium" }}>
+                다양한 인포테인먼트를
+              </span>
+              <br />
+              나만의 스타일로
+            </Typography>
+          </TitleTextWrapper>
+          <PlusButton
+            onClick={() => {
+              navigate("/custom-widget");
+            }}
+          >
+            <GoPlus size="28" color="#9042EA" />
+          </PlusButton>
+        </TitleWrapper>
+        <Margin height="74" />
+        <Typography
+          contentText
+          color="white"
+          style={{ fontSize: "20px", zIndex: "3" }}
         >
-          <GoPlus size="28" color="#9042EA" />
-        </PlusButton>
-      </TitleWrapper>
-
-      <PurpleTalkWrapper src={PurpleTalk}></PurpleTalkWrapper>
-
-      <WidgetWrapper>
+          기본 세팅은 다음과 같아요
+        </Typography>
+        <MdKeyboardArrowDown
+          size="36px"
+          color="#ffffff"
+          style={{ zIndex: "3" }}
+        ></MdKeyboardArrowDown>
+        <Margin height="56" />
         <KindTextWrapper>
           <KindText
             style={{
@@ -154,15 +173,19 @@ const InstalledWidget = () => {
             style={{
               color: kind === "커스텀" ? "#E53E3E" : "#1B1313",
               borderBlockColor: kind === "커스텀" ? "#E53E3E" : "#1B1313",
+              marginLeft: "24px",
             }}
             onClick={customClick}
           >
             커스텀
           </KindText>
         </KindTextWrapper>
+      </HeaderWrapper>
 
+      <ScrollWrapper>
+        <Margin height="381" />
         <CurrentWidgets current={kind} />
-      </WidgetWrapper>
+      </ScrollWrapper>
     </MobileLayout>
   );
 };
