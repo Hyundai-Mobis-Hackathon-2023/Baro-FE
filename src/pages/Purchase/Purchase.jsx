@@ -57,6 +57,7 @@ const Purchase = () => {
   const navigate = useNavigate();
   const selectedWay = params.selectedWay;
   //예약자, 연락처 state
+  const [location, setLocation] = useState("");
   const [userName, setUserName] = useState("");
   const [userNumber, setUserNumber] = useState("");
   const { category, categoryEng } = theme;
@@ -121,6 +122,7 @@ const Purchase = () => {
       <ScrollWrapper>
         <Margin height="248" />
         <Receipt
+          location={"보코 서울 강남"}
           userName={userName}
           userNumber={userNumber}
           selectedWay={selectedWay}
