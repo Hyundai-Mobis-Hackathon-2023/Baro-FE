@@ -6,6 +6,8 @@ import InfotainmentLayout from "../../component/InfotainmentLayout/InfotainmentL
 import Flex from "../../component/Flex/Flex";
 import MapInfo from "./component/MapInfo";
 import CarTemper from "./component/CarTemper";
+import Calendar from "./component/Calendar";
+
 
 const Infortainment = () => {
   const [visible, setVisible] = useState(false);
@@ -19,7 +21,9 @@ const Infortainment = () => {
     <InfotainmentLayout>
       <MapInfo />
       <CarTemper />
+      <Calendar/>
     </InfotainmentLayout>
+    
   );
 };
 // <Welcome visible={visible} />
