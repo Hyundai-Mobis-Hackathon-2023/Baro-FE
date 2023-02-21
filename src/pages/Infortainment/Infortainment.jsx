@@ -4,7 +4,7 @@ import styled from "styled-components";
 // import axios from "axios";
 import InfotainmentLayout from "../../component/InfotainmentLayout/InfotainmentLayout";
 import Flex from "../../component/Flex/Flex";
-import Map from "./component/Map";
+import MapInfo from "./component/MapInfo";
 
 const Infortainment = () => {
   const [visible, setVisible] = useState(false);
@@ -16,7 +16,7 @@ const Infortainment = () => {
 
   return (
     <InfotainmentLayout>
-      <Map />
+      <MapInfo />
     </InfotainmentLayout>
   );
 };
