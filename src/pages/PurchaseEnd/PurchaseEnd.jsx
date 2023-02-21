@@ -21,7 +21,7 @@ const PurchaseEnd = () => {
   const navigate = useNavigate();
   useEffect(() => {
     setTimeout(function () {
-      navigate("/");
+      navigate("/infortainment");
     }, 7000);
   });
 
