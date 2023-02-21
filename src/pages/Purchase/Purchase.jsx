@@ -128,7 +128,9 @@ const Purchase = () => {
         />
         <Margin height="51" />
         <ButtonWrapper>
-          <Button bgColor="black">결제하기</Button>
+          <Button bgColor="black" onClick={() => navigate("/purchase-end")}>
+            결제하기
+          </Button>
         </ButtonWrapper>
         <Margin height="72" />
       </ScrollWrapper>
