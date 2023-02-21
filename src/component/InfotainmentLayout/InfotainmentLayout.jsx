@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import Flex from '../Flex/Flex';
+import styled from "styled-components";
+import Flex from "../Flex/Flex";
 
 const Background = styled(Flex)`
   width: 100%;
@@ -15,9 +15,9 @@ const InfotainmentView = styled.div`
   border: 1px solid black;
 `;
 
-const InfotainmentLayout = () => (
+const InfotainmentLayout = ({ children }) => (
   <Background>
-    <InfotainmentView>jhihih</InfotainmentView>
+    <InfotainmentView>{children}</InfotainmentView>
   </Background>
 );
 
