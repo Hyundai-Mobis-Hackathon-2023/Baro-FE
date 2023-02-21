@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import Flex from '../Flex/Flex';
+import styled from "styled-components";
+import Flex from "../Flex/Flex";
 
 const Background = styled(Flex)`
   width: 100%;
@@ -10,14 +10,15 @@ const Background = styled(Flex)`
 const InfotainmentView = styled.div`
   width: 1920px;
   height: 655px;
-
+  display: flex;
   // 선은 쉽게 보기위한 용도. 나중에 지울 거임
   border: 1px solid black;
+  flex-wrap: wrap;
 `;
 
-const InfotainmentLayout = () => (
+const InfotainmentLayout = ({ children }) => (
   <Background>
-    <InfotainmentView>jhihih</InfotainmentView>
+    <InfotainmentView>{children}</InfotainmentView>
   </Background>
 );
 

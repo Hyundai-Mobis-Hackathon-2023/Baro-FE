@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { StyledComponent } from "styled-components";
-import Welcome from "./component/Welcome";
-import axios from "axios";
+import styled from "styled-components";
+// import Welcome from "./component/Welcome";
+// import axios from "axios";
+import InfotainmentLayout from "../../component/InfotainmentLayout/InfotainmentLayout";
+import Flex from "../../component/Flex/Flex";
+import MapInfo from "./component/MapInfo";
+import CarTemper from "./component/CarTemper";
 
 const Infortainment = () => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   useEffect(() => {
     setTimeout(function () {
       setVisible(false);
@@ -12,10 +16,12 @@ const Infortainment = () => {
   }, []);
 
   return (
-    <div>
-      <Welcome visible={visible} />
-    </div>
+    <InfotainmentLayout>
+      <MapInfo />
+      <CarTemper />
+    </InfotainmentLayout>
   );
 };
+// <Welcome visible={visible} />
 
 export default Infortainment;
