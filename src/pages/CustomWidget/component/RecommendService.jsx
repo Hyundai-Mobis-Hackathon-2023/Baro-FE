@@ -5,6 +5,7 @@ import Margin from "../../../component/Margin/Margin";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Button from "../../../component/Button/Button";
+import { useNavigate } from "react-router-dom";
 
 const KindName = styled.div`
   font-family: "pretendard-bold";
@@ -141,6 +142,7 @@ function Widget({ eachWidget, setLength, checking }) {
 
 //map으로 뿌려주는 부분
 const RecommendService = (props) => {
+  const navigate = useNavigate();
   const [check, setCheck] = useState(false);
   const [length, setLength] = useState(0);
 
@@ -179,7 +181,11 @@ const RecommendService = (props) => {
               선택
             </Button>
             <Margin width="12" height="10" />
-            <Button small bgColor="gray">
+            <Button
+              small
+              bgColor="gray"
+              onClick={() => navigate("/buy-rental-choice")}
+            >
               다음
             </Button>
           </>

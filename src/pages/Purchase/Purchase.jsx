@@ -57,6 +57,7 @@ const Purchase = () => {
   const navigate = useNavigate();
   const selectedWay = params.selectedWay;
   //예약자, 연락처 state
+  const [location, setLocation] = useState("");
   const [userName, setUserName] = useState("");
   const [userNumber, setUserNumber] = useState("");
   const { category, categoryEng } = theme;
@@ -83,6 +84,7 @@ const Purchase = () => {
             console.log(d.data);
             setUserName(d.data.result.orderName);
             setUserNumber(d.data.result.phoneNumber);
+            setLocation(d.data.result.address);
           });
       });
   }, []);
@@ -121,6 +123,7 @@ const Purchase = () => {
       <ScrollWrapper>
         <Margin height="248" />
         <Receipt
+          location={location}
           userName={userName}
           userNumber={userNumber}
           selectedWay={selectedWay}

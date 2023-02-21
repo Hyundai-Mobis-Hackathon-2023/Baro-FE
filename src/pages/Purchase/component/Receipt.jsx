@@ -1,8 +1,13 @@
+/* global kakao */
 import styled, { css } from "styled-components";
 import Typography from "../../../component/Typography/Typhography";
 import Margin from "../../../component/Margin/Margin";
 import { BsFillExclamationCircleFill } from "react-icons/bs";
 import Flex from "../../../component/Flex/Flex";
+import { Map, MapMarker } from "react-kakao-maps-sdk";
+import { useState } from "react";
+import { useEffect } from "react";
+const { kakao } = window;
 
 const ReceiptWrapper = styled(Flex)`
   width: 360px;
@@ -41,11 +46,12 @@ const PaymentInfoWrapper = styled(Flex)`
   justify-content: space-between;
 `;
 
-const RentalBox = styled.div`
+const StyledMap = styled(Map)`
   width: 310px;
   height: 197px;
-  background: #d9d9d9;
   border-radius: 6px;
+  border: 1px solid #bdbdbd;
+  margin-top: 8px;
 `;
 
 const CautionWrapper = styled.div`
@@ -61,7 +67,22 @@ const SmallText = styled(Typography)`
   color: #707070;
 `;
 
-const Receipt = ({ userName, userNumber, selectedWay, category }) => {
+const Receipt = ({ userName, userNumber, selectedWay, category, location }) => {
+  const [latitude, setLatitude] = useState(37.44937029089704);
+  const [longitude, setLongitude] = useState(126.65436049042351);
+
+  useEffect(() => {
+    let ps = new kakao.maps.services.Places();
+    const placesSearchCB = function (data, status, pagination) {
+      if (status === kakao.maps.services.Status.OK) {
+        const newSearch = data[0];
+        setLatitude(newSearch.y);
+        setLongitude(newSearch.x);
+      }
+    };
+    ps.keywordSearch(location, placesSearchCB);
+  }, [location]);
+
   return (
     <ReceiptWrapper flexCenter column>
       <ReceiptTitle smallTitle style={{ fontFamily: "pretendard-bold" }}>
@@ -86,16 +107,24 @@ const Receipt = ({ userName, userNumber, selectedWay, category }) => {
         <Typography contentText>{userNumber}</Typography>
       </PaymentInfoWrapper>
       <Margin height="32" />
-      {selectedWay === "buy" ? (
-        ""
-      ) : (
-        <>
-          <ReceiptTitle alertText>대여시간 안내</ReceiptTitle>
-          <StyledHr />
-          <RentalBox />
-          <Margin height="40" />
-        </>
-      )}
+
+      <ReceiptTitle alertText>차량 도착 정보</ReceiptTitle>
+      <StyledHr />
+      <PaymentInfoWrapper flexCenter justify="space-between">
+        <Typography contentText color="darkGray">
+          주소
+        </Typography>
+        <Typography contentText>{location}</Typography>
+      </PaymentInfoWrapper>
+      <StyledMap
+        center={{ lat: latitude, lng: longitude }}
+        isPanto={true}
+        draggable={false}
+        zoomable={false}
+      >
+        <MapMarker position={{ lat: latitude, lng: longitude }} />
+      </StyledMap>
+      <Margin height="40" />
 
       <ReceiptTitle alertText>결제 정보를 확인해주세요.</ReceiptTitle>
       <Margin height="20" />
@@ -157,7 +186,7 @@ const Receipt = ({ userName, userNumber, selectedWay, category }) => {
           <Margin width="5" />
           <SmallText>
             대여시간 수수료 부과 정책에 따라 추가비용이 발생한다는 점<br />
-            유의하시길 바랍니다. 대여 전 위의 안내사항을 확인해주세요.
+            유의하시길 바랍니다. 대여 전 안내사항을 확인해주세요.
           </SmallText>
         </CautionWrapper>
       )}
