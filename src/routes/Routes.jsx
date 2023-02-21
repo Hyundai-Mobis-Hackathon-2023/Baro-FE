@@ -16,6 +16,7 @@ import Rental from "./../pages/Rental/Rental";
 import Purchase from "../pages/Purchase/Purchase";
 import Buy from "../pages/Buy/Buy";
 import BuyRentalChoice from "../pages/BuyRentalChoice/BuyRentalChoice";
+import PurchaseEnd from "../pages/PurchaseEnd/PurchaseEnd";
 
 const Router = () => (
   <BrowserRouter>
@@ -37,6 +38,7 @@ const Router = () => (
       <Route path="/rental" element={<Rental />} />
       <Route path="/buy" element={<Buy />} />
       <Route path="/purchase/:selectedWay" element={<Purchase />} />
+      <Route path="/purchase-end" element={<PurchaseEnd />} />
     </Routes>
   </BrowserRouter>
 );
