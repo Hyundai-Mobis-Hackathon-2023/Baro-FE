@@ -51,7 +51,7 @@ const ButtonWrapper = styled.div`
   bottom: 72px;
 `;
 
-const CheckPayment = ({ name, number }) => {
+const CheckPayment = ({ name, number, location }) => {
   const navigate = useNavigate();
 
   const moveToNext = () => {
@@ -61,6 +61,7 @@ const CheckPayment = ({ name, number }) => {
         {
           orderName: name,
           phoneNumber: String(number),
+          address: location,
         },
         {
           headers: {

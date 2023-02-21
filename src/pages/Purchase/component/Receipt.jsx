@@ -74,7 +74,6 @@ const Receipt = ({ userName, userNumber, selectedWay, category, location }) => {
   useEffect(() => {
     let ps = new kakao.maps.services.Places();
     const placesSearchCB = function (data, status, pagination) {
-      const ps = new kakao.maps.services.Places();
       if (status === kakao.maps.services.Status.OK) {
         const newSearch = data[0];
         setLatitude(newSearch.y);
@@ -82,7 +81,7 @@ const Receipt = ({ userName, userNumber, selectedWay, category, location }) => {
       }
     };
     ps.keywordSearch(location, placesSearchCB);
-  }, []);
+  }, [location]);
 
   return (
     <ReceiptWrapper flexCenter column>

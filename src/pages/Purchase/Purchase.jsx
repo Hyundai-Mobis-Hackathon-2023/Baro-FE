@@ -84,6 +84,7 @@ const Purchase = () => {
             console.log(d.data);
             setUserName(d.data.result.orderName);
             setUserNumber(d.data.result.phoneNumber);
+            setLocation(d.data.result.address);
           });
       });
   }, []);
@@ -122,7 +123,7 @@ const Purchase = () => {
       <ScrollWrapper>
         <Margin height="248" />
         <Receipt
-          location={"보코 서울 강남"}
+          location={location}
           userName={userName}
           userNumber={userNumber}
           selectedWay={selectedWay}

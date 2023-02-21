@@ -101,7 +101,9 @@ const Rental = () => {
             setLocation={setLocation}
           />
         )}
-        {currentPage === 2 && <CheckPayment name={name} number={number} />}
+        {currentPage === 2 && (
+          <CheckPayment name={name} number={number} location={location} />
+        )}
       </AnimatePresence>
     </MobileLayout>
   );
