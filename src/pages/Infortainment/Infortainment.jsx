@@ -10,6 +10,7 @@ import Music from "./component/Music";
 import Calendar from "./component/Calendar";
 import AppTray from "./component/AppTray";
 import Window from "./component/Window";
+import Calendar from "./component/Calendar";
 
 const Infortainment = () => {
   const [visible, setVisible] = useState(false);
@@ -27,6 +28,7 @@ const Infortainment = () => {
       <Music />
       <AppTray />
     </InfotainmentLayout>
+    
   );
 };
 // <Welcome visible={visible} />
