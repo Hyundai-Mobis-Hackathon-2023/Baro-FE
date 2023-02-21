@@ -5,6 +5,7 @@ import styled from "styled-components";
 import InfotainmentLayout from "../../component/InfotainmentLayout/InfotainmentLayout";
 import Flex from "../../component/Flex/Flex";
 import MapInfo from "./component/MapInfo";
+import CarTemper from "./component/CarTemper";
 
 const Infortainment = () => {
   const [visible, setVisible] = useState(false);
@@ -17,6 +18,7 @@ const Infortainment = () => {
   return (
     <InfotainmentLayout>
       <MapInfo />
+      <CarTemper />
     </InfotainmentLayout>
   );
 };

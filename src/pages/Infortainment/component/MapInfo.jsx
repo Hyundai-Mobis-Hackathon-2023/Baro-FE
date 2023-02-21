@@ -114,12 +114,7 @@ const MapInfo = () => {
         </PowerWrapper>
       </TopWrapper>
       <Margin height="20" />
-      <StyledMap
-        center={{ lat: latitude, lng: longitude }}
-        isPanto={true}
-        draggable={false}
-        zoomable={false}
-      >
+      <StyledMap center={{ lat: latitude, lng: longitude }} isPanto={true}>
         <MapInfoWrapper>
           <Typography maxNumberText color="white" style={{ fontSize: "20px" }}>
             {location}
