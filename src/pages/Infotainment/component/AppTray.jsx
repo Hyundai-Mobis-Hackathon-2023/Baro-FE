@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Flex from "../../../component/Flex/Flex";
 import styled from "styled-components";
 import IconWrapper from "./IconWrapper";
@@ -56,6 +57,23 @@ const YoutubeWrapper = styled.div`
 
 const AppTray = ({ isInternet, setIsInternet }) => {
   const [isYoutube, setIsYoutube] = useState(false);
+  const [customList, setCustomList] = useState([]);
+
+  useEffect(() => {
+    axios
+      .post(
+        `${process.env.REACT_APP_API}/custom/getCustomList`,
+        { customRecord: parseInt(`${localStorage.getItem("customRecord")}`) },
+        {
+          headers: {
+            Authorization: `${localStorage.getItem("accessToken")}`,
+          },
+        }
+      )
+      .then((r) => {
+        setCustomList(r.data.result.customNumberList);
+      });
+  }, []);
 
   return (
     <TrayWrapper isYoutube={isYoutube}>
@@ -93,13 +111,17 @@ const AppTray = ({ isInternet, setIsInternet }) => {
         </YoutubeWrapper>
       ) : (
         <ScrollWrapper>
-          <Zoom />
-          <YoutubeIcon isYoutube={isYoutube} setIsYoutube={setIsYoutube} />
-          <Netflix />
-          <Mail />
-          <Chrome isInternet={isInternet} setIsInternet={setIsInternet} />
-          <Amazon />
-          <Hyundai />
+          {customList.indexOf(19) !== -1 && <Zoom />}
+          {customList.indexOf(20) !== -1 && (
+            <YoutubeIcon isYoutube={isYoutube} setIsYoutube={setIsYoutube} />
+          )}
+          {customList.indexOf(21) !== -1 && <Netflix />}
+          {customList.indexOf(22) !== -1 && <Mail />}
+          {customList.indexOf(23) !== -1 && (
+            <Chrome isInternet={isInternet} setIsInternet={setIsInternet} />
+          )}
+          {customList.indexOf(24) !== -1 && <Amazon />}
+          {customList.indexOf(25) !== -1 && <Hyundai />}
           <IconWrapper />
           <IconWrapper />
           <IconWrapper />
