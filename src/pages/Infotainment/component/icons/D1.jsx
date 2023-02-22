@@ -9,10 +9,13 @@ const StyledImage = styled.img`
   object-fit: cover;
 `;
 
-const D1 = () => {
+const D1 = ({ currentIndex, setCurrentIndex }) => {
+  const buttonClicked = () => {
+    setCurrentIndex(1);
+  };
   return (
     <IconWrapper>
-      <StyledImage src={d1} />
+      <StyledImage src={d1} onClick={buttonClicked} />
     </IconWrapper>
   );
 };

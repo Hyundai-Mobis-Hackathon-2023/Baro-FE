@@ -24,6 +24,12 @@ import D10 from "./icons/D10";
 import D11 from "./icons/D11";
 import D15 from "./icons/D15";
 import D17 from "./icons/D17";
+import CarryingWeight from "./CarryingWeight";
+import Purchase from "./Purchase";
+import Refrigerator from "./Refrigerator";
+import Switch from "./Switch";
+import Medical from "./Medical";
+import Speaker from "./Speaker";
 
 const TrayWrapper = styled(Flex)`
   width: 600px;
@@ -68,9 +74,14 @@ const YoutubeWrapper = styled.div`
 `;
 
 const AppTray = ({ isInternet, setIsInternet }) => {
+  const [currentIndex, setCurrentIndex] = useState(-1);
   const [isYoutube, setIsYoutube] = useState(false);
   const [basicList, setBasicList] = useState([]);
   const [customList, setCustomList] = useState([]);
+
+  useEffect(() => {
+    console.log(currentIndex);
+  }, [currentIndex]);
 
   useEffect(() => {
     axios
@@ -103,67 +114,168 @@ const AppTray = ({ isInternet, setIsInternet }) => {
   }, []);
 
   return (
-    <TrayWrapper isYoutube={isYoutube}>
-      {isYoutube ? (
-        <YoutubeWrapper>
-          <IoClose
-            onClick={() => setIsYoutube(!isYoutube)}
-            color="white"
-            size="30"
-            style={{
-              position: "absolute",
-              marginLeft: "20px",
-              marginTop: "20px",
-              cursor: "pointer",
-              backgroundColor: "rgba(0, 0, 0, 0.6)",
-              borderRadius: "20px",
-            }}
-          ></IoClose>
+    <>
+      {currentIndex === -1 && (
+        <TrayWrapper isYoutube={isYoutube}>
+          {isYoutube ? (
+            <YoutubeWrapper>
+              <IoClose
+                onClick={() => setIsYoutube(!isYoutube)}
+                color="white"
+                size="30"
+                style={{
+                  position: "absolute",
+                  marginLeft: "20px",
+                  marginTop: "20px",
+                  cursor: "pointer",
+                  backgroundColor: "rgba(0, 0, 0, 0.6)",
+                  borderRadius: "20px",
+                }}
+              ></IoClose>
 
-          <YouTube
-            videoId="HYGhruNONH8"
-            opts={{
-              width: "600",
-              height: "600",
-              playerVars: {
-                autoplay: 1,
-                rel: 0,
-                modestbranding: 1,
-              },
-            }}
-            onEnd={(e) => {
-              e.target.stopVideo(0);
-            }}
-          />
-        </YoutubeWrapper>
-      ) : (
-        <ScrollWrapper>
-          {basicList.indexOf(0) !== -1 && <D0 />}
-          {basicList.indexOf(1) !== -1 && <D1 />}
-          {basicList.indexOf(3) !== -1 && <D3 />}
-          {basicList.indexOf(4) !== -1 && <D4 />}
-          {basicList.indexOf(5) !== -1 && <D5 />}
-          {basicList.indexOf(6) !== -1 && <D6 />}
-          {basicList.indexOf(7) !== -1 && <D7 />}
-          {basicList.indexOf(9) !== -1 && <D9 />}
-          {basicList.indexOf(10) !== -1 && <D10 />}
-          {basicList.indexOf(11) !== -1 && <D11 />}
-          {basicList.indexOf(15) !== -1 && <D15 />}
-          {basicList.indexOf(17) !== -1 && <D17 />}
-          {customList.indexOf(19) !== -1 && <Zoom />}
-          {customList.indexOf(20) !== -1 && (
-            <YoutubeIcon isYoutube={isYoutube} setIsYoutube={setIsYoutube} />
+              <YouTube
+                videoId="HYGhruNONH8"
+                opts={{
+                  width: "600",
+                  height: "600",
+                  playerVars: {
+                    autoplay: 1,
+                    rel: 0,
+                    modestbranding: 1,
+                  },
+                }}
+                onEnd={(e) => {
+                  e.target.stopVideo(0);
+                }}
+              />
+            </YoutubeWrapper>
+          ) : (
+            <ScrollWrapper>
+              {customList.indexOf(19) !== -1 && <Zoom />}
+              {customList.indexOf(20) !== -1 && (
+                <YoutubeIcon
+                  isYoutube={isYoutube}
+                  setIsYoutube={setIsYoutube}
+                />
+              )}
+              {customList.indexOf(21) !== -1 && <Netflix />}
+              {customList.indexOf(22) !== -1 && <Mail />}
+              {customList.indexOf(23) !== -1 && (
+                <Chrome isInternet={isInternet} setIsInternet={setIsInternet} />
+              )}
+              {customList.indexOf(24) !== -1 && <Amazon />}
+              {customList.indexOf(25) !== -1 && <Hyundai />}
+
+              {basicList.indexOf(0) !== -1 && (
+                <D0
+                  currentIndex={currentIndex}
+                  setCurrentIndex={setCurrentIndex}
+                />
+              )}
+              {basicList.indexOf(1) !== -1 && (
+                <D1
+                  currentIndex={currentIndex}
+                  setCurrentIndex={setCurrentIndex}
+                />
+              )}
+              {basicList.indexOf(3) !== -1 && (
+                <D3
+                  currentIndex={currentIndex}
+                  setCurrentIndex={setCurrentIndex}
+                />
+              )}
+              {basicList.indexOf(4) !== -1 && (
+                <D4
+                  currentIndex={currentIndex}
+                  setCurrentIndex={setCurrentIndex}
+                />
+              )}
+              {basicList.indexOf(5) !== -1 && (
+                <D5
+                  currentIndex={currentIndex}
+                  setCurrentIndex={setCurrentIndex}
+                />
+              )}
+              {basicList.indexOf(6) !== -1 && (
+                <D6
+                  currentIndex={currentIndex}
+                  setCurrentIndex={setCurrentIndex}
+                />
+              )}
+              {basicList.indexOf(7) !== -1 && (
+                <D7
+                  currentIndex={currentIndex}
+                  setCurrentIndex={setCurrentIndex}
+                />
+              )}
+              {basicList.indexOf(9) !== -1 && (
+                <D9
+                  currentIndex={currentIndex}
+                  setCurrentIndex={setCurrentIndex}
+                />
+              )}
+              {basicList.indexOf(10) !== -1 && (
+                <D10
+                  currentIndex={currentIndex}
+                  setCurrentIndex={setCurrentIndex}
+                />
+              )}
+              {basicList.indexOf(11) !== -1 && (
+                <D11
+                  currentIndex={currentIndex}
+                  setCurrentIndex={setCurrentIndex}
+                />
+              )}
+              {basicList.indexOf(15) !== -1 && (
+                <D15
+                  currentIndex={currentIndex}
+                  setCurrentIndex={setCurrentIndex}
+                />
+              )}
+              {basicList.indexOf(17) !== -1 && (
+                <D17
+                  currentIndex={currentIndex}
+                  setCurrentIndex={setCurrentIndex}
+                />
+              )}
+            </ScrollWrapper>
           )}
-          {customList.indexOf(21) !== -1 && <Netflix />}
-          {customList.indexOf(22) !== -1 && <Mail />}
-          {customList.indexOf(23) !== -1 && (
-            <Chrome isInternet={isInternet} setIsInternet={setIsInternet} />
-          )}
-          {customList.indexOf(24) !== -1 && <Amazon />}
-          {customList.indexOf(25) !== -1 && <Hyundai />}
-        </ScrollWrapper>
+        </TrayWrapper>
       )}
-    </TrayWrapper>
+      {(currentIndex === 0 || currentIndex === 3) && (
+        <CarryingWeight
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+        />
+      )}
+      {currentIndex === 1 && (
+        <Purchase
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+        />
+      )}
+      {(currentIndex === 4 || currentIndex === 11) && (
+        <Refrigerator
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+        />
+      )}
+      {(currentIndex === 5 || currentIndex === 9 || currentIndex === 17) && (
+        <Switch currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
+      )}
+      {(currentIndex === 6 || currentIndex === 7) && (
+        <Medical
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+        />
+      )}
+      {currentIndex === 15 && (
+        <Speaker
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+        />
+      )}
+    </>
   );
 };
 
