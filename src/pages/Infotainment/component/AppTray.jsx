@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import Flex from '../../../component/Flex/Flex';
-import styled from 'styled-components';
-import IconWrapper from './IconWrapper';
-import Zoom from './icons/Zoom';
-import YoutubeIcon from './icons/YoutubeIcon';
-import Chrome from './icons/Chrome';
-import YouTube from 'react-youtube';
-import { IoClose } from 'react-icons/io5';
+import React, { useState } from "react";
+import Flex from "../../../component/Flex/Flex";
+import styled from "styled-components";
+import IconWrapper from "./IconWrapper";
+import Zoom from "./icons/Zoom";
+import YoutubeIcon from "./icons/YoutubeIcon";
+import Chrome from "./icons/Chrome";
+import YouTube from "react-youtube";
+import { IoClose } from "react-icons/io5";
 
 const TrayWrapper = styled(Flex)`
   width: 600px;
@@ -18,7 +18,7 @@ const TrayWrapper = styled(Flex)`
   padding: 15px 0px;
 
   // 유튜브 켜졌을 때 패딩 제거
-  ${({ isYoutube }) => isYoutube && 'padding: 0px'}
+  ${({ isYoutube }) => isYoutube && "padding: 0px"}
 `;
 
 const ScrollWrapper = styled.div`
@@ -41,9 +41,13 @@ const YoutubeWrapper = styled.div`
   height: 600px;
   border-radius: 20px;
   background-color: white;
-
-  overflow: auto;
+  overflow: hidden;
   -ms-overflow-style: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
 `;
 
 const AppTray = ({ isInternet, setIsInternet }) => {
@@ -55,23 +59,23 @@ const AppTray = ({ isInternet, setIsInternet }) => {
         <YoutubeWrapper>
           <IoClose
             onClick={() => setIsYoutube(!isYoutube)}
-            color='white'
-            size='30'
+            color="white"
+            size="30"
             style={{
-              position: 'absolute',
-              marginLeft: '20px',
-              marginTop: '20px',
-              cursor: 'pointer',
-              backgroundColor: 'rgba(0, 0, 0, 0.6)',
-              borderRadius: '20px',
+              position: "absolute",
+              marginLeft: "20px",
+              marginTop: "20px",
+              cursor: "pointer",
+              backgroundColor: "rgba(0, 0, 0, 0.6)",
+              borderRadius: "20px",
             }}
           ></IoClose>
 
           <YouTube
-            videoId='HYGhruNONH8'
+            videoId="HYGhruNONH8"
             opts={{
-              width: '600',
-              height: '600',
+              width: "600",
+              height: "600",
               playerVars: {
                 autoplay: 1,
                 rel: 0,
