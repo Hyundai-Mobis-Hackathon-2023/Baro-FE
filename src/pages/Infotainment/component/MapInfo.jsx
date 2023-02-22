@@ -10,6 +10,7 @@ import {
   buildStyles,
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import axios from "axios";
 const { kakao } = window;
 
 const MapWrapper = styled(Flex)`
@@ -60,6 +61,19 @@ const MapInfo = () => {
   const [location, setLocation] = useState("보코 서울 강남");
   const [latitude, setLatitude] = useState(37.44937029089704);
   const [longitude, setLongitude] = useState(126.65436049042351);
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_API}/user/orderInfo`, {
+        headers: {
+          Authorization: `${localStorage.getItem("accessToken")}`,
+        },
+      })
+      .then((r) => {
+        console.log(r.data);
+        setLocation(r.data.result.address);
+      });
+  }, []);
 
   useEffect(() => {
     let ps = new kakao.maps.services.Places();

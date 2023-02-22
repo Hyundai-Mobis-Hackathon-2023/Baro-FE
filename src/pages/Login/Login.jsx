@@ -71,6 +71,7 @@ const Login = () => {
           // 로그인 성공
           localStorage.setItem("accessToken", r.data.result.accessToken);
           navigate("/start");
+          Toast("로그인 되었습니다.");
         }
       });
   };

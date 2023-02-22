@@ -170,9 +170,6 @@ const RecommendService = (props) => {
         Toast("선택이 완료되었습니다.");
       });
   };
-  const Notify = () => {
-    toast("선택이 완료되었습니다.");
-  };
 
   return (
     <>
@@ -218,7 +215,6 @@ const RecommendService = (props) => {
               bgColor={plusServiceArr.length >= 1 ? "purple" : "gray"}
               onClick={() => {
                 ClickCheck();
-                Notify();
               }}
             >
               완료

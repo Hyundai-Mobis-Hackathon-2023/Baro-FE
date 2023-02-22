@@ -1,24 +1,24 @@
-import { useParams, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import MobileLayout from '../../component/MobileLayout/MobileLayout';
-import Typography from '../../component/Typography/Typhography';
-import theme from '../../assets/theme/Theme';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-import { create } from 'zustand';
-import { useState } from 'react';
-import SelectSize from '../../component/SelectSize/SelectSize';
-import Living from './category/Living';
-import Office from './category/Office';
-import Entertainment from './category/Entertainment';
-import Store from './category/Store';
-import Transit from './category/Transit';
-import Medical from './category/Medical';
-import Button from '../../component/Button/Button';
-import presetItemList from './presetItemList';
-import axios from 'axios';
+import { useParams, useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import MobileLayout from "../../component/MobileLayout/MobileLayout";
+import Typography from "../../component/Typography/Typhography";
+import theme from "../../assets/theme/Theme";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import { create } from "zustand";
+import { useState } from "react";
+import SelectSize from "../../component/SelectSize/SelectSize";
+import Living from "./category/Living";
+import Office from "./category/Office";
+import Entertainment from "./category/Entertainment";
+import Store from "./category/Store";
+import Transit from "./category/Transit";
+import Medical from "./category/Medical";
+import Button from "../../component/Button/Button";
+import presetItemList from "./presetItemList";
+import axios from "axios";
 
-const Title = styled(Typography).attrs({ mainTitle: 'mainTitle' })`
+const Title = styled(Typography).attrs({ mainTitle: "mainTitle" })`
   width: 100%;
   position: relative;
   top: 80px;
@@ -60,12 +60,14 @@ const Preset = () => {
   const { target, setTarget } = useStore();
   const navigate = useNavigate();
   const btnStyle = {
-    position: 'absolute',
-    bottom: '72px',
+    position: "absolute",
+    bottom: "72px",
   };
 
   const postPresetItemList = () => {
-    const selectedPresetItems = presetItemList.filter((category) => category.name === selectedCategory)[0].items;
+    const selectedPresetItems = presetItemList.filter(
+      (category) => category.name === selectedCategory
+    )[0].items;
     console.log(selectedPresetItems);
     axios
       .post(
@@ -75,14 +77,14 @@ const Preset = () => {
         },
         {
           headers: {
-            Authorization: `${localStorage.getItem('accessToken')}`,
+            Authorization: `${localStorage.getItem("accessToken")}`,
           },
         }
       )
       .then((r) => {
         console.log(r.data);
-        localStorage.setItem('basicRecord', r.data.result.basicRecord);
-        navigate('/make-start');
+        localStorage.setItem("basicRecord", r.data.result.basicRecord);
+        navigate("/make-start");
       });
   };
 
@@ -101,16 +103,16 @@ const Preset = () => {
           onPointerMissed={() => setTarget(null)}
           style={{ backgroundColor: theme.colors.background }}
         >
-          <hemisphereLight name='Default Ambient Light' intensity={0.3} />
+          <hemisphereLight name="Default Ambient Light" intensity={0.3} />
           <OrbitControls makeDefault />
           {categoryComponent[selectedCategory]}
         </Canvas>
       </ModelContainer>
       <ButtonContainer style={btnStyle}>
-        <Button bgColor='black' middle onClick={postPresetItemList}>
+        <Button bgColor="black" middle onClick={postPresetItemList}>
           다음 단계
         </Button>
-        <Button bgColor='mainRed' middle onClick={() => navigate('/custom')}>
+        <Button bgColor="mainRed" middle onClick={() => navigate("/custom")}>
           커스텀
         </Button>
       </ButtonContainer>

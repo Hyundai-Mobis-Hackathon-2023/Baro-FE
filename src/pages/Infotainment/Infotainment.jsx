@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-// import Welcome from "./component/Welcome";
+import Welcome from "./component/Welcome";
 // import axios from "axios";
 import InfotainmentLayout from "../../component/InfotainmentLayout/InfotainmentLayout";
 import Flex from "../../component/Flex/Flex";
@@ -12,7 +12,7 @@ import AppTray from "./component/AppTray";
 import Weather from "./component/Weather";
 
 const Infotainment = () => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
   useEffect(() => {
     setTimeout(function () {
       setVisible(false);
@@ -21,6 +21,7 @@ const Infotainment = () => {
 
   return (
     <InfotainmentLayout>
+      <Welcome visible={visible} />
       <MapInfo />
       <CarTemper />
       <Calendar />
@@ -30,6 +31,5 @@ const Infotainment = () => {
     </InfotainmentLayout>
   );
 };
-// <Welcome visible={visible} />
 
 export default Infotainment;
