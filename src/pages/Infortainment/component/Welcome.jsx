@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Flex from "../../../component/Flex/Flex";
 import styled from "styled-components";
 import Typography from "../../../component/Typography/Typhography";
+import Weather from './WeatherImg.png';
 import axios from "axios";
 
 const WelcomeWrapper = styled(Flex)`

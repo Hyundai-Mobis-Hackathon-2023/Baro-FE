@@ -7,7 +7,7 @@ import Flex from "../../component/Flex/Flex";
 import MapInfo from "./component/MapInfo";
 import CarTemper from "./component/CarTemper";
 import Calendar from "./component/Calendar";
-
+import Weather from "./component/Weather";
 
 const Infortainment = () => {
   const [visible, setVisible] = useState(false);
@@ -22,6 +22,7 @@ const Infortainment = () => {
       <MapInfo />
       <CarTemper />
       <Calendar/>
+      <Weather/>
     </InfotainmentLayout>
     
   );
