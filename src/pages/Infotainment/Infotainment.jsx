@@ -1,32 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import Welcome from './component/Welcome';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import Welcome from "./component/Welcome";
 // import axios from "axios";
-import InfotainmentLayout from '../../component/InfotainmentLayout/InfotainmentLayout';
-import Flex from '../../component/Flex/Flex';
-import MapInfo from './component/MapInfo';
-import CarTemper from './component/CarTemper';
-import Music from './component/Music';
-import Calendar from './component/Calendar';
-import AppTray from './component/AppTray';
-import Window from './component/Window';
-import { NotionRenderer } from 'react-notion';
-import 'react-notion/src/styles.css';
-import axios from 'axios';
-import { IoClose } from 'react-icons/io5';
-import Weather from './component/Weather';
+import InfotainmentLayout from "../../component/InfotainmentLayout/InfotainmentLayout";
+import Flex from "../../component/Flex/Flex";
+import MapInfo from "./component/MapInfo";
+import CarTemper from "./component/CarTemper";
+import Music from "./component/Music";
+import Calendar from "./component/Calendar";
+import AppTray from "./component/AppTray";
+import Window from "./component/Window";
+import { NotionRenderer } from "react-notion";
+import "react-notion/src/styles.css";
+import axios from "axios";
+import { IoClose } from "react-icons/io5";
+import Weather from "./component/Weather";
 
 const Notion = () => {
   const [response, setResponse] = useState({});
 
   useEffect(() => {
-    const NOTION_PAGE_ID = '9f692857e4d544a7b1026e17461fb6c9';
-    axios.get(`https://notion-api.splitbee.io/v1/page/${NOTION_PAGE_ID}`).then(({ data }) => {
-      setResponse(data);
-    });
+    const NOTION_PAGE_ID = "9f692857e4d544a7b1026e17461fb6c9";
+    axios
+      .get(`https://notion-api.splitbee.io/v1/page/${NOTION_PAGE_ID}`)
+      .then(({ data }) => {
+        setResponse(data);
+      });
   }, []);
 
-  return Object.keys(response).length && <NotionRenderer blockMap={response} fullPage={true} />;
+  return (
+    Object.keys(response).length && (
+      <NotionRenderer blockMap={response} fullPage={true} />
+    )
+  );
 };
 
 const NotionWrapper = styled.div`
@@ -57,15 +63,15 @@ const Infotainment = () => {
         <NotionWrapper>
           <IoClose
             onClick={() => setIsInternet(!isInternet)}
-            color='white'
-            size='30'
+            color="white"
+            size="30"
             style={{
-              position: 'absolute',
-              marginLeft: '20px',
-              marginTop: '62px',
-              cursor: 'pointer',
-              backgroundColor: 'rgba(255, 255, 255, 0.2)',
-              borderRadius: '20px',
+              position: "absolute",
+              marginLeft: "20px",
+              marginTop: "62px",
+              cursor: "pointer",
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              borderRadius: "20px",
             }}
           ></IoClose>
           <Notion />
