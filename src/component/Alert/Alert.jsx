@@ -24,7 +24,6 @@ const Wrapper = styled.div`
 const Alert = () => {
   return (
     <Wrapper>
-      <Lottie animationData={loading} style={{ width: "300px" }} />
       <Margin height="10" />
       <Typography mainTitle color="white">
         이런!
