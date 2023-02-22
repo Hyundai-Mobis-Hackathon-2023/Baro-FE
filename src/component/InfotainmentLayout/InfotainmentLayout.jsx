@@ -22,7 +22,6 @@ const InfotainmentView = styled.div`
 
 const InfotainmentLayout = ({ children }) => (
   <>
-    <Clock />
     <Background>
       <InfotainmentView>{children}</InfotainmentView>
     </Background>
