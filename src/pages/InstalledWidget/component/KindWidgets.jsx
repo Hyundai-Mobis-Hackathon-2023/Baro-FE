@@ -61,7 +61,7 @@ const KindWidgets = (props) => {
     <>
       <SectionWrapper>
         {props.Widgets.map((widget) => (
-          <Widget eachWidget={widget} />
+          <Widget key={widget.name} eachWidget={widget} />
         ))}
       </SectionWrapper>
     </>
