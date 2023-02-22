@@ -9,12 +9,9 @@ import CarTemper from "./component/CarTemper";
 import Music from "./component/Music";
 import Calendar from "./component/Calendar";
 import AppTray from "./component/AppTray";
-import Window from "./component/Window";
-import { NotionRenderer } from "react-notion";
-import "react-notion/src/styles.css";
-import axios from "axios";
-import { IoClose } from "react-icons/io5";
 import Weather from "./component/Weather";
+import { NotionRenderer } from "react-notion-x";
+import axios from "axios";
 
 const Notion = () => {
   const [response, setResponse] = useState({});
@@ -53,8 +50,6 @@ const NotionWrapper = styled.div`
 
 const Infotainment = () => {
   const [visible, setVisible] = useState(true);
-  const [isInternet, setIsInternet] = useState(false);
-
   useEffect(() => {
     setTimeout(function () {
       setVisible(false);
@@ -64,33 +59,12 @@ const Infotainment = () => {
   return (
     <InfotainmentLayout>
       <Welcome visible={visible} />
-      {isInternet ? (
-        <NotionWrapper>
-          <IoClose
-            onClick={() => setIsInternet(!isInternet)}
-            color="white"
-            size="30"
-            style={{
-              position: "absolute",
-              marginLeft: "20px",
-              marginTop: "62px",
-              cursor: "pointer",
-              backgroundColor: "rgba(255, 255, 255, 0.2)",
-              borderRadius: "20px",
-            }}
-          ></IoClose>
-          <Notion />
-        </NotionWrapper>
-      ) : (
-        <>
-          <MapInfo />
-          <CarTemper />
-          <Calendar />
-          <Music />
-          <Weather />
-          <AppTray setIsInternet={setIsInternet} isInternet={isInternet} />
-        </>
-      )}
+      <MapInfo />
+      <CarTemper />
+      <Calendar />
+      <Music />
+      <Weather />
+      <AppTray />
     </InfotainmentLayout>
   );
 };

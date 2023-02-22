@@ -34,31 +34,13 @@ const WidgetTitle = styled.div`
   color: #FFFFFF;
   margin-top: 55px;
 `
-const BasicText = styled.div`
-  font-family: 'S-Core Dream';
-  font-style: normal;
-  font-weight: 200;
-  font-size: 32px;
-  width: 100%;
-  text-align:center;
-  color: #FDFDFD;
-`
-const Circle = styled.div`
-  width:120px;
-  height: 120px;
-  border-radius: 100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-`
-const CircleWrapper =styled.div`
-  width: 300px;
-  height: auto;
-  display:flex;
-  justify-content: space-between;
+
+const ImgSection = styled.img`
+    width: 400px;
+    height: auto;
 `
 
-const Purchase = () =>{
+const Refrigerator = () =>{
 
 
     return(<>
@@ -66,21 +48,15 @@ const Purchase = () =>{
       <TitleWrapper>
         <div style={{marginLeft:"40px"}}>{" "}</div>
         <WidgetTitle>
-            결제창  
+            냉장시설 온도 
         </WidgetTitle>
         <MdArrowForwardIos size="50" color="#FFFFFF" style={{marginTop:"40px",paddingRight:"13px"}}/>
       </TitleWrapper>
-      <Margin height="100"/>
-      <BasicText>상품을 입력해주세요.</BasicText>
-      <Margin height="200"/>
-      <CircleWrapper>
-        <Circle style={{backgroundColor:"#FBC02D"}}><RiShoppingCart2Line color="#FFFFFF" size="50"/></Circle>
-        <Circle style={{backgroundColor:"#115E38"}}><MdQrCodeScanner color="#FFFFFF" size="50"/></Circle>
-      </CircleWrapper>
- 
+      <ImgSection src="https://i.ibb.co/54DTWz9/image.png"/>
+     
 
       </TrayWrapper></>)
 }
 
 
-export default Purchase;
+export default Refrigerator;
