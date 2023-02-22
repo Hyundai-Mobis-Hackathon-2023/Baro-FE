@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import Flex from "../../../component/Flex/Flex";
 import {MdArrowForwardIos} from 'react-icons/md'
-import {GrCart} from 'react-icons/gr'
-import { startTransition } from "react";
+import {RiShoppingCart2Line} from 'react-icons/ri'
+import Margin from "../../../component/Margin/Margin";
+import {MdQrCodeScanner} from "react-icons/md"
 
 const TrayWrapper = styled(Flex)`
   width: 600px;
@@ -11,9 +12,9 @@ const TrayWrapper = styled(Flex)`
   border-radius: 20px;
   display:flex;
   flex-wrap:wrap;
-  align-items: baseline;
   justify-content: center;
   padding: 15px 0px;
+  
 `;
 
 const TitleWrapper = styled.div`
@@ -38,6 +39,8 @@ const BasicText = styled.div`
   font-style: normal;
   font-weight: 200;
   font-size: 32px;
+  width: 100%;
+  text-align:center;
   color: #FDFDFD;
 `
 const Circle = styled.div`
@@ -47,6 +50,12 @@ const Circle = styled.div`
   display:flex;
   justify-content:center;
   align-items:center;
+`
+const CircleWrapper =styled.div`
+  width: 300px;
+  height: auto;
+  display:flex;
+  justify-content: space-between;
 `
 
 const Purchase = () =>{
@@ -61,9 +70,14 @@ const Purchase = () =>{
         </WidgetTitle>
         <MdArrowForwardIos size="50" color="#FFFFFF" style={{marginTop:"40px",paddingRight:"13px"}}/>
       </TitleWrapper>
-
+      <Margin height="100"/>
       <BasicText>상품을 입력해주세요.</BasicText>
-      <Circle style={{backgroundColor:"#FBC02D"}}><GrCart  size="50"/></Circle>
+      <Margin height="200"/>
+      <CircleWrapper>
+        <Circle style={{backgroundColor:"#FBC02D"}}><RiShoppingCart2Line color="#FFFFFF" size="50"/></Circle>
+        <Circle style={{backgroundColor:"#115E38"}}><MdQrCodeScanner color="#FFFFFF" size="50"/></Circle>
+      </CircleWrapper>
+ 
 
       </TrayWrapper></>)
 }
