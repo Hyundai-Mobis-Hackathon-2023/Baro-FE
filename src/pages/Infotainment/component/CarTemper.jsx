@@ -57,6 +57,7 @@ const CarTemper = () => {
         }
       )
       .then((r) => {
+        console.log(r.data);
         console.log(r.data.response.body.items[0].khaiValue);
         setDust(r.data.response.body.items[0].khaiValue);
       });
