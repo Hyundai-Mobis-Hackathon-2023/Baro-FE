@@ -12,6 +12,18 @@ import Netflix from "./icons/Netflix";
 import Mail from "./icons/Mail";
 import Amazon from "./icons/Amazon";
 import Hyundai from "./icons/Hyundai";
+import D0 from "./icons/D0";
+import D1 from "./icons/D1";
+import D3 from "./icons/D3";
+import D4 from "./icons/D4";
+import D5 from "./icons/D5";
+import D6 from "./icons/D6";
+import D7 from "./icons/D7";
+import D9 from "./icons/D9";
+import D10 from "./icons/D10";
+import D11 from "./icons/D11";
+import D15 from "./icons/D15";
+import D17 from "./icons/D17";
 
 const TrayWrapper = styled(Flex)`
   width: 600px;
@@ -57,9 +69,24 @@ const YoutubeWrapper = styled.div`
 
 const AppTray = ({ isInternet, setIsInternet }) => {
   const [isYoutube, setIsYoutube] = useState(false);
+  const [basicList, setBasicList] = useState([]);
   const [customList, setCustomList] = useState([]);
 
   useEffect(() => {
+    axios
+      .post(
+        `${process.env.REACT_APP_API}/basic/getBasicList`,
+        { basicRecord: parseInt(`${localStorage.getItem("basicRecord")}`) },
+        {
+          headers: {
+            Authorization: `${localStorage.getItem("accessToken")}`,
+          },
+        }
+      )
+      .then((r) => {
+        setBasicList(r.data.result.basicNumberList);
+      });
+
     axios
       .post(
         `${process.env.REACT_APP_API}/custom/getCustomList`,
@@ -111,6 +138,18 @@ const AppTray = ({ isInternet, setIsInternet }) => {
         </YoutubeWrapper>
       ) : (
         <ScrollWrapper>
+          {basicList.indexOf(0) !== -1 && <D0 />}
+          {basicList.indexOf(1) !== -1 && <D1 />}
+          {basicList.indexOf(3) !== -1 && <D3 />}
+          {basicList.indexOf(4) !== -1 && <D4 />}
+          {basicList.indexOf(5) !== -1 && <D5 />}
+          {basicList.indexOf(6) !== -1 && <D6 />}
+          {basicList.indexOf(7) !== -1 && <D7 />}
+          {basicList.indexOf(9) !== -1 && <D9 />}
+          {basicList.indexOf(10) !== -1 && <D10 />}
+          {basicList.indexOf(11) !== -1 && <D11 />}
+          {basicList.indexOf(15) !== -1 && <D15 />}
+          {basicList.indexOf(17) !== -1 && <D17 />}
           {customList.indexOf(19) !== -1 && <Zoom />}
           {customList.indexOf(20) !== -1 && (
             <YoutubeIcon isYoutube={isYoutube} setIsYoutube={setIsYoutube} />
@@ -122,16 +161,6 @@ const AppTray = ({ isInternet, setIsInternet }) => {
           )}
           {customList.indexOf(24) !== -1 && <Amazon />}
           {customList.indexOf(25) !== -1 && <Hyundai />}
-          <IconWrapper />
-          <IconWrapper />
-          <IconWrapper />
-          <IconWrapper />
-          <IconWrapper />
-          <IconWrapper />
-          <IconWrapper />
-          <IconWrapper />
-          <IconWrapper />
-          <IconWrapper />
         </ScrollWrapper>
       )}
     </TrayWrapper>

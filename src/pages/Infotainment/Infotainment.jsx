@@ -9,9 +9,12 @@ import CarTemper from "./component/CarTemper";
 import Music from "./component/Music";
 import Calendar from "./component/Calendar";
 import AppTray from "./component/AppTray";
-import Weather from "./component/Weather";
-import { NotionRenderer } from "react-notion-x";
+import Window from "./component/Window";
+import { NotionRenderer } from "react-notion";
+import "react-notion/src/styles.css";
 import axios from "axios";
+import { IoClose } from "react-icons/io5";
+import Weather from "./component/Weather";
 
 const Notion = () => {
   const [response, setResponse] = useState({});
@@ -38,18 +41,14 @@ const NotionWrapper = styled.div`
   border-radius: 20px;
   background-color: white;
   filter: drop-shadow(0px 11px 13px rgba(0, 0, 0, 0.25));
-
   overflow: auto;
   -ms-overflow-style: none;
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  -ms-overflow-style: none; /* 인터넷 익스플로러 */
-  scrollbar-width: none; /* 파이어폭스 */
 `;
 
 const Infotainment = () => {
   const [visible, setVisible] = useState(true);
+  const [isInternet, setIsInternet] = useState(false);
+
   useEffect(() => {
     setTimeout(function () {
       setVisible(false);
@@ -59,12 +58,33 @@ const Infotainment = () => {
   return (
     <InfotainmentLayout>
       <Welcome visible={visible} />
-      <MapInfo />
-      <CarTemper />
-      <Calendar />
-      <Music />
-      <Weather />
-      <AppTray />
+      {isInternet ? (
+        <NotionWrapper>
+          <IoClose
+            onClick={() => setIsInternet(!isInternet)}
+            color="white"
+            size="30"
+            style={{
+              position: "absolute",
+              marginLeft: "20px",
+              marginTop: "62px",
+              cursor: "pointer",
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              borderRadius: "20px",
+            }}
+          ></IoClose>
+          <Notion />
+        </NotionWrapper>
+      ) : (
+        <>
+          <MapInfo />
+          <CarTemper />
+          <Calendar />
+          <Music />
+          <Weather />
+          <AppTray setIsInternet={setIsInternet} isInternet={isInternet} />
+        </>
+      )}
     </InfotainmentLayout>
   );
 };

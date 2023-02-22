@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import Clock from '../Clock/Clock';
-import Flex from '../Flex/Flex';
+import styled from "styled-components";
+import Clock from "../Clock/Clock";
+import Flex from "../Flex/Flex";
 
 const Background = styled(Flex)`
   width: 100%;
