@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import Margin from "../../../component/Margin/Margin";
 import Flex from "./../../../component/Flex/Flex";
+import axios from "axios";
 import d1 from "../images/d1.png";
 import d2 from "../images/d2.png";
 import d3 from "../images/d3.png";
@@ -87,42 +88,70 @@ const ScrollWrapper = styled.div`
 
 //값을 받을때, Widgets과 종류에 대한 값 두개씩을 줘야함.
 //ex) ["기본",[{name: "메일",img:"aa"},{name: "이름이름",img:"aa"},{name: "메일",img:"aa"},{name: "메일",img:"aa"}]]
-const BasicWidgets = [
-  { name: "차량 속도계", img: d1 },
-  { name: "날씨", img: d2 },
-  { name: "캘린더", img: d3 },
-  { name: "음악", img: d4 },
-  { name: "차량 온도", img: d5 },
-];
-const CustomWidgets = [
-  { name: "메일2", img: "aa" },
-  { name: "이름이름2", img: "aa" },
-  { name: "메일2", img: "aa" },
-  { name: "메일2", img: "aa" },
-];
-
-function CurrentWidgets(props) {
-  const current = props.current;
-  if (current === "커스텀") {
-    return (
-      <>
-        <KindWidgets Widgets={CustomWidgets} />
-      </>
-    );
-  } else if (current === "베이직") {
-    return (
-      <>
-        <KindWidgets Widgets={BasicWidgets} />
-      </>
-    );
-  }
-}
 
 const InstalledWidget = () => {
   const navigate = useNavigate();
-  const [kind, setKind] = useState("커스텀");
+  const [allList, setAllList] = useState([]);
+  const [list, setList] = useState([]);
+  const [kind, setKind] = useState("베이직");
+  const [CustomWidgets, setCustomWidgets] = useState([]);
 
-  useEffect(() => {}, []);
+  const BasicWidgets = [
+    { name: "차량 속도계", img: d1 },
+    { name: "날씨", img: d2 },
+    { name: "캘린더", img: d3 },
+    { name: "음악", img: d4 },
+    { name: "차량 온도", img: d5 },
+  ];
+
+  function CurrentWidgets(props) {
+    const current = props.current;
+    if (current === "커스텀") {
+      return (
+        <>
+          <KindWidgets Widgets={CustomWidgets} />
+        </>
+      );
+    } else if (current === "베이직") {
+      return (
+        <>
+          <KindWidgets Widgets={BasicWidgets} />
+        </>
+      );
+    }
+  }
+
+  useEffect(() => {
+    axios
+      .post(
+        `${process.env.REACT_APP_API}/basic/getBasicList`,
+        { basicRecord: parseInt(`${localStorage.getItem("basicRecord")}`) },
+        {
+          headers: {
+            Authorization: `${localStorage.getItem("accessToken")}`,
+          },
+        }
+      )
+      .then((r) => {
+        setList(r.data.result.basicNumberList);
+      });
+  }, [setList]);
+
+  useEffect(() => {
+    axios.get(`${process.env.REACT_APP_API}/info/getAllInfo`).then((r) => {
+      setAllList(r.data.result.infoDummyList);
+    });
+  }, [list]);
+
+  useEffect(() => {
+    const customList = allList.filter((a) => list.indexOf(a.infoNumber) !== -1);
+    const temp = customList.map((c) => ({
+      ...CustomWidgets,
+      name: c.name,
+      img: c.imageUrl,
+    }));
+    setCustomWidgets(temp);
+  }, [allList]);
 
   function basicClick() {
     setKind("베이직");
