@@ -1,9 +1,10 @@
-import React from "react";
-import Flex from "../../../component/Flex/Flex";
-import styled from "styled-components";
-import IconWrapper from "./IconWrapper";
-import Zoom from "./icons/Zoom";
-import Youtube from "./icons/Youtube";
+import React from 'react';
+import Flex from '../../../component/Flex/Flex';
+import styled from 'styled-components';
+import IconWrapper from './IconWrapper';
+import Zoom from './icons/Zoom';
+import Youtube from './icons/Youtube';
+import Chrome from './icons/Chrome';
 
 const TrayWrapper = styled(Flex)`
   width: 600px;
@@ -36,7 +37,7 @@ const AppTray = () => {
       <ScrollWrapper>
         <Zoom />
         <Youtube />
-        <IconWrapper />
+        <Chrome />
         <IconWrapper />
         <IconWrapper />
         <IconWrapper />
