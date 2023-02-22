@@ -10,7 +10,6 @@ import Music from "./component/Music";
 import Calendar from "./component/Calendar";
 import AppTray from "./component/AppTray";
 import Weather from "./component/Weather";
-import Purchase from "./component/Purchase";
 
 const Infotainment = () => {
   const [visible, setVisible] = useState(true);
@@ -23,7 +22,6 @@ const Infotainment = () => {
   return (
     <InfotainmentLayout>
       <Welcome visible={visible} />
-      <Purchase/>
       <MapInfo />
       <CarTemper />
       <Calendar />
