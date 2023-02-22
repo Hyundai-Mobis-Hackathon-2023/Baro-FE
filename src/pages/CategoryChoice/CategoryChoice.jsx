@@ -16,7 +16,7 @@ const TitleWrapper = styled.div`
 
 const CategoryChoice = () => {
   //curruentSlider가 테마 담당하는 변수
-  const [currentSlider, setCurrentSlide] = useState(0);
+  const [currentSlider, setCurrentSlide] = useState(1);
   const navigate = useNavigate();
 
   const postCategory = () => {
