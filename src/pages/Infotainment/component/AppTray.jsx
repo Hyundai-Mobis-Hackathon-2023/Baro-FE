@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Flex from '../../../component/Flex/Flex';
 import styled from 'styled-components';
 import IconWrapper from './IconWrapper';
 import Zoom from './icons/Zoom';
-import Youtube from './icons/Youtube';
+import YoutubeIcon from './icons/YoutubeIcon';
 import Chrome from './icons/Chrome';
+import YouTube from 'react-youtube';
+import { IoClose } from 'react-icons/io5';
 
 const TrayWrapper = styled(Flex)`
   width: 600px;
@@ -14,6 +16,9 @@ const TrayWrapper = styled(Flex)`
   align-items: baseline;
   justify-content: flex-start;
   padding: 15px 0px;
+
+  // 유튜브 켜졌을 때 패딩 제거
+  ${({ isYoutube }) => isYoutube && 'padding: 0px'}
 `;
 
 const ScrollWrapper = styled.div`
@@ -31,24 +36,70 @@ const ScrollWrapper = styled.div`
   scrollbar-width: none; /* 파이어폭스 */
 `;
 
+const YoutubeWrapper = styled.div`
+  width: 600px;
+  height: 600px;
+  border-radius: 20px;
+  background-color: white;
+
+  overflow: auto;
+  -ms-overflow-style: none;
+`;
+
 const AppTray = () => {
+  const [isYoutube, setIsYoutube] = useState(false);
+
   return (
-    <TrayWrapper>
-      <ScrollWrapper>
-        <Zoom />
-        <Youtube />
-        <Chrome />
-        <IconWrapper />
-        <IconWrapper />
-        <IconWrapper />
-        <IconWrapper />
-        <IconWrapper />
-        <IconWrapper />
-        <IconWrapper />
-        <IconWrapper />
-        <IconWrapper />
-        <IconWrapper />
-      </ScrollWrapper>
+    <TrayWrapper isYoutube={isYoutube}>
+      {isYoutube ? (
+        <YoutubeWrapper>
+          <IoClose
+            onClick={() => setIsYoutube(!isYoutube)}
+            color='white'
+            size='30'
+            style={{
+              position: 'absolute',
+              marginLeft: '20px',
+              marginTop: '20px',
+              cursor: 'pointer',
+              backgroundColor: 'rgba(0, 0, 0, 0.6)',
+              borderRadius: '20px',
+            }}
+          ></IoClose>
+
+          <YouTube
+            videoId='HYGhruNONH8'
+            opts={{
+              width: '600',
+              height: '600',
+              playerVars: {
+                autoplay: 1,
+                rel: 0,
+                modestbranding: 1,
+              },
+            }}
+            onEnd={(e) => {
+              e.target.stopVideo(0);
+            }}
+          />
+        </YoutubeWrapper>
+      ) : (
+        <ScrollWrapper>
+          <Zoom />
+          <YoutubeIcon isYoutube={isYoutube} setIsYoutube={setIsYoutube} />
+          <Chrome />
+          <IconWrapper />
+          <IconWrapper />
+          <IconWrapper />
+          <IconWrapper />
+          <IconWrapper />
+          <IconWrapper />
+          <IconWrapper />
+          <IconWrapper />
+          <IconWrapper />
+          <IconWrapper />
+        </ScrollWrapper>
+      )}
     </TrayWrapper>
   );
 };
