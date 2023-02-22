@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import zoom from "./imgs/zoom.png";
-import IconWrapper from "../IconWrapper";
+import React from 'react';
+import styled from 'styled-components';
+import zoom from './imgs/zoom.png';
+import IconWrapper from '../IconWrapper';
 
 const StyledImage = styled.img`
   width: 100%;
@@ -12,7 +12,7 @@ const StyledImage = styled.img`
 const Zoom = () => {
   return (
     <IconWrapper>
-      <StyledImage src={zoom} />
+      <StyledImage src={zoom} onClick={() => window.open('https://zoom.us/')} />
     </IconWrapper>
   );
 };
