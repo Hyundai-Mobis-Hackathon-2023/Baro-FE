@@ -19,6 +19,7 @@ import BuyRentalChoice from '../pages/BuyRentalChoice/BuyRentalChoice';
 import PurchaseEnd from '../pages/PurchaseEnd/PurchaseEnd';
 import Infotainment from '../pages/Infotainment/Infotainment';
 import Internet from '../pages/Infotainment/component/Internet';
+import YoutubePlayer from '../pages/Infotainment/component/YoutubePlayer';
 
 const Router = () => (
   <BrowserRouter>
@@ -43,6 +44,7 @@ const Router = () => (
       <Route path='/purchase-end' element={<PurchaseEnd />} />
       <Route path='/infotainment' element={<Infotainment />} />
       <Route path='/infotainment/internet' element={<Internet />} />
+      <Route path='/infotainment/youtube' element={<YoutubePlayer />} />
     </Routes>
   </BrowserRouter>
 );
