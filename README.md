@@ -25,7 +25,7 @@
 <img width="733" alt="image" src="https://user-images.githubusercontent.com/64801796/220621175-66c48e60-02bf-49e1-8cb4-7645ce9147f9.png">
 
 ### 4. PBV 탑승 후 내부 인포테인먼트
-<img width="921" alt="image" src="https://user-images.githubusercontent.com/64801796/220622203-70d4a615-fcd7-4ed8-8dae-7e5e69dfc07c.png">
+<img width="915" alt="image" src="https://user-images.githubusercontent.com/64801796/220622764-b9159237-712b-404e-9dcb-5fccb1514cf9.png">
 
 
 
