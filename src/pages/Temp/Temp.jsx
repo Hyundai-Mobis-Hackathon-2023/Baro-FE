@@ -10,9 +10,10 @@ import Model from './Model';
 import arrayReplace from './ArrayReplace';
 import WideBox from './WideBox';
 import InfotainmentLayout from '../../component/InfotainmentLayout/InfotainmentLayout';
+import Internet from '../Infotainment/component/Internet';
 
 const Temp = () => {
-  return <InfotainmentLayout>hi</InfotainmentLayout>;
+  return <Internet />;
 };
 
 const Container = styled.div`
