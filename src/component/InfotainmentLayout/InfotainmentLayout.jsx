@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Clock from '../Clock/Clock';
 import Flex from '../Flex/Flex';
 
 const Background = styled(Flex)`
@@ -16,14 +17,16 @@ const InfotainmentView = styled.div`
   padding: 0px 68px;
   align-items: center;
   // 선은 쉽게 보기위한 용도. 나중에 지울 거임
-  border: 1px solid black;
   flex-wrap: wrap;
 `;
 
 const InfotainmentLayout = ({ children }) => (
-  <Background>
-    <InfotainmentView>{children}</InfotainmentView>
-  </Background>
+  <>
+    <Clock />
+    <Background>
+      <InfotainmentView>{children}</InfotainmentView>
+    </Background>
+  </>
 );
 
 export default InfotainmentLayout;
