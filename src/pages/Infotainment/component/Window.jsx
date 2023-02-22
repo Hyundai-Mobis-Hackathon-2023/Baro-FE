@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Flex from "./../../../component/Flex/Flex";
+import React from 'react';
+import styled from 'styled-components';
+import Flex from '../../../component/Flex/Flex';
 
 const OutWrapper = styled(Flex)`
   width: 100vw;
@@ -23,10 +23,7 @@ const WindowWrapper = styled.object`
 const Window = () => {
   return (
     <OutWrapper>
-      <WindowWrapper
-        type="text/html"
-        data="https://www.youtube.com"
-      ></WindowWrapper>
+      <WindowWrapper type='text/html' data='https://www.youtube.com'></WindowWrapper>
     </OutWrapper>
   );
 };

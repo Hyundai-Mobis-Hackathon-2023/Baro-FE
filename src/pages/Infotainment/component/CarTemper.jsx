@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import Margin from "../../../component/Margin/Margin";
-import Flex from "../../../component/Flex/Flex";
-import Typography from "../../../component/Typography/Typhography";
-import { BsFillCloudHazeFill } from "react-icons/bs";
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import Margin from '../../../component/Margin/Margin';
+import Flex from '../../../component/Flex/Flex';
+import Typography from '../../../component/Typography/Typhography';
+import { BsFillCloudHazeFill } from 'react-icons/bs';
+import axios from 'axios';
 
 const TemperWrapper = styled(Flex)`
   width: 225px;
@@ -39,35 +40,51 @@ const Circle = styled.div`
 `;
 
 const CarTemper = () => {
+  const [dust, setDust] = useState(0);
+
+  useEffect(() => {
+    axios
+      .get(
+        'https://cors-anywhere.herokuapp.com/http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty',
+        {
+          params: {
+            serviceKey: process.env.REACT_APP_SERVICE_KEY,
+            returnType: 'json',
+            stationName: '종로구',
+            dataTerm: 'daily',
+            numOfRows: 1,
+          },
+        }
+      )
+      .then((r) => {
+        console.log(r.data.response.body.items[0].khaiValue);
+        setDust(r.data.response.body.items[0].khaiValue);
+      });
+  }, []);
+
   return (
     <TemperWrapper flexCenter column>
       <TopWrapper flexCenter>
         <TextWrapper flexCenter column>
-          <Typography
-            alertText
-            style={{ fontFamily: "pretendard-semibold", color: "#BEBEBE" }}
-          >
+          <Typography alertText style={{ fontFamily: 'pretendard-semibold', color: '#BEBEBE' }}>
             차량 내부 온도
           </Typography>
-          <Margin height="8" />
-          <Typography buttonText color="white">
+          <Margin height='8' />
+          <Typography buttonText color='white'>
             23℃
           </Typography>
-          <Margin height="8" />
-          <Typography
-            alertText
-            style={{ fontFamily: "pretendard-semibold", color: "#BEBEBE" }}
-          >
+          <Margin height='8' />
+          <Typography alertText style={{ fontFamily: 'pretendard-semibold', color: '#BEBEBE' }}>
             대기질
           </Typography>
-          <Margin height="8" />
-          <Typography buttonText color="white">
-            59 - 보통
+          <Margin height='8' />
+          <Typography buttonText color='white'>
+            {dust} - 보통
           </Typography>
         </TextWrapper>
-        <BsFillCloudHazeFill size="22px" color="#ffffff" />
+        <BsFillCloudHazeFill size='22px' color='#ffffff' />
       </TopWrapper>
-      <Margin height="15" />
+      <Margin height='15' />
       <ProgressBar>
         <Circle />
       </ProgressBar>
