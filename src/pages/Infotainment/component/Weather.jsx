@@ -1,11 +1,11 @@
-import { type } from "@testing-library/user-event/dist/type";
-import axios from "axios";
-import styled from "styled-components";
-import React, { Component } from "react";
-import { FaLocationArrow } from "react-icons/fa";
-import { SlDrop } from "react-icons/sl";
-import Margin from "../../../component/Margin/Margin";
-import { BsFillBrightnessHighFill } from "react-icons/bs";
+import { type } from '@testing-library/user-event/dist/type';
+import axios from 'axios';
+import styled from 'styled-components';
+import React, { Component } from 'react';
+import { FaLocationArrow } from 'react-icons/fa';
+import { SlDrop } from 'react-icons/sl';
+import Margin from '../../../component/Margin/Margin';
+import { BsFillBrightnessHighFill } from 'react-icons/bs';
 
 const Wrapper = styled.div`
   width: 410px;
@@ -19,24 +19,24 @@ const BackgroundImg = styled.div`
   width: 410px;
   height: 372px;
   border-radius: 20px;
-  background-image: url("https://i.ibb.co/BKTmcQV/Rectangle-89.png");
+  background-image: url('https://i.ibb.co/BKTmcQV/Rectangle-89.png');
   background-size: cover;
 `;
 
 const Title = styled.div`
-  font-family: "pretendard-semibold";
+  font-family: 'pretendard-semibold';
   font-size: 26px;
   color: #ffffff;
 `;
 
 const WeatherText = styled.div`
-  font-family: "pretendard-semibold";
+  font-family: 'pretendard-semibold';
   font-size: 20px;
   color: #ffffff;
 `;
 
 const TemperText = styled.div`
-  font-family: "pretendard-regular";
+  font-family: 'pretendard-regular';
   font-size: 60px;
   color: #ffffff;
   margin-left: 36px;
@@ -76,7 +76,7 @@ const SpaceAround = styled.div`
 `;
 
 const MaxMin = styled.div`
-  font-family: "pretendard-regular";
+  font-family: 'pretendard-regular';
   font-size: 20px;
   color: #bebebe;
   margin-left: 36px;
@@ -84,7 +84,7 @@ const MaxMin = styled.div`
 `;
 
 const HumidityText = styled.div`
-  font-family: "pretendard-semibolde";
+  font-family: 'pretendard-semibolde';
   font-size: 26px;
   color: #ffffff;
   margin-right: 31px;
@@ -113,7 +113,7 @@ const Section = styled.div`
 `;
 
 const DayText = styled.div`
-  font-family: "pretendard-semibolde";
+  font-family: 'pretendard-semibolde';
   font-size: 16px;
   color: #ffffff;
   text-align: center;
@@ -135,16 +135,16 @@ class Weather extends Component {
       temp_max: 0,
       temp_min: 0,
       humidity: 0,
-      desc: "",
-      icon: "",
+      desc: '',
+      icon: '',
       loading: true,
     };
   }
   // 컴포넌트 생성 후 날씨 정보 조회
   componentDidMount() {
-    const cityName = "Seoul";
+    const cityName = 'Seoul';
     const apiKey = process.env.REACT_APP_WEATHER_KEY;
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
 
     axios
       .get(url)
@@ -165,7 +165,7 @@ class Weather extends Component {
   }
   // 날씨 정보 출력
   render() {
-    const imgSrc = `http://openweathermap.com/img/w/${this.state.icon}.png`;
+    const imgSrc = `https://openweathermap.com/img/w/${this.state.icon}.png`;
     if (this.state.loading) {
       return <p>Loading</p>;
     } else {
@@ -176,40 +176,34 @@ class Weather extends Component {
               <div>
                 <TitleWrapper>
                   <Title>
-                    서울특별시{"  "}
-                    <FaLocationArrow size="18" />
+                    서울특별시{'  '}
+                    <FaLocationArrow size='18' />
                   </Title>
                 </TitleWrapper>
-                <Margin height="15" />
-                <TemperText>
-                  {(this.state.temp - 273.15).toFixed(0)}°
-                </TemperText>
+                <Margin height='15' />
+                <TemperText>{(this.state.temp - 273.15).toFixed(0)}°</TemperText>
               </div>
               <WeatherWrapper>
                 <ImgFlex>
-                  <WeatherImg src={imgSrc} />{" "}
+                  <WeatherImg src={imgSrc} />{' '}
                 </ImgFlex>
                 <WeatherText>{this.state.desc}</WeatherText>
               </WeatherWrapper>
             </SpaceAround>
 
-            <Margin height="10" />
+            <Margin height='10' />
             <SpaceAround>
               <MaxMin>
-                최고: {(this.state.temp_max - 273.15).toFixed(0)}° 최저:{" "}
-                {(this.state.temp_min - 273.15).toFixed(0)}°
+                최고: {(this.state.temp_max - 273.15).toFixed(0)}° 최저: {(this.state.temp_min - 273.15).toFixed(0)}°
               </MaxMin>
               <HumidityText>
-                <SlDrop
-                  size="17px"
-                  style={{ marginTop: "7px", marginRight: "8px" }}
-                />
+                <SlDrop size='17px' style={{ marginTop: '7px', marginRight: '8px' }} />
                 {this.state.humidity}
                 <div
                   style={{
-                    fontSize: "20px",
-                    marginTop: "5px",
-                    marginLeft: "2px",
+                    fontSize: '20px',
+                    marginTop: '5px',
+                    marginLeft: '2px',
                   }}
                 >
                   %
@@ -219,36 +213,30 @@ class Weather extends Component {
 
             <NextWeatherBox>
               <Section>
-                <Margin width="115" height="10" />
+                <Margin width='115' height='10' />
                 <DayText>월</DayText>
-                <Margin width="115" height="10" />
-                <BsFillBrightnessHighFill size="35" color="FBC02D" />
-                <Margin width="115" height="10" />
-                <DayText style={{ fontWeight: "400" }}>
-                  10°&nbsp;&nbsp;&nbsp;0°
-                </DayText>
+                <Margin width='115' height='10' />
+                <BsFillBrightnessHighFill size='35' color='FBC02D' />
+                <Margin width='115' height='10' />
+                <DayText style={{ fontWeight: '400' }}>10°&nbsp;&nbsp;&nbsp;0°</DayText>
               </Section>
               <Bar />
               <Section>
-                <Margin width="115" height="10" />
+                <Margin width='115' height='10' />
                 <DayText>화</DayText>
-                <Margin width="115" height="10" />
-                <BsFillBrightnessHighFill size="35" color="FBC02D" />
-                <Margin width="115" height="10" />
-                <DayText style={{ fontWeight: "400" }}>
-                  10°&nbsp;&nbsp;&nbsp;1°
-                </DayText>
+                <Margin width='115' height='10' />
+                <BsFillBrightnessHighFill size='35' color='FBC02D' />
+                <Margin width='115' height='10' />
+                <DayText style={{ fontWeight: '400' }}>10°&nbsp;&nbsp;&nbsp;1°</DayText>
               </Section>
               <Bar />
               <Section>
-                <Margin width="115" height="10" />
+                <Margin width='115' height='10' />
                 <DayText>수</DayText>
-                <Margin width="115" height="10" />
-                <BsFillBrightnessHighFill size="35" color="FBC02D" />
-                <Margin width="115" height="10" />
-                <DayText style={{ fontWeight: "400" }}>
-                  10°&nbsp;&nbsp;&nbsp;1°
-                </DayText>
+                <Margin width='115' height='10' />
+                <BsFillBrightnessHighFill size='35' color='FBC02D' />
+                <Margin width='115' height='10' />
+                <DayText style={{ fontWeight: '400' }}>10°&nbsp;&nbsp;&nbsp;1°</DayText>
               </Section>
             </NextWeatherBox>
           </Wrapper>
