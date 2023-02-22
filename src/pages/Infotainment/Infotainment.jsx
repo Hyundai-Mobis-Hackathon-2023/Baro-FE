@@ -80,6 +80,6 @@ const Infotainment = () => {
     </InfotainmentLayout>
   );
 };
-// <Welcome visible={visible} />
+/* <Welcome visible={visible} />; */
 
 export default Infotainment;
