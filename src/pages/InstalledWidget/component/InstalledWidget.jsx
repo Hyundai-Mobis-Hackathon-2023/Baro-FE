@@ -4,7 +4,7 @@ import KindWidgets from "./KindWidgets";
 import Typography from "../../../component/Typography/Typhography";
 import { ReactComponent as Header } from "./header.svg";
 import styled from "styled-components";
-import { GoPlus } from "react-icons/go";
+import Button from "../../../component/Button/Button";
 import { useNavigate } from "react-router-dom";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import Margin from "../../../component/Margin/Margin";
@@ -29,7 +29,7 @@ const HeaderWrapper = styled(Flex)`
 `;
 
 const TitleWrapper = styled(Flex)`
-  width: 310px;
+  width: 340px;
   margin-top: 80px;
   z-index: 3;
   justify-content: space-between;
@@ -38,19 +38,6 @@ const TitleWrapper = styled(Flex)`
 const TitleTextWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-`;
-
-const PlusButton = styled.button`
-  width: 48px;
-  height: 48px;
-  background: rgba(166, 111, 229, 0.54);
-  border-radius: 12px;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5px;
-  cursor: pointer;
 `;
 
 const KindText = styled.div`
@@ -174,13 +161,13 @@ const InstalledWidget = () => {
               나만의 스타일로
             </Typography>
           </TitleTextWrapper>
-          <PlusButton
-            onClick={() => {
+
+          <Button small color='#9042EA' bgColor='#CAACEC' onClick={() => {
               navigate("/custom-widget");
-            }}
-          >
-            <GoPlus size="28" color="#9042EA" />
-          </PlusButton>
+            }}>
+        추가
+      </Button>
+  
         </TitleWrapper>
         <Margin height="74" />
         <Typography
