@@ -20,9 +20,11 @@ import PurchaseEnd from "../pages/PurchaseEnd/PurchaseEnd";
 import Infotainment from "../pages/Infotainment/Infotainment";
 import Internet from "../pages/Infotainment/component/Internet";
 import YoutubePlayer from "../pages/Infotainment/component/YoutubePlayer";
+import Alert from "./../component/Alert/Alert";
 
 const Router = () => (
   <BrowserRouter>
+    <Alert />
     <Routes>
       <Route path="/start" element={<Start />} />
       <Route path="/" element={<Login />} />
