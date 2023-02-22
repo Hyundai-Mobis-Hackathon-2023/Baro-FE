@@ -67,9 +67,9 @@ const Custom = () => {
   const postPlace = () => {
     axios
       .post(
-        `${process.env.REACT_APP_API}/custom/setCustomList`,
+        `${process.env.REACT_APP_API}/basic/setBasicList`,
         {
-          customNumberList: place,
+          basicNumberList: place,
         },
         {
           headers: {
@@ -79,7 +79,7 @@ const Custom = () => {
       )
       .then((r) => {
         console.log(r.data);
-        localStorage.setItem('customRecord', r.data.result.customRecord);
+        localStorage.setItem('basicRecord', r.data.result.basicRecord);
         navigate('/make-start');
       });
   };
