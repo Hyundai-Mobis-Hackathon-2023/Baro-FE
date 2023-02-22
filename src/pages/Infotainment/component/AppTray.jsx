@@ -46,7 +46,7 @@ const YoutubeWrapper = styled.div`
   -ms-overflow-style: none;
 `;
 
-const AppTray = () => {
+const AppTray = ({ isInternet, setIsInternet }) => {
   const [isYoutube, setIsYoutube] = useState(false);
 
   return (
@@ -87,7 +87,7 @@ const AppTray = () => {
         <ScrollWrapper>
           <Zoom />
           <YoutubeIcon isYoutube={isYoutube} setIsYoutube={setIsYoutube} />
-          <Chrome />
+          <Chrome isInternet={isInternet} setIsInternet={setIsInternet} />
           <IconWrapper />
           <IconWrapper />
           <IconWrapper />

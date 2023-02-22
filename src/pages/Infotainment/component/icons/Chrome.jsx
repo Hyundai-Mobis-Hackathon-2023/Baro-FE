@@ -10,12 +10,12 @@ const StyledImage = styled.img`
   object-fit: cover;
 `;
 
-const Chrome = () => {
+const Chrome = ({ isInternet, setIsInternet }) => {
   const navigate = useNavigate();
 
   return (
     <IconWrapper>
-      <StyledImage onClick={() => navigate('/infotainment/internet')} src={chrome} />
+      <StyledImage onClick={() => setIsInternet(!isInternet)} src={chrome} />
     </IconWrapper>
   );
 };
