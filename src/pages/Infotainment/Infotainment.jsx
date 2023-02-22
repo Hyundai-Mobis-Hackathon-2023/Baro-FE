@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 // import Welcome from "./component/Welcome";
 // import axios from "axios";
-import InfotainmentLayout from '../../component/InfotainmentLayout/InfotainmentLayout';
-import Flex from '../../component/Flex/Flex';
-import MapInfo from './component/MapInfo';
-import CarTemper from './component/CarTemper';
-import Music from './component/Music';
-import Calendar from './component/Calendar';
-import AppTray from './component/AppTray';
-import Window from './component/Window';
+import InfotainmentLayout from "../../component/InfotainmentLayout/InfotainmentLayout";
+import Flex from "../../component/Flex/Flex";
+import MapInfo from "./component/MapInfo";
+import CarTemper from "./component/CarTemper";
+import Music from "./component/Music";
+import Calendar from "./component/Calendar";
+import AppTray from "./component/AppTray";
 
 const Infotainment = () => {
   const [visible, setVisible] = useState(false);
