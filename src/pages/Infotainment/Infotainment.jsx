@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-// import Welcome from "./component/Welcome";
+import Welcome from './component/Welcome';
 // import axios from "axios";
 import InfotainmentLayout from '../../component/InfotainmentLayout/InfotainmentLayout';
 import Flex from '../../component/Flex/Flex';
@@ -14,6 +14,7 @@ import { NotionRenderer } from 'react-notion';
 import 'react-notion/src/styles.css';
 import axios from 'axios';
 import { IoClose } from 'react-icons/io5';
+import Weather from './component/Weather';
 
 const Notion = () => {
   const [response, setResponse] = useState({});
@@ -40,7 +41,7 @@ const NotionWrapper = styled.div`
 `;
 
 const Infotainment = () => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [isInternet, setIsInternet] = useState(false);
 
   useEffect(() => {
@@ -51,6 +52,7 @@ const Infotainment = () => {
 
   return (
     <InfotainmentLayout>
+      <Welcome visible={visible} />
       {isInternet ? (
         <NotionWrapper>
           <IoClose
@@ -74,12 +76,12 @@ const Infotainment = () => {
           <CarTemper />
           <Calendar />
           <Music />
+          <Weather />
           <AppTray setIsInternet={setIsInternet} isInternet={isInternet} />
         </>
       )}
     </InfotainmentLayout>
   );
 };
-/* <Welcome visible={visible} />; */
 
 export default Infotainment;
