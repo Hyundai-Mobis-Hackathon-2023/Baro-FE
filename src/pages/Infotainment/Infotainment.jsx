@@ -9,6 +9,7 @@ import CarTemper from "./component/CarTemper";
 import Music from "./component/Music";
 import Calendar from "./component/Calendar";
 import AppTray from "./component/AppTray";
+import Weather from "./component/Weather";
 
 const Infotainment = () => {
   const [visible, setVisible] = useState(false);
@@ -24,6 +25,7 @@ const Infotainment = () => {
       <CarTemper />
       <Calendar />
       <Music />
+      <Weather />
       <AppTray />
     </InfotainmentLayout>
   );

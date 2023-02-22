@@ -9,6 +9,11 @@ import { useNavigate } from "react-router-dom";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import Margin from "../../../component/Margin/Margin";
 import Flex from "./../../../component/Flex/Flex";
+import d1 from "../images/d1.png";
+import d2 from "../images/d2.png";
+import d3 from "../images/d3.png";
+import d4 from "../images/d4.png";
+import d5 from "../images/d5.png";
 
 const HeaderSvg = styled(Header)`
   position: absolute;
@@ -83,10 +88,11 @@ const ScrollWrapper = styled.div`
 //값을 받을때, Widgets과 종류에 대한 값 두개씩을 줘야함.
 //ex) ["기본",[{name: "메일",img:"aa"},{name: "이름이름",img:"aa"},{name: "메일",img:"aa"},{name: "메일",img:"aa"}]]
 const BasicWidgets = [
-  { name: "메일", img: "aa" },
-  { name: "이름이름", img: "aa" },
-  { name: "메일", img: "aa" },
-  { name: "메일", img: "aa" },
+  { name: "차량 속도계", img: d1 },
+  { name: "날씨", img: d2 },
+  { name: "캘린더", img: d3 },
+  { name: "음악", img: d4 },
+  { name: "차량 온도", img: d5 },
 ];
 const CustomWidgets = [
   { name: "메일2", img: "aa" },
@@ -115,6 +121,8 @@ function CurrentWidgets(props) {
 const InstalledWidget = () => {
   const navigate = useNavigate();
   const [kind, setKind] = useState("커스텀");
+
+  useEffect(() => {}, []);
 
   function basicClick() {
     setKind("베이직");
