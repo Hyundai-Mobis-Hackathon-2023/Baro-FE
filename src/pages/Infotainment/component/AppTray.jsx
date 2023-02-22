@@ -7,6 +7,10 @@ import YoutubeIcon from "./icons/YoutubeIcon";
 import Chrome from "./icons/Chrome";
 import YouTube from "react-youtube";
 import { IoClose } from "react-icons/io5";
+import Netflix from "./icons/Netflix";
+import Mail from "./icons/Mail";
+import Amazon from "./icons/Amazon";
+import Hyundai from "./icons/Hyundai";
 
 const TrayWrapper = styled(Flex)`
   width: 600px;
@@ -91,7 +95,11 @@ const AppTray = ({ isInternet, setIsInternet }) => {
         <ScrollWrapper>
           <Zoom />
           <YoutubeIcon isYoutube={isYoutube} setIsYoutube={setIsYoutube} />
+          <Netflix />
+          <Mail />
           <Chrome isInternet={isInternet} setIsInternet={setIsInternet} />
+          <Amazon />
+          <Hyundai />
           <IconWrapper />
           <IconWrapper />
           <IconWrapper />
