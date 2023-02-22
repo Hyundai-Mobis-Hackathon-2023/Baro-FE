@@ -10,14 +10,14 @@ const StyledImage = styled.img`
   object-fit: cover;
 `;
 
-const Youtube = () => {
+const YoutubeIcon = ({ isYoutube, setIsYoutube }) => {
   const navigate = useNavigate();
 
   return (
     <IconWrapper>
-      <StyledImage src={youtube} onClick={() => navigate('/infotainment/youtube')} />
+      <StyledImage src={youtube} onClick={() => setIsYoutube(!isYoutube)} />
     </IconWrapper>
   );
 };
 
-export default Youtube;
+export default YoutubeIcon;
