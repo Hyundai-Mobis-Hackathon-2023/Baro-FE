@@ -1,7 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import youtube from "./imgs/youtube.png";
-import IconWrapper from "../IconWrapper";
+import React from 'react';
+import styled from 'styled-components';
+import youtube from './imgs/youtube.png';
+import IconWrapper from '../IconWrapper';
+import { useNavigate } from 'react-router-dom';
 
 const StyledImage = styled.img`
   width: 100%;
@@ -10,9 +11,11 @@ const StyledImage = styled.img`
 `;
 
 const Youtube = () => {
+  const navigate = useNavigate();
+
   return (
     <IconWrapper>
-      <StyledImage src={youtube} />
+      <StyledImage src={youtube} onClick={() => navigate('/infotainment/youtube')} />
     </IconWrapper>
   );
 };
