@@ -28,7 +28,6 @@
 <img width="921" alt="image" src="https://user-images.githubusercontent.com/64801796/220622203-70d4a615-fcd7-4ed8-8dae-7e5e69dfc07c.png">
 
 
-<img width="1006" alt="image" src="https://user-images.githubusercontent.com/64801796/220617756-9fcb9336-26fd-4265-bd89-63d642f23968.png">
 
 ## 결과
 미래의 완전 자율 주행 시대의 Active Mobility (이동형 공간)를 위한 플랫폼 개발 성공
