@@ -89,10 +89,10 @@ type(file name): commit message
 ## Contributors
 <table>
   <tr>
+    <td align="center"><a href="https://github.com/sihyeon043"><img src="https://avatars.githubusercontent.com/u/96681950?v=4" width="100px;" alt=""/><br /><sub><b>sihyeon043<br/>(SiHyeon Lee - PD)</b></sub></a></td>
         <td align="center"><a href="https://github.com/pakxe"><img src="https://avatars.githubusercontent.com/u/64801796?v=4" width="100px;" alt=""/><br /><sub><b>Pakxe<br/>(SeHyun Park - FE)</b></sub></a></td>
       <td align="center"><a href="https://github.com/LellowMellow"><img src="https://avatars.githubusercontent.com/u/79556112?v=4" width="100px;" alt=""/><br /><sub><b>LellowMellow<br/>(DongRyeong Lee - FE)</b></sub></a></td>
       <td align="center"><a href="https://github.com/sean2337"><img src="https://avatars.githubusercontent.com/u/100525337?v=4" width="100px;" alt=""/><br /><sub><b>sean2337<br/>(SiHyeon Joo - FE)</b></sub></a></td>
-      <td align="center"><a href="https://github.com/sihyeon043"><img src="https://avatars.githubusercontent.com/u/96681950?v=4" width="100px;" alt=""/><br /><sub><b>sihyeon043<br/>(SiHyeon Lee - PD)</b></sub></a></td>
     <td align="center"><a href="https://github.com/msung99"><img src="https://avatars.githubusercontent.com/u/88240193?v=4" width="100px;" alt=""/><br /><sub><b>msung99<br/>(Minsung Lee - BE)</b></sub></a></td>
   </tr>
 </table>
