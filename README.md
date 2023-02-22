@@ -15,6 +15,19 @@
 <img width="1025" alt="image" src="https://user-images.githubusercontent.com/64801796/220617601-9c6967c8-8a12-4830-834f-769e49872d44.png">
 
 ## 결과(시연) 화면
+### 1. PBV 사전 선택
+<img width="733" alt="image" src="https://user-images.githubusercontent.com/64801796/220620839-67860d03-72c1-41c8-aef6-3f6365689aa4.png">
+
+### 2. PBV 내부 커스텀과 인포테인먼트 선택
+<img width="731" alt="image" src="https://user-images.githubusercontent.com/64801796/220621017-14b6208d-e2f3-4161-8da8-c89907f398bb.png">
+
+### 3. PBV 수령 위치 선택, 구매 
+<img width="733" alt="image" src="https://user-images.githubusercontent.com/64801796/220621175-66c48e60-02bf-49e1-8cb4-7645ce9147f9.png">
+
+### 4. PBV 탑승 후 내부 인포테인먼트
+<img width="921" alt="image" src="https://user-images.githubusercontent.com/64801796/220622203-70d4a615-fcd7-4ed8-8dae-7e5e69dfc07c.png">
+
+
 <img width="1006" alt="image" src="https://user-images.githubusercontent.com/64801796/220617756-9fcb9336-26fd-4265-bd89-63d642f23968.png">
 
 ## 결과
