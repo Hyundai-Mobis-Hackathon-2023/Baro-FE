@@ -26,7 +26,8 @@
 ### 2. 인포테인먼트 제공
 커스텀 한 PBV에 알맞은 인포테인먼트를 제공한다. 이는 가구, 테마에 따라 맞춤형으로 설치되며, 필요시 사용자가 직접 인포테인먼트를 커스텀 할 수도 있게 개발했다. 인포테인먼트의 경우 ‘베이직’ 또는 ‘커스텀’으로 구분 지었으며, ‘베이직’의 경우 선택된 가구별로 필요한 인포테인먼트를 분류하여 활용성을 높였으며 ‘커스텀’의 경우 사용자가 추가적으로 요구하는 인포테인먼트를 설치할 수 있도록 하였다.
 
-### 3. Devops&무중단배포아키텍처구현및성능최적화 Jenkins로 CI/CD 환경을 구축하고, 3개의 Docker 컨테이너를 동시에 배포 자동화하는 것에 성공했다. 각 컨테이너에는 동일한 내용의 애플리케이션이 실행 중이며, 포트 번호를 다른 3개로 구분했다. 또 로드밸런서로 Nginx를 사용해 트래픽을 분산시키고, 워커 프로세스 외에도 스레드 풀로 다량의 요청 내용을 동시간에 처리하도록 튜닝을 진행했다.
+### 3. Devops&무중단배포아키텍처구현및성능최적화 
+Jenkins로 CI/CD 환경을 구축하고, 3개의 Docker 컨테이너를 동시에 배포 자동화하는 것에 성공했다. 각 컨테이너에는 동일한 내용의 애플리케이션이 실행 중이며, 포트 번호를 다른 3개로 구분했다. 또 로드밸런서로 Nginx를 사용해 트래픽을 분산시키고, 워커 프로세스 외에도 스레드 풀로 다량의 요청 내용을 동시간에 처리하도록 튜닝을 진행했다.
 
 ## 한계 및 보완점
 
@@ -74,5 +75,10 @@ type(file name): commit message
 - `chore` : 위의 경우에 포함되지 않는 경우
 
 ## Contributors
-
-- 추후 작성 예정
+<table>
+  <tr>
+        <td align="center"><a href="https://github.com/pakxe"><img src="https://avatars.githubusercontent.com/u/64801796?v=4" width="100px;" alt=""/><br /><sub><b>Pakxe<br/>(SeHyun Park)</b></sub></a></td>
+      <td align="center"><a href="https://github.com/LellowMellow"><img src="https://avatars.githubusercontent.com/u/79556112?v=4" width="100px;" alt=""/><br /><sub><b>LellowMellow<br/>(DongRyeong Lee)</b></sub></a></td>
+      <td align="center"><a href="https://github.com/sean2337"><img src="https://avatars.githubusercontent.com/u/100525337?v=4" width="100px;" alt=""/><br /><sub><b>sean2337<br/>(SiHyeon Joo)</b></sub></a></td>
+  </tr>
+</table>
