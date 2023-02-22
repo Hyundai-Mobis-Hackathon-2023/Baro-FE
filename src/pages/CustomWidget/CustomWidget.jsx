@@ -5,8 +5,14 @@ import RecommendService from "./component/RecommendService";
 import Flex from "../../component/Flex/Flex";
 import Margin from "../../component/Margin/Margin";
 import { ReactComponent as PurpleSection } from "./component/purpleSection.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import Typography from "../../component/Typography/Typhography";
+import d1 from "../InstalledWidget/images/d1.png";
+import d2 from "../InstalledWidget/images/d2.png";
+import d3 from "../InstalledWidget/images/d3.png";
+import d4 from "../InstalledWidget/images/d4.png";
+import d5 from "../InstalledWidget/images/d5.png";
 
 const HeaderWrapper = styled(Flex)`
   position: sticky;
@@ -57,41 +63,84 @@ const SubTitleWrapper = styled.div`
   text-align: left;
 `;
 
-const InstallServices = [
-  {
-    key: 1,
-    name: "ss",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU",
-  },
-  {
-    key: 2,
-    name: "ss2",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU",
-  },
-  {
-    key: 3,
-    name: "ss3",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU",
-  },
-  {
-    key: 4,
-    name: "ss4",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU",
-  },
-  {
-    key: 5,
-    name: "ss5",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU",
-  },
-  {
-    key: 6,
-    name: "ss",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhfZpuS5FbnATyFKxTijKMkh0rZiqQfmkS3g&usqp=CAU",
-  },
-];
-
 const CustomWidget = () => {
   const [arr, setArr] = useState([]);
+  const [allList, setAllList] = useState([]);
+  const [list, setList] = useState([]);
+
+  const [InstallServices, setInstallServices] = useState([]);
+  const [AdditionalServices, setAdditionalServices] = useState([]);
+
+  const installServices = [
+    {
+      key: 26,
+      name: "차량 속도계",
+      img: d1,
+    },
+    {
+      key: 27,
+      name: "날씨",
+      img: d2,
+    },
+    {
+      key: 28,
+      name: "캘린더",
+      img: d3,
+    },
+    {
+      key: 29,
+      name: "음악",
+      img: d4,
+    },
+    {
+      key: 30,
+      name: "차량 온도",
+      img: d5,
+    },
+  ];
+
+  useEffect(() => {
+    axios
+      .post(
+        `${process.env.REACT_APP_API}/basic/getBasicList`,
+        { basicRecord: parseInt(`${localStorage.getItem("basicRecord")}`) },
+        {
+          headers: {
+            Authorization: `${localStorage.getItem("accessToken")}`,
+          },
+        }
+      )
+      .then((r) => {
+        setList(r.data.result.basicNumberList);
+      });
+  }, [setList]);
+
+  useEffect(() => {
+    axios.get(`${process.env.REACT_APP_API}/info/getAllInfo`).then((r) => {
+      setAllList(r.data.result.infoDummyList);
+    });
+  }, [list]);
+
+  useEffect(() => {
+    const additionalList = allList.filter((a) => a.infoNumber >= 19);
+    const temp = additionalList.map((a) => ({
+      ...AdditionalServices,
+      key: a.infoNumber,
+      name: a.name,
+      img: a.imageUrl,
+    }));
+    setAdditionalServices(temp);
+
+    const installed = allList.filter((a) => list.indexOf(a.infoNumber) !== -1);
+    const temp2 = installed.map((i) => ({
+      ...InstallServices,
+      key: i.infoNumber,
+      name: i.name,
+      img: i.imageUrl,
+    }));
+    setInstallServices(installServices.concat(temp2));
+  }, [allList]);
+
   const getArr = (arr) => {
     setArr(arr);
     console.log(arr);
@@ -124,7 +173,10 @@ const CustomWidget = () => {
               인포테인먼트를 추천해줍니다.
             </Typography>
           </SubTitleWrapper>
-          <RecommendService RecomServices={InstallServices} getArr={getArr} />
+          <RecommendService
+            RecomServices={AdditionalServices}
+            getArr={getArr}
+          />
           <Margin height="150" />
         </BackWrapper>
       </ScrollWrapper>

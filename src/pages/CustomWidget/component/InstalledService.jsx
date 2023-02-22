@@ -47,7 +47,7 @@ const InstalledService = (props) => {
       </TitleWrapper>
       <ServiceBoxWrapper>
         {props.Services.map((Service) => {
-          return <ServiceBox src={Service.img}></ServiceBox>;
+          return <ServiceBox key={Service.key} src={Service.img}></ServiceBox>;
         })}
       </ServiceBoxWrapper>
     </AllWrapper>
