@@ -6,6 +6,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Button from "../../../component/Button/Button";
 import { useNavigate } from "react-router-dom";
+import { Toast } from "./../../../component/Toast/Toast";
+import axios from "axios";
 
 const KindName = styled.div`
   font-family: "pretendard-bold";
@@ -20,11 +22,10 @@ const KindName = styled.div`
 `;
 
 const SectionWrapper = styled.div`
-  width: 100%;
+  width: 322px;
   height: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 `;
 
 const EachWidgetWrapper = styled.div`
@@ -62,9 +63,9 @@ const ServiceImg = styled.img`
       rgba(127, 214, 250, 0.2) 100%
     );
   border: 1px solid;
-  border-radius: 24px;
-  border-color: ${(props) =>
-    props.borderCheck === true ? "#7914FB" : "#F2F2F4"};
+  border-radius: 30px;
+  border: 3px solid
+    ${(props) => (props.borderCheck === true ? "#7914FB" : "#F2F2F4")};
   object-fit: cover;
   transition: 0.5s;
 `;
@@ -145,19 +146,41 @@ const RecommendService = (props) => {
   const navigate = useNavigate();
   const [check, setCheck] = useState(false);
   const [length, setLength] = useState(0);
+  const [resultArray, setResultArray] = useState([]);
 
-  const ClickCheck = () => {
+  const ClickSelect = () => {
     setCheck(!check);
   };
-  const Notify = () => {
-    toast("선택이 완료되었습니다.");
+  const ClickCheck = () => {
+    setResultArray(plusServiceArr);
+    axios
+      .post(
+        `${process.env.REACT_APP_API}/custom/setCustomList`,
+        { customNumberList: plusServiceArr },
+        {
+          headers: {
+            Authorization: `${localStorage.getItem("accessToken")}`,
+          },
+        }
+      )
+      .then((r) => {
+        console.log(r);
+        localStorage.setItem("customRecord", r.data.result.customRecord);
+        navigate("/buy-rental-choice");
+        Toast("선택이 완료되었습니다.");
+      });
   };
 
   return (
     <>
       <SectionWrapper>
         {props.RecomServices.map((widget) => (
-          <Widget eachWidget={widget} setLength={setLength} checking={check} />
+          <Widget
+            key={widget.key}
+            eachWidget={widget}
+            setLength={setLength}
+            checking={check}
+          />
         ))}
       </SectionWrapper>
       <StyledContainer
@@ -177,15 +200,11 @@ const RecommendService = (props) => {
       <ButtonPositon>
         {check === false ? (
           <>
-            <Button small bgColor="purple" onClick={ClickCheck}>
+            <Button small bgColor="purple" onClick={ClickSelect}>
               선택
             </Button>
             <Margin width="12" height="10" />
-            <Button
-              small
-              bgColor="gray"
-              onClick={() => navigate("/buy-rental-choice")}
-            >
+            <Button small bgColor="gray" onClick={ClickCheck}>
               다음
             </Button>
           </>
@@ -196,7 +215,6 @@ const RecommendService = (props) => {
               bgColor={plusServiceArr.length >= 1 ? "purple" : "gray"}
               onClick={() => {
                 ClickCheck();
-                Notify();
               }}
             >
               완료

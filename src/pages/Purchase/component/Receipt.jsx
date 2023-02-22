@@ -86,7 +86,7 @@ const Receipt = ({ userName, userNumber, selectedWay, category, location }) => {
   return (
     <ReceiptWrapper flexCenter column>
       <ReceiptTitle smallTitle style={{ fontFamily: "pretendard-bold" }}>
-        {category}용 서비스 PBV
+        PBV 서비스 결제 정보
       </ReceiptTitle>
       <Margin height="40" />
       <ReceiptTitle alertText>
