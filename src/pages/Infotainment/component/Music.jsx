@@ -115,6 +115,7 @@ const Music = () => {
         <Margin height="15" />
         <StyledAudio
           src={music}
+          volume={0.5}
           customVolumeControls={[]}
           customAdditionalControls={[]}
           showFilledProgress={false}
