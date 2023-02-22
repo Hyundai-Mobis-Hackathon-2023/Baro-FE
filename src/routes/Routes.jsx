@@ -18,6 +18,7 @@ import Buy from '../pages/Buy/Buy';
 import BuyRentalChoice from '../pages/BuyRentalChoice/BuyRentalChoice';
 import PurchaseEnd from '../pages/PurchaseEnd/PurchaseEnd';
 import Infotainment from '../pages/Infotainment/Infotainment';
+import Internet from '../pages/Infotainment/component/Internet';
 
 const Router = () => (
   <BrowserRouter>
@@ -41,6 +42,7 @@ const Router = () => (
       <Route path='/purchase/:selectedWay' element={<Purchase />} />
       <Route path='/purchase-end' element={<PurchaseEnd />} />
       <Route path='/infotainment' element={<Infotainment />} />
+      <Route path='/infotainment/internet' element={<Internet />} />
     </Routes>
   </BrowserRouter>
 );
