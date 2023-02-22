@@ -214,12 +214,7 @@ const AppTray = ({ isInternet, setIsInternet }) => {
                   setCurrentIndex={setCurrentIndex}
                 />
               )}
-              {basicList.indexOf(10) !== -1 && (
-                <D10
-                  currentIndex={currentIndex}
-                  setCurrentIndex={setCurrentIndex}
-                />
-              )}
+              {basicList.indexOf(10) !== -1 && <D10 />}
               {basicList.indexOf(11) !== -1 && (
                 <D11
                   currentIndex={currentIndex}
